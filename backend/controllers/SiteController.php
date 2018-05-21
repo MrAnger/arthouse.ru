@@ -2,6 +2,7 @@
 namespace backend\controllers;
 
 use common\Rbac;
+use mranger\ckeditor\actions\FileUploadAction;
 use Yii;
 
 /**
@@ -22,6 +23,7 @@ class SiteController extends BaseController {
 		];
 	}
 
+
 	/**
 	 * @inheritdoc
 	 */
@@ -31,7 +33,7 @@ class SiteController extends BaseController {
 				'class' => 'yii\web\ErrorAction',
 			],
 			'ckeditor-file-upload' => [
-				'class' => 'mranger\ckeditor\actions\FileUploadAction',
+				'class' => FileUploadAction::class,
 			],
 		];
 	}

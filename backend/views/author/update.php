@@ -33,8 +33,11 @@ $userEditUrl = Url::to(['/user/admin/update', 'id' => $model->user_id]);
                 <a href="<?= $userEditUrl ?>"><?= $userEditUrl ?></a>
             </small>
 
+			<?= $form->field($model->user, 'username')->textInput([
+				'disabled' => 'disabled',
+			]) ?>
+
 			<?= $form->field($model->user->profile, 'name')->textInput([
-				'type'     => 'email',
 				'disabled' => 'disabled',
 			]) ?>
 
@@ -44,7 +47,6 @@ $userEditUrl = Url::to(['/user/admin/update', 'id' => $model->user_id]);
 			]) ?>
 
 			<?= $form->field($model->user->profile, 'bio')->textarea([
-				'type'     => 'email',
 				'disabled' => 'disabled',
 				'rows'     => 5,
 			]) ?>

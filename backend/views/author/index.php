@@ -59,27 +59,12 @@ $this->params['breadcrumbs'] = [
 						}
 					}
 
-					return ((!empty($workTypeList)) ? implode("<br>", $workTypeList) : null);
+					return ((!empty($workTypeList)) ? implode(", ", $workTypeList) : null);
 				},
 			],
 			[
 				'class'         => \yii\grid\ActionColumn::class,
 				'template'      => '{view} {update}',
-				'buttons'       => [
-					/*'approve' => function ($url, \common\models\AuthorRequest $model, $key) {
-						$title = "Одобрить";
-
-						$icon = Html::tag('span', '', ['class' => "glyphicon glyphicon-ok"]);
-
-						return Html::a($icon, $url, [
-							'title'        => $title,
-							'aria-label'   => $title,
-							'data-pjax'    => '0',
-							'data-confirm' => "Вы точно хотите одобрить эту заявку?",
-						]);
-					},
-					*/
-				],
 				'filterOptions' => [
 					'class' => 'action-column',
 				],
