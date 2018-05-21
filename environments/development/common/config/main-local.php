@@ -15,7 +15,7 @@ return [
 			'useFileTransport' => true,
 		],
 		'backendUrlManager' => [
-			//'baseUrl' => 'http://arthouse.loc',
+			//'baseUrl' => 'http://arthouse.loc/cp',
 		],
 		'frontendUrlManager' => [
 			//'baseUrl' => 'http://arthouse.loc',

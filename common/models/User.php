@@ -82,4 +82,11 @@ class User extends \Da\User\Model\User {
 
 		return $this->username;
 	}
+
+	/**
+	 * @return \yii\db\ActiveQuery
+	 */
+	public function getAuthor() {
+		return $this->hasOne(Author::class, ['user_id' => 'id']);
+	}
 }

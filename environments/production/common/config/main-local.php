@@ -23,7 +23,7 @@ return [
 			],
 		],
 		'backendUrlManager' => [
-			//'baseUrl' => 'http://arthouse.ru',
+			//'baseUrl' => 'http://arthouse.ru/cp',
 		],
 		'frontendUrlManager' => [
 			//'baseUrl' => 'http://arthouse.ru',

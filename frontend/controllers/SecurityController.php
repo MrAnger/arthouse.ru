@@ -1,4 +1,5 @@
 <?php
+
 namespace frontend\controllers;
 
 use Yii;
@@ -6,6 +7,6 @@ use Yii;
 /**
  * @author MrAnger
  */
-class SecurityController extends \dektrium\user\controllers\SecurityController {
+class SecurityController extends \Da\User\Controller\SecurityController {
 	public $layout = '/user';
 }

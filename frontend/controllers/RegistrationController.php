@@ -6,6 +6,6 @@ use Yii;
 /**
  * @author MrAnger
  */
-class RegistrationController extends \dektrium\user\controllers\RegistrationController {
+class RegistrationController extends \Da\User\Controller\RegistrationController {
 	public $layout = '/user';
 }

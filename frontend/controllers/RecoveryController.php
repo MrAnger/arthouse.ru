@@ -7,6 +7,6 @@ use yii\filters\AccessControl;
 /**
  * @author MrAnger
  */
-class RecoveryController extends \dektrium\user\controllers\RecoveryController {
+class RecoveryController extends \Da\User\Controller\RecoveryController {
 	public $layout = '/user';
 }

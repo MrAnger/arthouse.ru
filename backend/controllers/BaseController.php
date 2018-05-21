@@ -37,7 +37,7 @@ abstract class BaseController extends Controller {
 		return [
 			[
 				'allow' => true,
-				'roles' => [Rbac::ROLE_MASTER],
+				'roles' => [Rbac::ROLE_MASTER, Rbac::ROLE_ADMIN],
 			],
 		];
 	}
