@@ -44,6 +44,7 @@ $this->params['breadcrumbs'] = [
 			],
 			[
 				'attribute' => 'user.email',
+				'format'    => 'email',
 				'filter'    => Html::activeTextInput($searchModel, 'email', ['class' => 'form-control']),
 			],
 			[

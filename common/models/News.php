@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\helpers\NewsHelper;
 use himiklab\sitemap\behaviors\SitemapBehavior;
 use Yii;
 use yii\behaviors\SluggableBehavior;
@@ -28,6 +29,7 @@ use yii\helpers\Url;
  * @property string $meta_keywords
  *
  * @property Author $author
+ * @property boolean $isArchived
  */
 class News extends \yii\db\ActiveRecord {
 	/**
@@ -60,7 +62,7 @@ class News extends \yii\db\ActiveRecord {
 				},
 				'dataClosure' => function (News $model) {
 					return [
-						'loc'        => Url::to(['/news/view-by-slug', 'slug' => $model->slug], true),
+						'loc'        => NewsHelper::getNewsFrontendUrl($model),
 						'lastmod'    => strtotime($model->updated_at),
 						'changefreq' => SitemapBehavior::CHANGEFREQ_DAILY,
 						'priority'   => 0.8,
@@ -84,8 +86,10 @@ class News extends \yii\db\ActiveRecord {
 			[['slug'], 'unique'],
 			[['author_id'], 'exist', 'skipOnError' => true, 'targetClass' => Author::class, 'targetAttribute' => ['author_id' => 'id']],
 
-			[['name', 'intro', 'content', 'slug'], 'trim'],
-			[['name', 'intro', 'content', 'slug'], 'default'],
+			[['name', 'intro', 'content', 'slug', 'meta_title', 'meta_description', 'meta_keywords'], 'trim'],
+			[['name', 'intro', 'content', 'slug', 'meta_title', 'meta_description', 'meta_keywords'], 'default'],
+
+			[['slug'], 'match', 'pattern' => '/^[\w\-_]*$/i'],
 		];
 	}
 
@@ -115,5 +119,12 @@ class News extends \yii\db\ActiveRecord {
 	 */
 	public function getAuthor() {
 		return $this->hasOne(Author::class, ['id' => 'author_id']);
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function getIsArchived() {
+		return $this->archived_at !== null;
 	}
 }

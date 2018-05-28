@@ -22,6 +22,7 @@
         "mranger/yii2-ckeditor": "*",
         "himiklab/yii2-sitemap-module" : "*",
         "kartik-v/yii2-widgets": "*",
+        "kartik-v/yii2-datecontrol": "dev-master",
         "ckeditor/ckeditor": "dev-full/4.7.x",
         "bower-asset/growl": "^1.3"
     },

@@ -2,12 +2,8 @@
 
 namespace backend\controllers;
 
-use backend\helpers\AuthorHelper;
-use backend\models\AuthorSearch;
 use backend\models\NewsSearch;
-use common\models\Author;
 use common\models\News;
-use common\models\User;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
@@ -15,35 +11,24 @@ use yii\web\NotFoundHttpException;
 /**
  * @author MrAnger
  */
-class AuthorNewsController extends BaseController {
+class NewsController extends BaseController {
 	private $section = 'news';
 
-	public function actionIndex($authorId) {
-		$author = $this->findAuthorModel($authorId);
-
+	public function actionIndex() {
 		$searchModel = new NewsSearch();
 
-		$dataProvider = $searchModel->search(Yii::$app->request->getQueryParams(), [
-			'author_id' => $author->id,
-		]);
+		$dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
 		$dataProvider->sort->defaultOrder = ['created_at' => SORT_DESC];
 
 		return $this->render('index', [
-			'searchModel'   => $searchModel,
-			'dataProvider'  => $dataProvider,
-			'activeSection' => $this->section,
-			'sectionList'   => AuthorHelper::getViewSections($author),
-			'author'        => $author,
+			'searchModel'  => $searchModel,
+			'dataProvider' => $dataProvider,
 		]);
 	}
 
-	public function actionCreate($authorId) {
-		$author = $this->findAuthorModel($authorId);
-
-		$model = new News([
-			'author_id' => $author->id,
-		]);
+	public function actionCreate() {
+		$model = new News();
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
 			Yii::$app->session->addFlash('success', 'Новость успешно создана.');
@@ -52,10 +37,7 @@ class AuthorNewsController extends BaseController {
 		}
 
 		return $this->render('create', [
-			'model'         => $model,
-			'activeSection' => $this->section,
-			'sectionList'   => AuthorHelper::getViewSections($author),
-			'author'        => $author,
+			'model' => $model,
 		]);
 	}
 
@@ -69,10 +51,7 @@ class AuthorNewsController extends BaseController {
 		}
 
 		return $this->render('update', [
-			'model'         => $model,
-			'activeSection' => $this->section,
-			'sectionList'   => AuthorHelper::getViewSections($model->author),
-			'author'        => $model->author,
+			'model' => $model,
 		]);
 	}
 
@@ -97,21 +76,6 @@ class AuthorNewsController extends BaseController {
 	 */
 	protected function findModel($id) {
 		if (($model = News::findOne($id)) !== null) {
-			return $model;
-		} else {
-			throw new NotFoundHttpException('The requested page does not exist.');
-		}
-	}
-
-	/**
-	 * @param integer $id
-	 *
-	 * @return Author
-	 *
-	 * @throws NotFoundHttpException
-	 */
-	protected function findAuthorModel($id) {
-		if (($model = Author::findOne($id)) !== null) {
 			return $model;
 		} else {
 			throw new NotFoundHttpException('The requested page does not exist.');

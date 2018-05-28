@@ -6,6 +6,7 @@ use common\models\News;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use yii\db\Expression;
 
 class NewsSearch extends News {
 	/**
@@ -41,10 +42,17 @@ class NewsSearch extends News {
 
 		$this->setAttributes($overriddenParams, false);
 
+		$queryWhere = [];
+
+		if ($this->author_id === null) {
+			$queryWhere[] = 'AND';
+			$queryWhere[] = new Expression('author_id IS NULL');
+		} else {
+			$queryWhere['author_id'] = $this->author_id;
+		}
+
 		$query = News::find()
-			->where([
-				'author_id' => $this->author_id,
-			]);
+			->where($queryWhere);
 
 		$dataProvider = new ActiveDataProvider([
 			'query' => $query,

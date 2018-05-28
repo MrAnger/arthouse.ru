@@ -1,7 +1,5 @@
-# yii2-site-template
-Базовый шаблон сайта на Yii 2.* версии с раздельным frontend и backend на одном домене
-
-Что бы развернуть базовый шаблон, необходимо выполнить следующие команды:
+# ArtHouse.Ru
+Что бы развернуть сайт, необходимо выполнить следующие команды:
 
 Получаем библиотеки необходимых версий
 ```
@@ -26,4 +24,29 @@ php yii rbac-manager/init-roles
 После необходимо добавить пользователя (админа) для авторизации в панели управления:
 ```
 php yii user/create <email> <username> [password] MASTER
+```
+
+Основные параметры:
+```
+common/config/params.php
+------------------------
+countDaysForMoveNewsToArchive - Кол-во дней, после которых новость будет автоматически архивированна
+```
+
+```
+common/config/params-local.php
+------------------------
+authorRequestNotificationEmail - Email для уведомлений администратора о новой заявке в авторы
+```
+
+```
+common/config/main-local.php
+------------------------
+backendUrlManager.baseUrl - Ссылка до панели управления сайтом
+frontendUrlManager.baseUrl - Ссылка до публичной части сайта
+```
+
+Консольные команды
+```
+php yii utils/news-archive - запуск архивации новостей
 ```

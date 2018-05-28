@@ -18,6 +18,10 @@ $userModel = $user->identity;
 
 $mainMenuItems = [
 	[
+		'label' => 'Новости',
+		'url'   => ['/news/index'],
+	],
+	[
 		'label' => 'Авторы',
 		'url'   => ['/author/index'],
 	],

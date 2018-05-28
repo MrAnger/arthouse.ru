@@ -12,14 +12,6 @@ $config = [
 	'basePath'            => dirname(__DIR__),
 	'controllerNamespace' => 'frontend\controllers',
 	'modules'             => [
-		/*'user'    => [
-			'enableFlashMessages' => true,
-			'controllerMap'       => [
-				'security'     => 'frontend\controllers\SecurityController',
-				'recovery'     => 'frontend\controllers\RecoveryController',
-				'registration' => 'frontend\controllers\RegistrationController',
-			],
-		],*/
 		'user'    => [
 			'enableFlashMessages' => false,
 			'controllerMap'       => [
@@ -29,7 +21,9 @@ $config = [
 			],
 		],
 		'sitemap' => [
-			'models' => [],
+			'models' => [
+				\common\models\News::class
+			],
 			'urls'   => require(__DIR__ . '/sitemap-urls.php'),
 		],
 	],

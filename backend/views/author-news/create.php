@@ -11,13 +11,13 @@ use yii\helpers\Url;
  * @var \common\models\News $model
  */
 
-$this->title = $model->name . ' - Новости - ' . $author->user->displayName;
+$this->title = 'Создать новость - ' . $author->user->displayName;
 
 $this->params['breadcrumbs'] = [
 	['label' => 'Список авторов', 'url' => ['/author/index']],
 	['label' => $author->user->displayName, 'url' => ['/author/view', 'id' => $author->id]],
 	['label' => 'Новости', 'url' => ['/author-news/index', 'authorId' => $author->id]],
-	$model->name,
+	'Создать',
 ];
 ?>
 <div>
