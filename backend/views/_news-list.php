@@ -13,6 +13,7 @@ use yii\helpers\Url;
 	<?= \yii\grid\GridView::widget([
 		'dataProvider' => $dataProvider,
 		'filterModel'  => $searchModel,
+		'tableOptions' => ['class' => 'table table-hover'],
 		'columns'      => [
 			[
 				'attribute' => 'name',
