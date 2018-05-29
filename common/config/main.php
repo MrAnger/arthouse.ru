@@ -12,7 +12,7 @@ return [
 	'vendorPath'     => dirname(dirname(__DIR__)) . '/vendor',
 	'modules'        => [
 		// read doc in http://yii2-usuario.readthedocs.io/en/latest/
-		'user'    => [
+		'user'        => [
 			'class'                       => Da\User\Module::class,
 			'generatePasswords'           => false,
 			'enableEmailConfirmation'     => true,
@@ -24,42 +24,42 @@ return [
 			],
 		],
 		// read doc in https://github.com/himiklab/yii2-sitemap-module/blob/master/README.md
-		'sitemap' => [
+		'sitemap'     => [
 			'class'       => 'himiklab\sitemap\Sitemap',
 			'enableGzip'  => true,
 			'cacheExpire' => 1,
 		],
 		'datecontrol' => [
-			'class' => '\kartik\datecontrol\Module',
+			'class'              => '\kartik\datecontrol\Module',
 
 			// format settings for displaying each date attribute (ICU format example)
-			'displaySettings' => [
-				\kartik\datecontrol\Module::FORMAT_DATE => 'php:d.m.Y',
-				\kartik\datecontrol\Module::FORMAT_TIME => 'php:H:i',
+			'displaySettings'    => [
+				\kartik\datecontrol\Module::FORMAT_DATE     => 'php:d.m.Y',
+				\kartik\datecontrol\Module::FORMAT_TIME     => 'php:H:i',
 				\kartik\datecontrol\Module::FORMAT_DATETIME => 'php:d.m.Y H:i',
 			],
 
 			// format settings for saving each date attribute (PHP format example)
-			'saveSettings' => [
-				\kartik\datecontrol\Module::FORMAT_DATE => 'php:Y-m-d', // saves as unix timestamp
-				\kartik\datecontrol\Module::FORMAT_TIME => 'php:H:i:s',
+			'saveSettings'       => [
+				\kartik\datecontrol\Module::FORMAT_DATE     => 'php:Y-m-d', // saves as unix timestamp
+				\kartik\datecontrol\Module::FORMAT_TIME     => 'php:H:i:s',
 				\kartik\datecontrol\Module::FORMAT_DATETIME => 'php:Y-m-d H:i:s',
 			],
 
 			// set your display timezone
-			'displayTimezone' => 'Europe/Moscow',
+			'displayTimezone'    => 'Europe/Moscow',
 
 			// set your timezone for date saved to db
-			'saveTimezone' => 'UTC',
+			'saveTimezone'       => 'UTC',
 
 			// automatically use kartik\widgets for each of the above formats
-			'autoWidget' => true,
+			'autoWidget'         => true,
 
 			// default settings for each widget from kartik\widgets used when autoWidget is true
 			'autoWidgetSettings' => [
-				\kartik\datecontrol\Module::FORMAT_DATE => ['pluginOptions' => ['autoclose' => true], 'readonly' => true],
+				\kartik\datecontrol\Module::FORMAT_DATE     => ['pluginOptions' => ['autoclose' => true], 'readonly' => true],
 				\kartik\datecontrol\Module::FORMAT_DATETIME => ['pluginOptions' => ['autoclose' => true], 'readonly' => true],
-				\kartik\datecontrol\Module::FORMAT_TIME => ['pluginOptions' => ['autoclose' => true], 'readonly' => true],
+				\kartik\datecontrol\Module::FORMAT_TIME     => ['pluginOptions' => ['autoclose' => true], 'readonly' => true],
 			],
 		],
 	],
@@ -114,9 +114,20 @@ return [
 			'class'   => 'yii\authclient\Collection',
 			'clients' => [],
 		],
-
-		'userBuddy' => [
+		'userBuddy'            => [
 			'class' => 'common\components\UserBuddy',
+		],
+		'imageManager'         => [
+			'class'         => \common\components\ImageManager::class,
+			'presets'       => require(__DIR__ . '/_thumbnail-presets.php'),
+			'uploadPath'    => dirname(dirname(__DIR__)) . '/frontend/web/uploads/images/',
+			'uploadUrl'     => 'uploads/images/',
+			'thumbnailsUrl' => 'uploads/images/thumbnails',
+		],
+		'thumbnail'            => [
+			'class'     => \sadovojav\image\Thumbnail::class,
+			'basePath'  => dirname(dirname(__DIR__)) . '/frontend/web/uploads/images',
+			'cachePath' => dirname(dirname(__DIR__)) . '/frontend/web/uploads/images/thumbnails',
 		],
 	],
 ];
