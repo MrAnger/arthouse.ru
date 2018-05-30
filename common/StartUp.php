@@ -2,6 +2,9 @@
 
 namespace common;
 
+use common\models\Cinema;
+use common\models\MusicWork;
+use common\models\PainterWork;
 use common\models\Profile;
 use common\models\User;
 use Yii;
@@ -37,6 +40,40 @@ class StartUp implements BootstrapInterface {
 
 			if (isset($_SERVER['HTTP_X_REAL_IP'])) {
 				$user->updateAttributes(['registration_ip' => $_SERVER['HTTP_X_REAL_IP']]);
+			}
+		});
+
+		// При удалении видео работы удаляем и изображение
+		Event::on(Cinema::class, Cinema::EVENT_AFTER_DELETE, function (Event $event) {
+			/** @var Cinema $model */
+			$model = $event->sender;
+
+			if ($model->image_id !== null) {
+				Yii::$app->imageManager->deleteImage($model->image);
+			}
+		});
+
+		// При удалении музыкальной работы удаляем и изображение
+		Event::on(MusicWork::class, MusicWork::EVENT_AFTER_DELETE, function (Event $event) {
+			/** @var MusicWork $model */
+			$model = $event->sender;
+
+			if ($model->image_id !== null) {
+				Yii::$app->imageManager->deleteImage($model->image);
+			}
+		});
+
+		// При удалении работы жудожника удаляем и её изображения
+		Event::on(PainterWork::class, PainterWork::EVENT_AFTER_DELETE, function (Event $event) {
+			/** @var PainterWork $model */
+			$model = $event->sender;
+
+			if ($model->image_id !== null) {
+				Yii::$app->imageManager->deleteImage($model->image);
+			}
+
+			foreach ($model->images as $image) {
+				Yii::$app->imageManager->deleteImage($image);
 			}
 		});
 	}
