@@ -25,6 +25,7 @@ $config = [
 				\common\models\News::class,
 				\common\models\Cinema::class,
 				\common\models\WriterWork::class,
+				\common\models\MusicWork::class,
 			],
 			'urls'   => require(__DIR__ . '/sitemap-urls.php'),
 		],

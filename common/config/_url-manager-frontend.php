@@ -21,5 +21,6 @@ return [
 		['pattern' => 'author/<username>/news/<slug>', 'route' => '/author/view-news-by-slug/', 'suffix' => '/'],
 		['pattern' => 'author/<username>/cinema/<slug>', 'route' => '/author/view-cinema-by-slug/', 'suffix' => '/'],
 		['pattern' => 'author/<username>/writer-work/<slug>', 'route' => '/author/view-writer-work-by-slug/', 'suffix' => '/'],
+		['pattern' => 'author/<username>/music-work/<slug>', 'route' => '/author/view-music-work-by-slug/', 'suffix' => '/'],
 	],
 ];
