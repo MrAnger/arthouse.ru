@@ -5,20 +5,18 @@ use yii\helpers\Url;
 
 /**
  * @var \yii\web\View $this
- * @var \common\models\News $model
+ * @var \common\models\Cinema $model
+ * @var \common\models\ImageUploadForm $imageUploadForm
  */
 
-$formatter = Yii::$app->formatter;
-
-$newsUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/news/view-by-slug', 'slug' => 'URL'], true);
-
-if ($model->author_id !== null) {
-	$newsUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-news-by-slug/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
-}
+$workUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-writer-work-by-slug/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
 ?>
 <div>
 	<?php $form = \yii\widgets\ActiveForm::begin([
 		'enableClientValidation' => false,
+		'options'                => [
+			'enctype' => 'multipart/form-data',
+		],
 	]) ?>
 
     <div class="row">
@@ -32,7 +30,7 @@ if ($model->author_id !== null) {
 				->textInput([
 					'class'       => 'form-control url-input',
 					'maxlength'   => true,
-					'placeholder' => $newsUrl,
+					'placeholder' => $workUrl,
 				])
 			?>
 
@@ -44,13 +42,6 @@ if ($model->author_id !== null) {
         </div>
 
         <div class="col-md-4">
-			<?= $form->field($model, 'archive_at')
-				->hint((($model->isArchived) ? "Архивированно " . $formatter->asDatetime($model->archived_at) : false))
-				->widget(\kartik\datecontrol\DateControl::class, [
-					'type'     => \kartik\datecontrol\DateControl::FORMAT_DATETIME,
-					'disabled' => $model->isArchived,
-				]) ?>
-
 			<?= $form->field($model, 'meta_title')
 				->textInput([
 					'maxlength' => true,

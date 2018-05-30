@@ -11,11 +11,11 @@ use yii\helpers\Url;
 
 class CinemaHelper {
 	/**
-	 * @param News $news
+	 * @param News $cinema
 	 *
 	 * @return string
 	 */
-	public static function getCinemaFrontendUrl($news) {
-		return Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-cinema-by-slug/', 'slug' => $news->slug, 'username' => $news->author->user->username], true);
+	public static function getCinemaFrontendUrl($cinema) {
+		return Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-cinema-by-slug/', 'slug' => $cinema->slug, 'username' => $cinema->author->user->username], true);
 	}
 }
