@@ -11,6 +11,7 @@ use common\models\PainterWorkImage;
 use MrAnger\Yii2_ImageManager\models\Image;
 use Yii;
 use yii\base\Model;
+use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -169,6 +170,38 @@ class AuthorPainterController extends BaseController {
 		}
 
 		return $this->redirect(Yii::$app->request->referrer);
+	}
+
+	public function actionImageUpload() {
+		Yii::$app->response->format = Response::FORMAT_JSON;
+
+		$workId = Yii::$app->request->post('workId');
+
+		$workModel = $this->findModel($workId);
+
+		if ($workModel === null) {
+			throw new BadRequestHttpException("PainterWork[ID: $workId] not found.");
+		}
+
+		$imageManager = Yii::$app->imageManager;
+		$imageUploadForm = new ImageUploadForm();
+
+		$imageUploadForm->load(Yii::$app->request->post());
+
+		$imageUploadForm->file = UploadedFile::getInstanceByName('file');
+
+		if ($imageUploadForm->validate() && $imageUploadForm->file !== null) {
+			$imageEntry = $imageManager->upload($imageUploadForm->file);
+
+			$painterImageModel = new PainterWorkImage([
+				'work_id'  => $workModel->id,
+				'image_id' => $imageEntry->id,
+			]);
+
+			return $painterImageModel->save();
+		}
+
+		throw new BadRequestHttpException("ImageUploadForm not validate.");
 	}
 
 	public function actionUpdateImage($imageId) {

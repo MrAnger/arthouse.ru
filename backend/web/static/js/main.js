@@ -1,4 +1,47 @@
+// Страница настройки художественной работы
 (function ($) {
+    if (window.Dropzone) {
+        Dropzone.autoDiscover = false;
+    }
+
+    // DropZone изображений
+    (function () {
+        var $imageDropZone = $('#image-dropzone');
+
+        if (!$imageDropZone.length) {
+            return true;
+        }
+
+        var imageDropZone = new Dropzone('#' + $imageDropZone.attr('id'), {
+            url: $imageDropZone.attr('action'),
+            acceptedFiles: ".jpeg,.jpg,.png,.bmp,.gif",
+            maxFiles: null,
+            parallelUploads: 1,
+            maxFilesize: 5, // MB
+            thumbnailWidth: 220,
+            thumbnailHeight: 220,
+            addRemoveLinks: false,
+
+            dictFileTooBig: "Размер файла превышает допустимый размер в {{maxFilesize}} Мб",
+            dictInvalidFileType: "Необходимо предоставить файлы в формате JPG, PNG, BMP или GIF.",
+            dictRemoveFile: "Удалить файл",
+
+            // Prevents from uploading dropped files immediately
+            autoProcessQueue: true,
+
+            init: function () {},
+            sending: function (file, xhr, formData) {
+                formData.append(yii.getCsrfParam(), yii.getCsrfToken());
+                formData.append('workId', $imageDropZone.data('work-id'));
+            },
+            success: function (file, response) {
+                file.previewElement.classList.add("dz-success");
+
+                pjaxContainerRefresh($('#image-list'));
+            }
+        });
+    })();
+
     // Запрос на удаления изображения
     $(document).on('click', '.js-image-delete', function (e) {
         e.preventDefault();

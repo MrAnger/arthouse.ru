@@ -9,12 +9,32 @@ use yii\helpers\Url;
  */
 
 $this->registerAssetBundle(\yii\jui\JuiAsset::class);
+$this->registerAssetBundle(\common\assets\DropzoneAsset::class);
 
 $imageManager = Yii::$app->imageManager;
 ?>
 <hr>
 <div>
     <h3>Изображения</h3>
+
+	<?= Html::beginForm(['image-upload'], "post", [
+		"enctype"      => "multipart/form-data",
+		'class'        => 'dropzone',
+		'id'           => 'image-dropzone',
+		'data-work-id' => $model->id,
+	]) ?>
+
+    <div class="fallback">
+        <input name="file" type="file" multiple/>
+    </div>
+
+    <div class="dz-default dz-message">Кликните здесь для выбора файлов или
+        перетащите изображения в эту область.
+    </div>
+
+    <div class="dz-error-message"><span data-dz-errormessage></span></div>
+
+	<?= Html::endForm(); ?>
 
 	<?php \yii\widgets\Pjax::begin([
 		'id'                 => 'pjax-image-list',
