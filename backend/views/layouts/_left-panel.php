@@ -47,6 +47,10 @@ $mainMenuItems = [
 			],*/
 		],
 	],
+	[
+		'label' => 'Robots.txt',
+		'url'   => ['/robots-txt-manager/index'],
+	],
 ];
 
 ?>
