@@ -72,7 +72,7 @@ class StartUp implements BootstrapInterface {
 				Yii::$app->imageManager->deleteImage($model->image);
 			}
 
-			foreach ($model->images as $image) {
+			foreach ($model->getImages()->all() as $image) {
 				Yii::$app->imageManager->deleteImage($image);
 			}
 		});

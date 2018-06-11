@@ -1,9 +1,11 @@
 <?php
+
 namespace backend\controllers;
 
 use common\Rbac;
 use mranger\ckeditor\actions\FileUploadAction;
 use Yii;
+use yii\web\ForbiddenHttpException;
 
 /**
  * @author MrAnger
@@ -45,8 +47,9 @@ class SiteController extends BaseController {
 	public function beforeAction($action) {
 		$result = parent::beforeAction($action);
 
-		if ($action->id == 'error' && Yii::$app->user->isGuest)
+		if ($action->id == 'error' && Yii::$app->user->isGuest) {
 			$this->layout = 'plain';
+		}
 
 		return $result;
 	}
