@@ -55,6 +55,10 @@ $mainMenuItems = [
 		],
 	],
 	[
+		'label' => 'Блоки',
+		'url'   => ['/block-manager/index'],
+	],
+	[
 		'label' => 'Robots.txt',
 		'url'   => ['/robots-txt-manager/index'],
 	],
