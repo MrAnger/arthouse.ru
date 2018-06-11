@@ -45,7 +45,13 @@ $this->params['breadcrumbs'] = [
 				'filterModel'  => $searchModel,
 				'tableOptions' => ['class' => 'table table-hover'],
 				'columns'      => [
-					'name',
+					[
+						'attribute' => 'name',
+						'format'    => 'html',
+						'value'     => function (\common\models\WriterWork $model) {
+							return Html::a($model->name, ['update', 'id' => $model->id]);
+						},
+					],
 					[
 						'attribute' => 'slug',
 						'format'    => 'raw',

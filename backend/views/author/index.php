@@ -33,13 +33,13 @@ $this->params['breadcrumbs'] = [
 				'format'    => 'html',
 				'filter'    => Html::activeTextInput($searchModel, 'name', ['class' => 'form-control']),
 				'value'     => function (\common\models\Author $model) {
-					$html = $model->user->profile->name;
+					$text = $model->user->profile->name;
 
 					if ($model->user->isBlocked) {
-						$html .= " <span class='badge badge-pill badge-danger'>Заблокирован</span>";
+						$text .= " <span class='badge badge-pill badge-danger'>Заблокирован</span>";
 					}
 
-					return $html;
+					return Html::a($text, ['view', 'id' => $model->id]);
 				},
 			],
 			[

@@ -19,13 +19,13 @@ use yii\helpers\Url;
 				'attribute' => 'name',
 				'format'    => 'html',
 				'value'     => function (\common\models\News $model) {
-					$html = $model->name;
+					$text = $model->name;
 
 					if ($model->isArchived) {
-						$html .= " <span class='badge badge-pill badge-warning'>Архив</span>";
+						$text .= " <span class='badge badge-pill badge-warning'>Архив</span>";
 					}
 
-					return $html;
+					return Html::a($text, ['update', 'id' => $model->id]);
 				},
 			],
 			[

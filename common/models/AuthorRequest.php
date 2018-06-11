@@ -22,6 +22,8 @@ class AuthorRequest extends \yii\db\ActiveRecord {
 	const STATUS_APPROVED = 1;
 	const STATUS_DECLINED = 2;
 
+	const EVENT_NEW_REQUEST = 'eventNewAuthorRequest';
+
 	/**
 	 * @inheritdoc
 	 */
@@ -76,7 +78,7 @@ class AuthorRequest extends \yii\db\ActiveRecord {
 
 	public static function getStatusLabelList() {
 		return [
-			self::STATUS_NEW => 'Новый',
+			self::STATUS_NEW      => 'Новый',
 			self::STATUS_APPROVED => 'Одобрен',
 			self::STATUS_DECLINED => 'Отклонен',
 		];
