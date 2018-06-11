@@ -8,6 +8,7 @@ use yii\helpers\ArrayHelper;
 
 /**
  * @property string $displayName
+ * @property Author $author
  */
 class User extends \Da\User\Model\User {
 	/** @var array */

@@ -42,6 +42,6 @@ class AdminController extends \Da\User\Controller\AdminController {
 		if (!Yii::$app->user->can(Rbac::PERMISSION_USER_EDIT, ['userId' => $id]))
 			throw new ForbiddenHttpException(Yii::t('app', 'Forbidden'));
 
-		return parent::actionSwitchIdentity();
+		return parent::actionSwitchIdentity($id);
 	}
 }

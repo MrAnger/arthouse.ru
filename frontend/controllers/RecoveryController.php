@@ -8,5 +8,5 @@ use yii\filters\AccessControl;
  * @author MrAnger
  */
 class RecoveryController extends \Da\User\Controller\RecoveryController {
-	public $layout = '/user';
+	//public $layout = '/user';
 }

@@ -1,0 +1,33 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f8f8f8;
+    padding: 11px;
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
+}
+
+.main-content {
+    margin-top: 51px;
+    padding: 50px 0;
+}
+
+.footer-link {
+    color: #333;
+}

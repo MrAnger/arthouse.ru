@@ -7,5 +7,5 @@
 $this->title = 'Frontend';
 ?>
 <div>
-	This is frontend index page...
+    This is frontend index page...
 </div>

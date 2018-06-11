@@ -11,10 +11,14 @@ use frontend\assets\FrontendAsset;
 FrontendAsset::register($this);
 ?>
 <?php $this->beginContent('@app/views/layouts/plain.php') ?>
-	<div class="wrap">
-		<div class="container">
+<?= $this->render('//_head-menu') ?>
+
+    <div class="main-content">
+        <div class="container">
 			<?= \common\widgets\Alert::widget() ?>
 			<?= $content ?>
-		</div>
-	</div>
+        </div>
+    </div>
+
+<?= $this->render('//_footer') ?>
 <?php $this->endContent() ?>
