@@ -33,6 +33,13 @@ $mainMenuItems = [
 			->count(),
 	],
 	[
+		'label' => 'Обратная связь',
+		'url'   => ['/feedback/index'],
+		'count' => \common\models\Feedback::find()
+			->where(['status' => \common\models\Feedback::STATUS_NEW])
+			->count(),
+	],
+	[
 		'label' => 'Пользователи',
 		'icon'  => 'fa fa-users',
 		'items' => [
