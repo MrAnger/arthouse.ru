@@ -2,14 +2,14 @@
 
 return [
 	'components' => [
-		'db'     => [
+		'db'                 => [
 			'class'    => 'yii\db\Connection',
 			'dsn'      => 'mysql:host=localhost;dbname=database_name',
 			'username' => 'root',
 			'password' => '',
 			'charset'  => 'utf8',
 		],
-		'mailer' => [
+		'mailer'             => [
 			'class'     => 'yii\swiftmailer\Mailer',
 			'viewPath'  => '@common/mail',
 			'transport' => [
@@ -22,11 +22,11 @@ return [
 				'encryption' => 'tls',
 			],
 		],
-		'backendUrlManager' => [
-			//'baseUrl' => 'http://arthouse.ru/cp',
+		'backendUrlManager'  => [
+			'baseUrl' => 'http://arthouse.ru/cp',
 		],
 		'frontendUrlManager' => [
-			//'baseUrl' => 'http://arthouse.ru',
+			'baseUrl' => 'http://arthouse.ru',
 		],
 	],
 ];
