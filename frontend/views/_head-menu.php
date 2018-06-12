@@ -49,7 +49,7 @@ if (!Yii::$app->user->isGuest) {
 
 	if (Yii::$app->user->can(\common\Rbac::ADMIN_ACCESS)) {
 		array_splice($authorItem['items'], 0, 0, [
-			['label' => 'Панель администратора', 'url' => Yii::$app->backendUrlManager->createAbsoluteUrl(['/site/index'], true)],
+			['label' => 'Панель администратора', 'url' => Yii::$app->backendUrlManager->createAbsoluteUrl(['/'], true)],
 			'<li class="divider"></li>',
 		]);
 	}
@@ -59,7 +59,7 @@ if (!Yii::$app->user->isGuest) {
 
 ?>
 <?php \yii\bootstrap\NavBar::begin([
-	'brandLabel' => 'ArtHouse.Ru',
+	'brandLabel' => Yii::$app->name,
 	'options'    => ['class' => 'navbar navbar-default navbar-fixed-top'],
 ]) ?>
 <?= \yii\bootstrap\Nav::widget([
