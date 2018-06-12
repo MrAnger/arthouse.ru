@@ -19,7 +19,7 @@ class NewsHelper {
 		$url = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/news/view-by-slug', 'slug' => $news->slug], true);
 
 		if ($news->author_id !== null) {
-			$url = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-news-by-slug/', 'slug' => $news->slug, 'username' => $news->author->user->username], true);
+			$url = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author-news/view', 'slug' => $news->slug, 'username' => $news->author->user->username], true);
 		}
 
 		return $url;

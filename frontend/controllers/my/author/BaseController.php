@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\controllers\author;
+namespace frontend\controllers\my\author;
 
 use common\models\Author;
 use common\models\User;

@@ -4,6 +4,8 @@ namespace frontend\controllers;
 
 use common\models\Author;
 use common\models\Profile;
+use common\models\User;
+use frontend\helpers\AuthorHelper;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\db\Expression;
@@ -27,6 +29,16 @@ class AuthorController extends BaseController {
 		]);
 	}
 
+	public function actionView($username) {
+		$author = $this->findModelByUsername($username);
+
+		return $this->render('view', [
+			'author'        => $author,
+			'activeSection' => 'base',
+			'sectionList'   => AuthorHelper::getProfileViewSections($author),
+		]);
+	}
+
 	/**
 	 * @param integer $id
 	 *
@@ -36,6 +48,28 @@ class AuthorController extends BaseController {
 	 */
 	protected function findModel($id) {
 		if (($model = Author::findOne($id)) !== null) {
+			return $model;
+		} else {
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+	}
+
+	/**
+	 * @param string $username
+	 *
+	 * @return Author
+	 *
+	 * @throws NotFoundHttpException
+	 */
+	protected function findModelByUsername($username) {
+		$model = Author::find()
+			->where([
+				'AND',
+				['=', 'user_id', User::find()->select('id')->where(['username' => $username])],
+			])
+			->one();
+
+		if ($model !== null) {
 			return $model;
 		} else {
 			throw new NotFoundHttpException('The requested page does not exist.');

@@ -16,6 +16,6 @@ class MusicWorkHelper {
 	 * @return string
 	 */
 	public static function getMusicWorkFrontendUrl($work) {
-		return Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-music-work-by-slug/', 'slug' => $work->slug, 'username' => $work->author->user->username], true);
+		return Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author-musician/view', 'slug' => $work->slug, 'username' => $work->author->user->username], true);
 	}
 }

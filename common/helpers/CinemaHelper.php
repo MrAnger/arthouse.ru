@@ -16,6 +16,6 @@ class CinemaHelper {
 	 * @return string
 	 */
 	public static function getCinemaFrontendUrl($cinema) {
-		return Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-cinema-by-slug/', 'slug' => $cinema->slug, 'username' => $cinema->author->user->username], true);
+		return Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author-cinematographer/view', 'slug' => $cinema->slug, 'username' => $cinema->author->user->username], true);
 	}
 }

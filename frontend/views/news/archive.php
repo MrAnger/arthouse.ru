@@ -8,11 +8,11 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
+$this->title = 'Архивные новости';
 ?>
-
 <div>
     <div class="pull-left">
-        <h1>Архивные новости</h1>
+        <h1><?= $this->title ?></h1>
     </div>
 
     <div class="pull-right" style="margin-top: 20px;">
@@ -38,7 +38,7 @@ use yii\helpers\ArrayHelper;
 		'tag' => false,
 	],
 	'itemView'     => function ($model, $key, $index, $widget) {
-		return $this->render('_list-item', [
+		return $this->render('//_news-list-item', [
 			'model' => $model,
 		]);
 	},

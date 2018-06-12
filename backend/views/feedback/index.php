@@ -46,6 +46,10 @@ $this->params['breadcrumbs'] = [
 				'attribute' => 'text',
 				'format'    => 'html',
 				'value'     => function (\common\models\Feedback $model) {
+					if (empty($model->text)) {
+						return $model->text;
+					}
+
 					return nl2br($model->text);
 				},
 			],

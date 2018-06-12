@@ -1,12 +1,13 @@
 <?php
 
-namespace frontend\controllers\author;
+namespace frontend\controllers\my\author;
 
 use backend\helpers\AuthorHelper;
-use backend\models\MusicWorkSearch;
+use backend\models\CinemaSearch;
 use common\models\Author;
-use common\models\MusicWork;
+use common\models\Cinema;
 use common\models\ImageUploadForm;
+use common\models\News;
 use Yii;
 use yii\base\Model;
 use yii\web\NotFoundHttpException;
@@ -15,9 +16,9 @@ use yii\web\UploadedFile;
 /**
  * @author MrAnger
  */
-class MusicianController extends BaseController {
+class CinematographerController extends BaseController {
 	public function actionIndex() {
-		$searchModel = new MusicWorkSearch();
+		$searchModel = new CinemaSearch();
 
 		$dataProvider = $searchModel->search(Yii::$app->request->getQueryParams(), [
 			'author_id' => $this->author->id,
@@ -34,7 +35,7 @@ class MusicianController extends BaseController {
 	public function actionCreate() {
 		$imageManager = Yii::$app->imageManager;
 
-		$model = new MusicWork([
+		$model = new Cinema([
 			'author_id' => $this->author->id,
 		]);
 		$imageUploadForm = new ImageUploadForm();
@@ -145,8 +146,6 @@ class MusicianController extends BaseController {
 	public function actionDelete($id) {
 		$model = $this->findModel($id);
 
-		$this->checkAccessToModel($model);
-
 		if ($model->delete()) {
 			Yii::$app->session->addFlash('success', 'Работа успешно удалена.');
 		} else {
@@ -159,12 +158,12 @@ class MusicianController extends BaseController {
 	/**
 	 * @param integer $id
 	 *
-	 * @return MusicWork
+	 * @return Cinema
 	 *
 	 * @throws NotFoundHttpException
 	 */
 	protected function findModel($id) {
-		if (($model = MusicWork::findOne($id)) !== null) {
+		if (($model = Cinema::findOne($id)) !== null) {
 			return $model;
 		} else {
 			throw new NotFoundHttpException('The requested page does not exist.');

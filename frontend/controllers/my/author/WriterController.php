@@ -1,22 +1,21 @@
 <?php
 
-namespace frontend\controllers\author;
+namespace frontend\controllers\my\author;
 
 use backend\helpers\AuthorHelper;
-use backend\models\NewsSearch;
+use backend\models\WriterWorkSearch;
 use common\models\Author;
-use common\models\News;
+use common\models\WriterWork;
 use Yii;
 use yii\data\ActiveDataProvider;
-use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 
 /**
  * @author MrAnger
  */
-class NewsController extends BaseController {
+class WriterController extends BaseController {
 	public function actionIndex() {
-		$searchModel = new NewsSearch();
+		$searchModel = new WriterWorkSearch();
 
 		$dataProvider = $searchModel->search(Yii::$app->request->getQueryParams(), [
 			'author_id' => $this->author->id,
@@ -31,12 +30,12 @@ class NewsController extends BaseController {
 	}
 
 	public function actionCreate() {
-		$model = new News([
+		$model = new WriterWork([
 			'author_id' => $this->author->id,
 		]);
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			Yii::$app->session->addFlash('success', 'Новость успешно создана.');
+			Yii::$app->session->addFlash('success', 'Работа успешно создана.');
 
 			return $this->redirect(['update', 'id' => $model->id]);
 		}
@@ -52,7 +51,7 @@ class NewsController extends BaseController {
 		$this->checkAccessToModel($model);
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			Yii::$app->session->addFlash('success', 'Новость успешно изменена.');
+			Yii::$app->session->addFlash('success', 'Работа успешно изменена.');
 
 			return $this->redirect(Yii::$app->request->referrer);
 		}
@@ -68,9 +67,9 @@ class NewsController extends BaseController {
 		$this->checkAccessToModel($model);
 
 		if ($model->delete()) {
-			Yii::$app->session->addFlash('success', 'Новость успешно удалена.');
+			Yii::$app->session->addFlash('success', 'Работа успешно удалена.');
 		} else {
-			Yii::$app->session->addFlash('warning', 'Не удалось удалить новость.');
+			Yii::$app->session->addFlash('warning', 'Не удалось удалить работу.');
 		}
 
 		return $this->redirect(Yii::$app->request->referrer);
@@ -79,12 +78,12 @@ class NewsController extends BaseController {
 	/**
 	 * @param integer $id
 	 *
-	 * @return News
+	 * @return WriterWork
 	 *
 	 * @throws NotFoundHttpException
 	 */
 	protected function findModel($id) {
-		if (($model = News::findOne($id)) !== null) {
+		if (($model = WriterWork::findOne($id)) !== null) {
 			return $model;
 		} else {
 			throw new NotFoundHttpException('The requested page does not exist.');

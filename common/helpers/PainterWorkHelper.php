@@ -16,6 +16,6 @@ class PainterWorkHelper {
 	 * @return string
 	 */
 	public static function getPainterWorkFrontendUrl($work) {
-		return Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-painter-work-by-slug/', 'slug' => $work->slug, 'username' => $work->author->user->username], true);
+		return Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author-painter/view', 'slug' => $work->slug, 'username' => $work->author->user->username], true);
 	}
 }

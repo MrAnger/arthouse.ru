@@ -55,7 +55,7 @@ class Feedback extends \yii\db\ActiveRecord {
 			[['created_at'], 'safe'],
 
 			[['email'], 'email'],
-			[['phone'], 'match', 'pattern' => '/^\+7 \d{3} \d{3}\-\d{2}\-\d{2}$/i'],
+			[['phone'], 'match', 'pattern' => '/^\+7 \(\d{3}\) \d{3}\-\d{2}\-\d{2}$/i'],
 
 			[['name', 'email', 'phone', 'text'], 'trim'],
 			[['name', 'email', 'phone', 'text'], 'default'],

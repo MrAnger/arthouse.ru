@@ -16,6 +16,6 @@ class WriterWorkHelper {
 	 * @return string
 	 */
 	public static function getWriterWorkFrontendUrl($work) {
-		return Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-writer-work-by-slug/', 'slug' => $work->slug, 'username' => $work->author->user->username], true);
+		return Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author-writer/view', 'slug' => $work->slug, 'username' => $work->author->user->username], true);
 	}
 }

@@ -14,18 +14,52 @@ class AuthorHelper {
 		$sectionList = [
 			[
 				'label' => 'Новости',
-				'url'   => ['/author/news/index'],
+				'url'   => ['/my/author/news/index'],
 				'code'  => 'news',
 			],
 		];
 
 		foreach ($author::getWorkTypeAttributes() as $workTypeAttributeCode) {
 			if ($author->{$workTypeAttributeCode}) {
-				$controller = "author/" . str_replace('is_', '', $workTypeAttributeCode);
+				$controller = "my/author/" . str_replace('is_', '', $workTypeAttributeCode);
 
 				$sectionList[] = [
 					'label' => $author->getAttributeLabel($workTypeAttributeCode),
 					'url'   => ["/$controller/index"],
+					'code'  => $workTypeAttributeCode,
+				];
+			}
+		}
+
+		return $sectionList;
+	}
+
+	/**
+	 * @param Author $author
+	 *
+	 * @return array
+	 */
+	public static function getProfileViewSections($author) {
+		$sectionList = [
+			[
+				'label' => 'О авторе',
+				'url'   => ['/author/view', 'username' => $author->user->username],
+				'code'  => 'base',
+			],
+			[
+				'label' => 'Новости',
+				'url'   => ['/author-news/index', 'username' => $author->user->username],
+				'code'  => 'news',
+			],
+		];
+
+		foreach ($author::getWorkTypeAttributes() as $workTypeAttributeCode) {
+			if ($author->{$workTypeAttributeCode}) {
+				$controller = "author-" . str_replace('is_', '', $workTypeAttributeCode);
+
+				$sectionList[] = [
+					'label' => $author->getAttributeLabel($workTypeAttributeCode),
+					'url'   => ["/$controller/index", 'username' => $author->user->username],
 					'code'  => $workTypeAttributeCode,
 				];
 			}

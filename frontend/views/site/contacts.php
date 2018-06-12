@@ -33,7 +33,9 @@
 			?>
 
 			<?= $form->field($feedbackForm, 'phone')
-				->textInput(['maxlength' => true])
+				->widget(\yii\widgets\MaskedInput::class, [
+				    'mask' => '+7 (999) 999-99-99'
+				])
 			?>
 
 			<?= $form->field($feedbackForm, 'text')
