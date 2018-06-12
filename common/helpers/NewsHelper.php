@@ -15,7 +15,7 @@ class NewsHelper {
 	 *
 	 * @return string
 	 */
-	public static function getNewsFrontendUrl($news) {
+	public static function getNewsFrontendUrl(News $news) {
 		$url = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/news/view-by-slug', 'slug' => $news->slug], true);
 
 		if ($news->author_id !== null) {

@@ -8,14 +8,13 @@ use yii\base\Model;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
-
 class WriterWorkHelper {
 	/**
 	 * @param WriterWork $work
 	 *
 	 * @return string
 	 */
-	public static function getWriterWorkFrontendUrl($work) {
+	public static function getWriterWorkFrontendUrl(WriterWork $work) {
 		return Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author-writer/view', 'slug' => $work->slug, 'username' => $work->author->user->username], true);
 	}
 }

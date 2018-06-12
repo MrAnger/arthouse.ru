@@ -2,7 +2,7 @@
 
 namespace common\helpers;
 
-use common\models\News;
+use common\models\Cinema;
 use Yii;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
@@ -15,7 +15,7 @@ class CinemaHelper {
 	 *
 	 * @return string
 	 */
-	public static function getCinemaFrontendUrl($cinema) {
+	public static function getCinemaFrontendUrl(Cinema $cinema) {
 		return Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author-cinematographer/view', 'slug' => $cinema->slug, 'username' => $cinema->author->user->username], true);
 	}
 }
