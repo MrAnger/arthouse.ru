@@ -17,6 +17,7 @@ return [
 		['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
 
 		['pattern' => 'contacts', 'route' => '/site/contacts', 'suffix' => '/'],
+		['pattern' => 'author-request', 'route' => '/site/author-request', 'suffix' => '/'],
 
 		['pattern' => 'news', 'route' => '/news/index', 'suffix' => '/'],
 		['pattern' => 'news/<slug>', 'route' => '/news/view-by-slug', 'suffix' => '/'],

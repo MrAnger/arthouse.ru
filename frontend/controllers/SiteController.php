@@ -2,9 +2,17 @@
 
 namespace frontend\controllers;
 
+use common\models\AuthorRequest;
 use common\models\Block;
+use common\models\Cinema;
 use common\models\Feedback;
+use common\models\MusicWork;
+use common\models\News;
+use common\models\PainterWork;
+use common\models\WriterWork;
 use Yii;
+use yii\db\Expression;
+use yii\helpers\ArrayHelper;
 
 /**
  * @author MrAnger
@@ -22,7 +30,68 @@ class SiteController extends BaseController {
 	}
 
 	public function actionIndex() {
-		return $this->render('index');
+		$aboutContent = null;
+
+		/** @var Block $aboutBlock */
+		$aboutBlock = Block::findOne(['code' => 'main_page_about']);
+		if ($aboutBlock !== null) {
+			$aboutContent = $aboutBlock->content;
+		}
+
+		$countLastWorks = ArrayHelper::getValue(Yii::$app->params, 'homePage.countLastWorks', 5);
+
+		$lastWorkList = [
+			[
+				'name'  => 'Художественные работы',
+				'items' => PainterWork::find()
+					->orderBy(['created_at' => SORT_DESC])
+					->limit($countLastWorks)
+					->all(),
+			],
+			[
+				'name'  => 'Кинемотограф',
+				'items' => Cinema::find()
+					->orderBy(['created_at' => SORT_DESC])
+					->limit($countLastWorks)
+					->all(),
+			],
+			[
+				'name'  => 'Писательские работы',
+				'items' => WriterWork::find()
+					->orderBy(['created_at' => SORT_DESC])
+					->limit($countLastWorks)
+					->all(),
+			],
+			[
+				'name'  => 'Музыкальные работы',
+				'items' => MusicWork::find()
+					->orderBy(['created_at' => SORT_DESC])
+					->limit($countLastWorks)
+					->all(),
+			],
+		];
+		foreach ($lastWorkList as $index => $item) {
+			if (empty($item['items'])) {
+				unset($lastWorkList[$index]);
+			}
+		}
+
+		$newsList = News::find()
+			->where([
+				'AND',
+				new Expression('archived_at IS NULL'),
+			])
+			->orderBy(['created_at' => SORT_DESC])
+			->limit($countLastWorks)
+			->all();
+
+		$this->view->title = Yii::$app->name;
+
+		return $this->render('index', [
+			'aboutContent' => $aboutContent,
+			'lastWorkList' => $lastWorkList,
+			'newsList'     => $newsList,
+		]);
 	}
 
 	public function actionContacts() {
@@ -47,6 +116,31 @@ class SiteController extends BaseController {
 		return $this->render('contacts', [
 			'feedbackForm' => $feedbackForm,
 			'content'      => $content,
+		]);
+	}
+
+	public function actionAuthorRequest() {
+		$this->view->title = 'Заявка автора';
+
+		$requestForm = new AuthorRequest();
+
+		$content = null;
+
+		/** @var Block $block */
+		$block = Block::findOne(['code' => 'author-request']);
+		if ($block !== null) {
+			$content = $block->content;
+		}
+
+		if ($requestForm->load(Yii::$app->request->post()) && $requestForm->save()) {
+			Yii::$app->session->addFlash('success', 'Ваша заявка успешно отправлена.');
+
+			return $this->refresh();
+		}
+
+		return $this->render('author-request', [
+			'requestForm' => $requestForm,
+			'content'     => $content,
 		]);
 	}
 }

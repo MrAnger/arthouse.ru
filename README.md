@@ -46,6 +46,12 @@ backendUrlManager.baseUrl - Ссылка до панели управления 
 frontendUrlManager.baseUrl - Ссылка до публичной части сайта
 ```
 
+```
+frontend/config/params-local.php
+------------------------
+homePage.countLastWorks - Кол-во работ выводимых на главной странице в разделе последних работ
+```
+
 Консольные команды
 ```
 php yii utils/news-archive - запуск архивации новостей
