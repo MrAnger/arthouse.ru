@@ -31,3 +31,14 @@ footer p {
 .footer-link {
     color: #333;
 }
+
+@media screen and (max-width: 640px) {
+    .grid-view {
+        overflow-x: scroll;
+    }
+
+    table {
+        overflow-x: auto;
+        display: block;
+    }
+}

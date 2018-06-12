@@ -9,13 +9,13 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
 $menuItems = [
-	['label' => 'Новости', 'url' => '#'],
+	['label' => 'Новости', 'url' => ['/news/index']],
 	['label' => 'Литература', 'url' => '#'],
 	['label' => 'Изостудия', 'url' => '#'],
 	['label' => 'Фотография', 'url' => '#'],
 	['label' => 'Театр', 'url' => '#'],
-	['label' => 'Авторы', 'url' => '#'],
-	['label' => 'Контакты', 'url' => '#'],
+	['label' => 'Авторы', 'url' => ['/author/index']],
+	['label' => 'Контакты', 'url' => ['/site/contacts']],
 
 	'login' => ['label' => 'Войти', 'url' => ['/user/login']],
 ];
@@ -45,6 +45,13 @@ if (!Yii::$app->user->isGuest) {
 		}
 
 		array_splice($authorItem['items'], 1, 0, $newMenuItems);
+	}
+
+	if (Yii::$app->user->can(\common\Rbac::ADMIN_ACCESS)) {
+		array_splice($authorItem['items'], 0, 0, [
+			['label' => 'Панель администратора', 'url' => Yii::$app->backendUrlManager->createAbsoluteUrl(['/site/index'], true)],
+			'<li class="divider"></li>',
+		]);
 	}
 
 	$menuItems['login'] = $authorItem;
