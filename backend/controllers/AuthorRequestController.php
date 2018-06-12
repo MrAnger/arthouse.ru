@@ -76,9 +76,6 @@ class AuthorRequestController extends BaseController {
 					throw new \Exception('Не удалось создать нового автора.');
 				}
 
-				// Пока думаю обойдемся без роли автора :)
-				//$this->assignRole($user, Rbac::ROLE_AUTHOR);
-
 				$model->updateAttributes(['status' => AuthorRequest::STATUS_APPROVED]);
 
 				$transaction->commit();
@@ -117,16 +114,6 @@ class AuthorRequestController extends BaseController {
 		}
 
 		return $this->redirect(Yii::$app->request->referrer);
-	}
-
-	protected function assignRole(User $user, $role) {
-		$auth = Yii::$app->authManager;
-
-		$userRole = $auth->getRole($role);
-
-		if ($userRole !== null) {
-			$auth->assign($userRole, $user->id);
-		}
 	}
 
 	/**

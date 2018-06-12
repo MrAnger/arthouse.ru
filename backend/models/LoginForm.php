@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use common\Rbac;
 use Da\User\Validator\TwoFactorCodeValidator;
 use Yii;
 use yii\base\Model;
@@ -35,7 +36,7 @@ class LoginForm extends \Da\User\Form\LoginForm {
 					if ($this->user !== null) {
 						$authManager = Yii::$app->authManager;
 
-						if (!$authManager->checkAccess($this->user->id, 'adminAccess'))
+						if (!$authManager->checkAccess($this->user->id, Rbac::ADMIN_ACCESS))
 							$this->addError('login', Yii::t('app.errors', 'You are not allowed to enter control panel.'));
 					}
 				},

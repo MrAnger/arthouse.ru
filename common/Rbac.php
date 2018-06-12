@@ -17,7 +17,6 @@ abstract class Rbac {
 	 */
 	const ROLE_MASTER = 'MASTER';
 	const ROLE_ADMIN = 'ADMIN';
-	const ROLE_AUTHOR = 'AUTHOR';
 
 	/**
 	 * @const
@@ -47,10 +46,6 @@ abstract class Rbac {
 				self::PERMISSION_USER_BLOCK,
 			],
 		],
-		[
-			'role'        => self::ROLE_AUTHOR,
-			'permissions' => [],
-		],
 	];
 
 	/**
@@ -60,7 +55,6 @@ abstract class Rbac {
 		return [
 			static::ROLE_MASTER,
 			static::ROLE_ADMIN,
-			static::ROLE_AUTHOR,
 		];
 	}
 
