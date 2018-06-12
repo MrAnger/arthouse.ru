@@ -8,10 +8,8 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
-$this->title = 'Авторы';
 ?>
-
-<h1><?= $this->title ?></h1>
+<h1>Авторы</h1>
 
 <?php \yii\widgets\Pjax::begin([
 	'enablePushState'    => false,

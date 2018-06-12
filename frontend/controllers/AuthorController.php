@@ -24,6 +24,8 @@ class AuthorController extends BaseController {
 
 		$dataProvider->sort = false;
 
+		$this->view->title = "Авторы";
+
 		return $this->render('index', [
 			'dataProvider' => $dataProvider,
 		]);
@@ -31,6 +33,8 @@ class AuthorController extends BaseController {
 
 	public function actionView($username) {
 		$author = $this->findModelByUsername($username);
+
+		$this->view->title = $author->user->displayName;
 
 		return $this->render('view', [
 			'author'        => $author,

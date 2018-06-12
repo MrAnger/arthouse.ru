@@ -10,12 +10,10 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
-$this->title = $author->user->displayName;
-
 $profile = $author->user->profile;
 ?>
 <div>
-    <h1><?= $this->title ?></h1>
+    <h1><?= $author->user->displayName ?></h1>
 
 	<?= $this->render('//_author-menu', [
 		'activeSection' => $activeSection,
