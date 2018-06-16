@@ -11,14 +11,18 @@ use frontend\assets\FrontendAsset;
 FrontendAsset::register($this);
 ?>
 <?php $this->beginContent('@app/views/layouts/plain.php') ?>
-<?= $this->render('//_head-menu') ?>
+<?= $this->render('_header') ?>
 
-    <div class="main-content">
-        <div class="container">
+    <section class="main-wrapper">
+        <div class="left-col">
+			<?= $this->render('_left-col') ?>
+        </div>
+
+        <div class="middle-col">
 			<?= \common\widgets\Alert::widget() ?>
 			<?= $content ?>
         </div>
-    </div>
+    </section>
 
-<?= $this->render('//_footer') ?>
+<?= $this->render('_footer') ?>
 <?php $this->endContent() ?>

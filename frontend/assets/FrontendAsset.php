@@ -8,7 +8,8 @@ class FrontendAsset extends AssetBundle {
 	public $basePath = '@webroot';
 	public $baseUrl = '@web';
 	public $css = [
-		'static/css/site.css',
+		//'static/css/site.css',
+		'static/css/design.css',
 	];
 	public $js = [
 		'static/js/main.js',

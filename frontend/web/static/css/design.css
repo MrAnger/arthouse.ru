@@ -1,0 +1,1221 @@
+html {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+}
+
+/**
+ * Шапка
+ */
+
+.header-wrapper {
+    background: url(../images/logo_bg.gif) repeat-x;
+    height: 141px;
+}
+
+.header-tail {
+    padding-left: 169px;
+    height: 18px;
+    background: url(../images/leftbg_nav.gif) top left no-repeat;
+}
+
+/**
+ * Хлебные крошки
+ */
+.breadcrumb-wrapper {
+    height: 18px;
+    background: url(../images/bg_center.gif) repeat-y left;
+}
+
+.breadcrumb-content {
+    margin-left: 15px;
+}
+
+.breadcrumb {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border-radius: unset;
+}
+
+.breadcrumb li:first-child {
+    padding-left: 0;
+    background-image: none;
+}
+
+.breadcrumb li {
+    /*font-weight: bolder;*/
+}
+
+.breadcrumb li.active {
+    font-weight: normal;
+}
+
+.breadcrumb > li + li:before {
+    padding: 0;
+    color: #ccc;
+    content: "";
+}
+
+/**
+ * Контент
+ */
+.main-wrapper {
+    display: flex;
+    flex: auto;
+    min-height: calc(100% - 159px);
+}
+
+.left-col {
+    width: 169px;
+    padding: 5px;
+    text-align: right;
+}
+
+.middle-col {
+    padding: 15px;
+    width: calc(100% - 169px);
+    background: url(../images/bg_center.gif) repeat-y left;
+}
+
+/**
+ * Подвал
+ */
+footer p {
+    background: url(../images/bgright_footer.gif) repeat-x bottom;
+    height: 48px;
+    font-size: 11px;
+    color: #FFFFFF;
+    font-weight: normal;
+    padding-top: 5px;
+    padding-left: 180px;
+    margin: 0;
+}
+
+.footer-content-wrapper {
+    margin-left: 169px;
+}
+
+footer a:hover, footer a:visited, footer a:link {
+    color: #FFFFFF;
+}
+
+/**
+ * MAIN MENU
+ */
+.menu {
+    margin-top: 50px;
+}
+
+.menu li {
+    background-image: unset;
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+
+.menu li a {
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.menu li:after {
+    content: "•";
+}
+
+.menu li.active a {
+    text-decoration: underline;
+}
+
+/**
+ * Login Form Left Column
+ */
+.login-form {
+    margin-top: 50px;
+}
+
+/**
+author: rgb(raduga) http://mambasana.ru
+**/
+
+/**#################### DEFAULT and FORMS CSS ####################**/
+
+hr {
+    color: #999999;
+    height: 1px;
+    width: 100%;
+}
+
+a:link, a:visited {
+    color: #657084;
+    text-decoration: underline;
+
+}
+
+a:hover {
+    color: #657084;
+    text-decoration: none;
+
+}
+
+ul {
+    margin: 2px;
+    padding-left: 10px;
+    list-style: none;
+}
+
+li {
+    line-height: 14px;
+    padding-left: 14px;
+    padding-top: 2px;
+    background-image: url(../images/strelka.gif);
+    background-repeat: no-repeat;
+    background-position: 0px 5px;
+}
+
+ol li {
+    background-image: none;
+}
+
+h1 {
+    font-size: 16px;
+    color: #657080;
+}
+
+h2 {
+    font-size: 15px;
+    color: #9fafb4;
+}
+
+h3 {
+    font-size: 14px;
+    color: #657080;
+}
+
+/**#################### Joomla CSS ####################**/
+
+/** Buttons **/
+
+.back_button {
+    font-size: 12px;
+    font-weight: normal;
+    padding-bottom: 3px;
+    margin-right: 4px;
+    float: right;
+    line-height: 20px;
+
+}
+
+div.back_button a {
+    text-decoration: none;
+}
+
+.button {
+    font-size: 11px;
+    color: #FFFFFF;
+    border: 1px solid #cccccc;
+    margin: 3px 0;
+    padding: 1px 5px 1px 5px;
+    cursor: pointer;
+    background: #657084;
+}
+
+/** Contact **/
+
+.contact_email {
+    width: 100%;
+}
+
+.contact_email .inputbox {
+}
+
+/** Module table  **/
+
+table.moduletable {
+    margin: 0 0 0px 0;
+    width: 100%;
+}
+
+table.moduletable th {
+
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    color: #303A43;
+    padding: 2px;
+    line-height: 25px;
+    height: 29px;
+    background: #E3EBF0;
+}
+
+table.moduletable td {
+    padding-top: 2px;
+}
+
+div.module {
+    text-align: left;
+    margin: 0 0 10px 0;
+}
+
+div.module h3 {
+
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    color: #303A43;
+    line-height: 27px;
+    /*border-left        : 4px solid #303A43;*/
+    height: 29px;
+    margin: 0 0 15px 0;
+}
+
+.rightcol div.module h3 {
+    /* border-right  : 4px solid #303A43;*/
+    border-left: none;
+}
+
+.contentmod {
+    text-align: left;
+    padding: 0px 0;
+
+}
+
+.contentmod td {
+    padding: 0px;
+}
+
+.contentmod table.moduletable {
+    margin: 0 0 8px 0;
+    width: 100%;
+    /*background       : url(../images/content.jpg) repeat-x top left;
+    */
+}
+
+.contentmod table.moduletable th {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    color: #313C40;
+    padding: 2px;
+    line-height: 25px;
+    background: none;
+    border-bottom: 1px solid #D0DDE3;
+}
+
+/** Модуль авторизации **/
+
+div.module-login {
+    text-align: right;
+    margin: 0 0 10px 0;
+}
+
+table.moduletable-login {
+    margin: 0 0 8px 0;
+    width: 100%;
+    text-align: right;
+
+}
+
+table.moduletable-login th {
+
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    color: #303A43;
+    padding: 2px;
+    line-height: 25px;
+    height: 29px;
+    background: #E3EBF0;
+}
+
+table.moduletable-login td {
+    padding-top: 2px;
+    font-size: 11px;
+}
+
+div.module-login {
+    margin: 20px 0 10px 0;
+}
+
+/** Модуль новости на главной странице  **/
+
+/*Отступ модуля вцелом*/
+.contentmod table.moduletable-news {
+    /*margin           : 0;*/
+    width: 100%;
+
+}
+
+/*Заголовок модуля*/
+.contentmod table.moduletable-news th {
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    width: auto;
+    font-size: 20px;
+    font-weight: normal;
+
+    text-align: left;
+    color: #333333;
+    padding: 5px 0px 15px 0px;
+
+}
+
+/** Read more **/
+
+a.readon:link, a.readon:visited {
+    color: #657084;
+    font-size: 11px;
+    white-space: normal;
+    font-weight: normal;
+    padding: 1px 0px 1px 12px;
+    float: right;
+    line-height: 15px;
+    text-decoration: underline;
+}
+
+a.readon:hover {
+    color: #657084;
+    font-size: 11px;
+    white-space: normal;
+    font-weight: normal;
+    padding: 1px 0 1px 12px;
+    line-height: 15px;
+    text-decoration: none;
+}
+
+a.readmore-link:link, a.readmore-link:visited {
+    color: #657084;
+    font-size: 11px;
+    white-space: normal;
+    font-weight: normal;
+    padding: 1px 0px 1px 12px;
+    float: right;
+    line-height: 15px;
+    text-decoration: underline;
+}
+
+a.readmore-link:hover {
+    color: #657084;
+    font-size: 11px;
+    white-space: normal;
+    font-weight: normal;
+    padding: 1px 0 1px 12px;
+    line-height: 15px;
+    text-decoration: none;
+}
+
+/** Pagenavigation **/
+
+.pagenavcounter {
+    font-size: 11px;
+    color: #999999;
+    text-align: right;
+}
+
+.pagenavbar {
+    /*border-top       : 1px solid #999999;*/
+    padding: 2px;
+
+}
+
+.pagenav, .pagenav_prev, .pagenav_next {
+    font-weight: bold;
+
+}
+
+a.pagenav:link, a.pagenav:visited {
+
+    /*color            : #999999;*/
+    text-decoration: none;
+}
+
+a.pagenav:hover {
+    /*font-size        : 12px;*/
+    color: #657080;
+    text-decoration: none;
+}
+
+/******************************************************/
+/*            Новая навигация                         */
+/******************************************************/
+#flash_pagenavL {
+    background-position: top left;
+    background-repeat: no-repeat;
+    height: 17px;
+}
+
+#flash_pagenavR {
+    display: block;
+    margin-left: 12px;
+    background-position: top right;
+    background-repeat: no-repeat;
+    padding-right: 12px;
+    height: 17px;
+}
+
+#flash_pagenavR a:link, #flash_pagenavR a:visited, #flash_pagenavR a:hover {
+    color: #ffffff;
+    display: inline-block;
+    font-family: sans-serif;
+    text-decoration: none;
+    background-color: #78859c;
+    padding-right: 2px;
+    padding-left: 2px;
+
+}
+
+a.pagenavA:link, a.pagenavA:visited {
+
+    color: #ffffff;
+    /*margin-right:1px;*/
+    display: inline-block;
+    margin-left: 1px;
+    font-weight: bold;
+    font-family: sans-serif;
+    border: 1px solid #78859c;
+    text-decoration: none;
+    background-color: #78859c;
+    padding: 0px 2px 0px 2px;
+    /*padding-left:2px*/
+
+}
+
+#flash_pagenavR a:hover {
+    border: 1px solid #78859c;
+}
+
+.pagenavS {
+    color: #78859c;
+    display: inline-block;
+    /*margin-right:1px;*/
+    margin-left: 1px;
+    padding: 0px 2px 0px 2px;
+
+    font-weight: bold;
+    font-family: sans-serif;
+    border: 1px solid #afbccd;
+    /*height:14px;*/
+}
+
+#flash_pagenavR .pagenavLLast,
+#flash_pagenavR .pagenavPrev10,
+#flash_pagenavR .pagenavPrev1,
+#flash_pagenavR .pagenavRLast,
+#flash_pagenavR .pagenavNext10,
+#flash_pagenavR .pagenavNext1 {
+    width: 8px;
+    border: 1px solid #78859c;
+    /*margin-right:1px;*/
+    margin-left: 1px;
+    padding-right: 4px;
+    padding-left: 4px;
+
+}
+
+#flash_pagenavR .pagenavLLast {
+    background: url(../images/leftlast.gif) no-repeat left;
+}
+
+#flash_pagenavR .pagenavPrev10 {
+    background: url(../images/left10.gif) no-repeat left;
+}
+
+#flash_pagenavR .pagenavPrev1 {
+    background: url(../images/left1.gif) no-repeat left;
+}
+
+#flash_pagenavR .pagenavRLast {
+    background: url(../images/rightlast.gif) no-repeat right;
+}
+
+#flash_pagenavR .pagenavNext10 {
+    background: url(../images/right10.gif) no-repeat right;
+}
+
+#flash_pagenavR .pagenavNext1 {
+    background: url(../images/right1.gif) no-repeat right;
+}
+
+/*Оглавление для многостраничных объектов*/
+
+table.contenttoc {
+    border: 1px solid #dcdcdc;
+    background: #f7f7f7;
+    padding: 0;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+table.contenttoc th {
+    margin: 0;
+    padding: 3px;
+    background: #78859c;
+    color: #FFFFFF;
+}
+
+table.contenttoc td {
+    margin: 0;
+    padding: 3px 4px;
+    border-bottom: 1px solid #dcdcdc;
+    background-image: url(../images/strelka.gif);
+    background-repeat: no-repeat;
+    background-position: 4px 7px;
+}
+
+table.contenttoc td a:link, table.contenttoc td a:visited {
+    padding-left: 10px !important;
+    text-indent: 10px;
+    text-decoration: none;
+
+}
+
+/*Стиль для сообщений о событиях*/
+.message {
+    color: #cc0000;
+    font-size: 12px;
+    background: url(../images/attention.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 27px;
+    font-weight: bold;
+    margin: 10px 0px 10px 0px;
+}
+
+/** Pathway **/
+
+.pathway {
+    font-size: 11px;
+    color: #666666;
+    padding-left: 0;
+}
+
+a.pathway:link, a.pathway:visited {
+    font-size: 11px;
+    padding-left: 0;
+    text-decoration: underline;
+    /* color            : #78859c;*/
+
+}
+
+a.pathway:hover {
+    font-size: 11px;
+    padding-left: 0;
+}
+
+.pathway img {
+}
+
+/** Content **/
+
+.sectiontableheader {
+
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #ffffff;
+    background: #414141;
+    padding: 3px 5px;
+    border: 1px solid #ffffff;
+}
+
+.sectiontableentry1 {
+    vertical-align: top;
+    background: #f4f4f4;
+    border-bottom: 1px solid #ffffff;
+    line-height: 20px;
+
+}
+
+.sectiontableentry1 td, .sectiontableentry2 td {
+    /* padding          : 2px 5px;*/
+    padding: 5px 5px 5px 5px;
+    border-bottom: 1px solid #ffffff;
+    line-height: 20px;
+
+}
+
+.sectiontableentry2 {
+    vertical-align: top;
+    border-bottom: 1px solid #ffffff;
+    background: #f7f7f7;
+    line-height: 20px;
+}
+
+.sectiontableentry1 img {
+    margin: 0 4px;
+}
+
+.sectiontableentry2 img {
+    margin: 0 4px;
+}
+
+a.category:link, a.category:visited {
+    font-size: 12px;
+    font-weight: normal;
+    padding: 5px;
+}
+
+.small, .small a {
+    font-size: 11px;
+    color: #990000;
+    /*line-height:40px;*/
+    padding: 10px 0px 5px 0px;
+}
+
+.smalldark {
+    font-size: 11px;
+    color: #666666;
+}
+
+.createdate, .modifydate {
+    font-size: 11px;
+    color: #78859c;
+    font-weight: normal;
+    text-align: left;
+    width: 100%;
+    padding: 0px 0px 3px 0px;
+}
+
+.content_vote {
+    font-size: 11px;
+    height: 22px;
+    padding: 2px 0;
+}
+
+.content_rating {
+    font-size: 11px;
+    color: #999999;
+}
+
+table.content {
+    width: 100%;
+    padding: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 10px;
+}
+
+table.contentpane {
+    width: 100%;
+    border-spacing: 0;
+    margin-top: 15px;
+    /*padding-left     : 5px;
+    padding-right    : 5px;
+    margin-bottom    : 5px;*/
+}
+
+table.contentpaneopen {
+    width: 100%;
+    border-spacing: 0;
+    padding: 0;
+    margin: 0;
+    text-align: justify;
+    /*padding-left     : 5px;
+    padding-right    : 5px;*/
+    /*margin-bottom    : 5px;
+    margin-top: 5px;*/
+}
+
+td.contentpaneopen {
+
+}
+
+.contentheading {
+    font-family: Arial, Tahoma, Helvetica, sans-serif;
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    color: #657084;
+    padding: 0px 0px 5px 0px;
+}
+
+.contentheading a {
+    text-decoration: none;
+}
+
+.article_seperator {
+    background: url(../images/title_upborder.gif);
+    background-repeat: repeat-x;
+    background-position: center;
+    height: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.componentheading {
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    width: auto;
+    font-size: 20px;
+    /*font-weight      : bold;*/
+    /*line-height      : 21px*/;
+    /*text-transform   : uppercase;*/
+    text-align: left;
+    color: #333333;
+    padding: 0px 0px 15px 0px;
+    /*margin           : 5px 1px;*/
+}
+
+.contentdescription {
+    width: auto !important;
+    margin: 0;
+    padding: 0;
+    padding-top: 5px;
+    text-align: left;
+}
+
+.blog_more {
+    margin: 10px 0 7px 7px;
+}
+
+.buttonheading {
+    padding: 0 2px;
+}
+
+.blog {
+    width: 100%;
+}
+
+/** Polls **/
+
+.poll {
+    color: #333333;
+    line-height: 13px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.pollstableborder {
+    border-color: #999999;
+}
+
+/** CSS for Mainmenu **/
+
+a.mainlevel {
+    display: block;
+    width: auto !important;
+    width: 100%;
+    margin: 1px 0;
+    padding: 0;
+    background: none;
+
+}
+
+a.mainlevel:link, a.mainlevel:visited, a.mainlevel:hover {
+    display: block;
+    line-height: 20px;
+    text-align: right;
+    font-size: 13px;
+    font-weight: bold;
+    color: #657084;
+    background: url(../images/menu_pas.gif);
+    background-position: right;
+    background-repeat: no-repeat;
+    padding: 0px 20px 0px 30px;
+    text-decoration: none;
+
+}
+
+#active_menu {
+    color: #990000;
+    background: url(../images/menu_act.gif);
+    background-position: right;
+    background-repeat: no-repeat;
+    text-decoration: none;
+
+}
+
+a#active_menu:hover {
+}
+
+/** Sublevel for Mainmenu **/
+
+.sublevel {
+
+}
+
+a.sublevel:link, a.sublevel:visited {
+    display: block;
+    line-height: 20px;
+    text-align: right;
+    font-size: 11px;
+    /*font-weight      : bold;*/
+    color: #657084;
+    padding: 0px 0px 0px 30px;
+    text-decoration: none;
+}
+
+a.sublevel:hover {
+}
+
+a.sublevel#active_menu {
+    color: #990000;
+    text-decoration: none;
+    background: none;
+    /*padding     : 0px 20px 0px 30px;*/
+}
+
+a#active_menu:hover {
+}
+
+/** Topmenu styles for BOTTOM navigation **/
+
+table.moduletable-nav {
+
+    width: 100%;
+    padding: 0;
+    margin: 0px 0px 0px 0px;
+}
+
+ul#mainlevel-nav {
+    list-style: none;
+    /*padding-right    : 10px;*/
+    /*padding-top      : 5px;*/
+    margin: 0;
+    padding: 0;
+
+}
+
+#mainlevel-nav li {
+
+    display: inline;
+    list-style: none;
+    background: url(../images/menutop_indent.gif) no-repeat left bottom;
+    /*padding: 0;*/
+    padding-left: 10px;
+    margin: 0;
+    width: auto !important;
+    /*font-size        : 11px;*/
+    font-weight: bold;
+    white-space: nowrap;
+
+}
+
+#mainlevel-nav a {
+    display: inline;
+    /*padding-left     : 10px;*/
+    padding-right: 10px;
+    font-size: 12px;
+    text-decoration: none;
+    color: #FFFFFF;
+
+}
+
+#mainlevel-nav li a:hover {
+
+    /*font-size        : 11px;*/
+    color: #FFFFFF;
+
+}
+
+#active_menu-nav a {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+#active_menu-nav a:hover {
+    color: #FFFFFF;
+
+    text-decoration: underline;
+}
+
+/** Ссылка "Все новости" на главной странице **/
+
+table.moduletable-allnews {
+
+    width: 100%;
+    padding: 0;
+    margin: 10px 0px 0px 0px;
+}
+
+ul#mainlevel-allnews {
+    list-style: none;
+    text-align: right;
+    padding: 0;
+    margin: 0;
+
+}
+
+#mainlevel-allnews li {
+
+    display: inline;
+    list-style: none;
+    background-image: none;
+    padding: 0;
+    margin: 0;
+    width: auto !important;
+    font-size: 11px;
+    white-space: nowrap;
+
+}
+
+#mainlevel-allnews li a {
+    display: inline;
+    padding: 0;
+    font-size: 11px;
+    color: #990000;
+    text-decoration: underline;
+
+}
+
+#mainlevel-allnews li a:hover {
+
+    text-decoration: none;
+
+}
+
+/** images **/
+
+.mosimage {
+    border: 1px solid #D6E3EC;
+    margin: 5px;
+    padding-top: 3px;
+
+}
+
+.mosimage_caption {
+    margin-top: 3px;
+    padding: 2px;
+    color: #666666;
+    font-size: 10px;
+    background: #D6E3EC;
+}
+
+/******************* Top Menu************************/
+
+.moduletable-topnav {
+
+    width: auto;
+    padding: 0;
+}
+
+.topnav {
+    width: 0;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+a.topnav {
+    position: relative;
+    width: auto;
+    background: none;
+    padding: 11px 6px 11px 6px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: normal;
+    line-height: 38px !important;
+    line-height: 16px;
+    _height: 0;
+
+}
+
+a.topnav:hover {
+    width: auto;
+    color: #000000;
+    background: #6FB9DE;
+    padding: 11px 6px 11px 6px;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+a.topnav#current {
+
+    cursor: default;
+    position: relative;
+    width: auto;
+    background: #6FB9DE;
+    padding: 11px 6px 11px 6px;
+    color: #000000;
+    text-decoration: none;
+}
+
+a.topnav#current:hover {
+    cursor: pointer;
+    position: relative;
+    width: auto;
+    background: #303A43;
+    padding: 11px 6px 11px 6px;
+    color: #ffffff;
+    text-decoration: none;
+
+}
+
+a.topnav:visited, .topnav a:link {
+    text-decoration: none;
+    color: #fff;
+}
+
+/** #################### index.php #################### **/
+
+#body {
+
+    /*background:url(../images/bgright_footer.gif) repeat-x bottom;*/
+}
+
+.main {
+    text-align: left;
+    width: 100%;
+}
+
+div.mod {
+    background: none;
+    width: 6px;
+}
+
+.clear {
+    clear: both;
+    height: 30px;
+}
+
+#clear_big {
+    clear: both;
+    height: 197px;
+}
+
+#contenttb {
+    padding: 0 20px 10px 20px;
+    background: url(../images/bg_center.gif) repeat-y left;
+    /*margin-left: 60px;*/
+
+}
+
+.leftcol {
+    vertical-align: top;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.rightcol {
+    vertical-align: top;
+    padding: 10px;
+    padding-top: 0;
+    text-align: left;
+    width: 290px;
+    background: url(../images/dot.gif) repeat-y top left;
+
+}
+
+.leftcol div {
+    width: 149px;
+    text-align: right;
+}
+
+td.pw {
+    width: 100%;
+    padding: 5px 0px 20px 0px !important;
+}
+
+.footer_left {
+    float: left;
+    height: 48px;
+    width: 170px;
+    background: url(../images/bgleft_footer.gif) repeat-y;
+    text-align: center;
+}
+
+#top_bar {
+    position: absolute;
+    top: 110px;
+    right: 10px;
+    height: 82px;
+
+}
+
+/******************************************************/
+/*           Мои стили                                */
+/******************************************************/
+
+.comment {
+    font-size: 11px;
+    color: #78859c;
+}
+
+/*Имена Авторов в таблице*/
+a.name:link, a.name:visited {
+    color: #657084;
+    font-size: 12px;
+    text-decoration: none;
+
+}
+
+a.name:hover {
+    color: #990000;
+    text-decoration: none;
+}
+
+/*Названия галерей-авторов Тот же стиль, что и contentheading*/
+.name_componentheading a {
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    width: auto;
+    font-size: 20px;
+    /*font-weight      : bold;*/
+    /*line-height      : 21px*/;
+    /*text-transform   : uppercase;*/
+    text-align: left;
+    color: #333333;
+    padding: 0px 0px 15px 0px;
+    text-decoration: none;
+    /*margin           : 5px 1px;*/
+}
+
+/*Названия подгалерей Тот же стиль, что и contentheading*/
+.subname_contentheading {
+    font-family: Arial, Tahoma, Helvetica, sans-serif;
+    /*width            : 100%;*/
+    font-size: 15px;
+    font-weight: bold;
+    /*line-height      : 18px;*/
+    text-align: left;
+    color: #657084;
+    padding: 0px 0px 0px 0px;
+    margin: 20px 0px 0px 0px;
+
+}
+
+.subname_contentheading a {
+    text-decoration: none;
+}
+
+/*Описание изображения на странице одного изображения*/
+.imgdesc_componentheading {
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    width: auto;
+    font-size: 20px;
+    text-align: left;
+    color: #333333;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 20px 0px;
+    text-align: center;
+
+}
+
+a.print {
+    background: url(../images/printer.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: #666666;
+    height: 24px;
+    text-decoration: none;
+    font-size: 11px;
+    margin-right: 10px;
+}
+
+a.print:hover {
+    text-decoration: none;
+}
