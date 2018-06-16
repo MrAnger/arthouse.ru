@@ -1,6 +1,13 @@
 <?php
 
 return [
+	'modules'    => [
+		'user' => [
+			'mailParams' => [
+				'fromEmail' => 'noreply@artxayc.ru',
+			],
+		],
+	],
 	'components' => [
 		'db'                 => [
 			'class'    => 'yii\db\Connection',

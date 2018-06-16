@@ -37,6 +37,7 @@ countDaysForMoveNewsToArchive - Кол-во дней, после которых 
 common/config/params-local.php
 ------------------------
 authorRequestNotificationEmail - Email для уведомлений администратора о новой заявке в авторы
+contactEmailSource - Email адрес, который будет написан в отправителе письма
 ```
 
 ```
@@ -44,6 +45,7 @@ common/config/main-local.php
 ------------------------
 backendUrlManager.baseUrl - Ссылка до панели управления сайтом
 frontendUrlManager.baseUrl - Ссылка до публичной части сайта
+modules.user.fromEmail - Email адрес, который будет написан в отправителе письма
 ```
 
 ```
