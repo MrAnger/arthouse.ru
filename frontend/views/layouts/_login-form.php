@@ -37,13 +37,14 @@ $module = Yii::$app->getModule('user');
 		'password',
 		['inputOptions' => ['class' => 'form-control input-sm', 'tabindex' => '2']]
 	)
+	->label(false)
 	->passwordInput([
 		'maxlength'   => true,
 		'placeholder' => $model->getAttributeLabel('password'),
 	]) ?>
 
 <?= $form->field($model, 'rememberMe')
-	->checkbox(['tabindex' => '4']) ?>
+	->checkbox(['tabindex' => '4', 'label' => 'Запомнить']) ?>
 
 <?= Html::submitButton(
 	Yii::t('usuario', 'Sign in'),
