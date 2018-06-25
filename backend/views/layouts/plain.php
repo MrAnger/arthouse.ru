@@ -22,7 +22,7 @@ else
 <head>
 	<base href="<?= $request->getHostInfo() . $request->getBaseUrl() ?>/">
 	<meta charset="<?= Yii::$app->charset ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=1265">
 	<?= Html::csrfMetaTags() ?>
 	<title><?= Html::encode($title) ?></title>
 	<?= $this->render('_head') ?>
