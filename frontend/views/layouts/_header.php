@@ -7,23 +7,23 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-if (!isset($this->params['breadcrumbs'])) {
-	$this->params['breadcrumbs'] = [];
-}
 ?>
-<header>
-    <div class="header-wrapper">
-        <a href="<?= Yii::$app->homeUrl ?>">
-            <img src="static/images/logo.gif" alt=""/>
-        </a>
-    </div>
-    <div class="header-tail">
-        <div class="breadcrumb-wrapper">
-            <div class="breadcrumb-content">
-				<?= \yii\widgets\Breadcrumbs::widget([
-					'links' => $this->params['breadcrumbs'],
-				]) ?>
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="logo">
+                    <a href="<?= Yii::$app->homeUrl ?>">
+                        <span class="site-text-color">Art</span>Xayc.Ru
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</header>
+
+    <div class="menu site-bg-color">
+        <div class="container">
+            <?= $this->render('/_main-menu') ?>
+        </div>
+    </div>
+</div>

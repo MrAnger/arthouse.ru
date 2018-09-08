@@ -4,7 +4,6 @@
  * @var $this \yii\web\View
  */
 
-use frontend\helpers\AuthorHelper;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
@@ -19,9 +18,12 @@ $menuItems = [
 ];
 
 ?>
+<div class="responsive-menu">Меню</div>
 <?= \yii\widgets\Menu::widget([
 	'items'   => $menuItems,
+	'activeCssClass' => 'current-page',
+	'submenuTemplate' => "\n<ul class=\"children\">\n{items}\n</ul>\n",
 	'options' => [
-		'class' => 'menu',
+		'class' => 'responsive-menu-active',
 	],
 ]) ?>

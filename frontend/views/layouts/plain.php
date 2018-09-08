@@ -13,11 +13,12 @@ $request = Yii::$app->request;
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-	<base href="<?= $request->getHostInfo() . $request->getBaseUrl() ?>/">
-	<meta charset="<?= Yii::$app->charset ?>">
-	<meta name="viewport" content="width=1265">
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<?= Html::csrfMetaTags() ?>
+
 	<title><?= Html::encode($this->title) ?></title>
+
 	<?php $this->head() ?>
 </head>
 <body>

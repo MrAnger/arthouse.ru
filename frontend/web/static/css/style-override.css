@@ -1,0 +1,24 @@
+.header .logo {
+    text-transform: none !important;
+}
+
+.footer {
+    padding-top: unset !important;
+}
+
+form span.contact-label {
+    width: 120px !important;
+}
+
+form span label {
+    font-weight: normal !important;
+    margin-bottom: unset !important;
+}
+
+.perfect-form-box .perfect-form span, .contact-form-box .contact-form span {
+    margin-bottom: unset !important;
+}
+
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
+    color: #c90000;
+}

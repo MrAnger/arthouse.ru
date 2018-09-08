@@ -11,20 +11,26 @@ use yii\helpers\Html;
 
 $this->title = $name;
 ?>
-<div class="site-error">
+<div class="content">
+    <div class="error-404-header">
+        <div class="container">
+            <h1 class="site-text-color">Ошибка</h1>
+        </div>
+    </div>
 
-	<h1><?= Html::encode($this->title) ?></h1>
+    <div class="container">
+        <div class="error-404">
+            <h2><?= Html::encode($this->title) ?></h2>
 
-	<div class="alert alert-danger">
-		<?= nl2br(Html::encode($message)) ?>
-	</div>
+            <p><?= nl2br(Html::encode($message)) ?></p>
 
-	<p>
-		The above error occurred while the Web server was processing your request.
-	</p>
+            <p>
+                The above error occurred while the Web server was processing your request.
+            </p>
 
-	<p>
-		Please contact us if you think this is a server error. Thank you.
-	</p>
-
+            <p>
+                Please contact us if you think this is a server error. Thank you.
+            </p>
+        </div>
+    </div>
 </div>

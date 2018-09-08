@@ -10,59 +10,44 @@ use yii\helpers\ArrayHelper;
  */
 
 $lastWorkViewMap = [
-	\common\models\Cinema::class      => '//_cinema-work-list-item',
-	\common\models\MusicWork::class   => '//_music-work-list-item',
-	\common\models\PainterWork::class => '//_painter-work-list-item',
-	\common\models\WriterWork::class  => '//_writer-work-list-item',
+	\common\models\Cinema::className()      => 'index/_cinema-work-list-item',
+	\common\models\MusicWork::className()   => 'index//_music-work-list-item',
+	\common\models\PainterWork::className() => 'index/_painter-work-list-item',
+	\common\models\WriterWork::className()  => 'index/_writer-work-list-item',
 ];
 ?>
-<?php if ($aboutContent): ?>
-	<?= $aboutContent ?>
-<?php endif; ?>
-
-<?php if (!empty($lastWorkList)): ?>
-    <!-- Последние работы -->
-    <div>
-        <h3 class="text-center">Последние работы авторов</h3>
-
-        <div class="panel-group" id="accordion">
-			<?php foreach ($lastWorkList as $index => $data): ?>
-				<?php $itemId = uniqid() ?>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#<?= $itemId ?>">
-								<?= ArrayHelper::getValue($data, 'name') ?>
-                            </a>
-                        </h4>
-                    </div>
-
-                    <div id="<?= $itemId ?>" class="panel-collapse collapse <?= ($index == 0) ? 'in' : '' ?>">
-                        <div class="panel-body">
-							<?php
-							/** @var \yii\base\Model[] $items */
-							$items = ArrayHelper::getValue($data, 'items');
-							?>
-							<?php foreach ($items as $item): ?>
-								<?= $this->render($lastWorkViewMap[$item::className()], ['model' => $item]) ?>
-							<?php endforeach; ?>
-                        </div>
-                    </div>
-                </div>
-			<?php endforeach; ?>
+<div class="container">
+	<?php if ($aboutContent): ?>
+        <div class="intro-text">
+			<?= $aboutContent ?>
         </div>
-    </div>
-    <!-- Последние работы -->
-<?php endif; ?>
+	<?php endif; ?>
 
-<?php if (!empty($newsList)): ?>
-    <!-- Последние новости -->
-    <div>
-        <h3 class="text-center">Последние новости</h3>
+	<?php if (!empty($lastWorkList)): ?>
+        <!-- Последние работы -->
+		<?php foreach ($lastWorkList as $index => $data): ?>
+            <div class="site-title"><?= ArrayHelper::getValue($data, 'name') ?></div>
+
+            <div class="row">
+				<?php
+				/** @var \yii\base\Model[] $items */
+				$items = ArrayHelper::getValue($data, 'items');
+				?>
+				<?php foreach ($items as $item): ?>
+					<?= $this->render($lastWorkViewMap[$item::className()], ['model' => $item]) ?>
+				<?php endforeach; ?>
+            </div>
+		<?php endforeach; ?>
+        <!-- Последние работы -->
+	<?php endif; ?>
+
+	<?php if (!empty($newsList)): ?>
+        <!-- Последние новости -->
+        <div class="site-title">Последние новости</div>
 
 		<?php foreach ($newsList as $news): ?>
-			<?= $this->render('//_news-list-item', ['model' => $news]) ?>
+			<?= $this->render('index/_news-list-item', ['model' => $news]) ?>
 		<?php endforeach; ?>
-    </div>
-    <!-- Последние новости -->
-<?php endif; ?>
+        <!-- Последние новости -->
+	<?php endif; ?>
+</div>

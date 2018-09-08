@@ -38,7 +38,7 @@ class SiteController extends BaseController {
 			$aboutContent = $aboutBlock->content;
 		}
 
-		$countLastWorks = ArrayHelper::getValue(Yii::$app->params, 'homePage.countLastWorks', 5);
+		$countLastWorks = ArrayHelper::getValue(Yii::$app->params, 'homePage.countLastWorks', 3);
 
 		$lastWorkList = [
 			[

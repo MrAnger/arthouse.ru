@@ -8,12 +8,15 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 ?>
-<footer>
-    <div class="footer-content-wrapper">
-        <p>
-            Все права защищены © 2008 <a href="<?= Url::to('/', true) ?>"><?= Yii::$app->name ?></a>
-            <br/>
-            Идея: Филипп Канонит&nbsp;|&nbsp;Дизайн: Антон Бойм&nbsp;|&nbsp;Разработка: <a href="https://vk.com/mranger" target="_blank">Шарапов Вячеслав</a>
-        </p>
+<div class="footer">
+    <div class="footer-copyright">
+        Все права защищены © 2008 <a href="<?= Url::to('/', true) ?>"><?= Yii::$app->name ?></a>
+        <br/>
+        Идея: Филипп Канонит&nbsp;| Разработка: <a href="https://vk.com/mranger" target="_blank">Шарапов Вячеслав</a>
     </div>
-</footer>
+</div>
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
