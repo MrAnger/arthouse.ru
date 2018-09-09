@@ -34,15 +34,7 @@ use yii\helpers\ArrayHelper;
         </div>
     </div>
 
-	<?= $form->field($block, 'content')
-		->widget(AceEditor::className(), [
-			'mode'             => 'php',
-			'theme'            => 'chrome',
-			'containerOptions' => [
-				'style' => 'width: 100%; min-height: 550px',
-			],
-		])
-	?>
+	<?= $form->field($block, 'content')->widget(\mranger\ckeditor\CKEditor::class) ?>
 
     <div class="form-group text-right">
 		<?= Html::submitButton(($block->isNewRecord) ? Yii::t('app.actions', 'Create') : Yii::t('app.actions', 'Save'), ['class' => 'btn btn-primary']) ?>
