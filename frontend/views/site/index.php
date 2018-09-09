@@ -23,6 +23,18 @@ $lastWorkViewMap = [
         </div>
 	<?php endif; ?>
 
+	<?php if (!empty($newsList)): ?>
+        <!-- Последние новости -->
+        <div class="site-title">Последние новости</div>
+
+		<div class="row">
+			<?php foreach ($newsList as $news): ?>
+				<?= $this->render('index/_news-list-item', ['model' => $news]) ?>
+			<?php endforeach; ?>
+        </div>
+        <!-- Последние новости -->
+	<?php endif; ?>
+
 	<?php if (!empty($lastWorkList)): ?>
         <!-- Последние работы -->
 		<?php foreach ($lastWorkList as $index => $data): ?>
@@ -39,15 +51,5 @@ $lastWorkViewMap = [
             </div>
 		<?php endforeach; ?>
         <!-- Последние работы -->
-	<?php endif; ?>
-
-	<?php if (!empty($newsList)): ?>
-        <!-- Последние новости -->
-        <div class="site-title">Последние новости</div>
-
-		<?php foreach ($newsList as $news): ?>
-			<?= $this->render('index/_news-list-item', ['model' => $news]) ?>
-		<?php endforeach; ?>
-        <!-- Последние новости -->
 	<?php endif; ?>
 </div>

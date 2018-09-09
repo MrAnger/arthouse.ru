@@ -22,3 +22,25 @@ form span label {
 .has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
     color: #c90000;
 }
+
+.home-post .home-post-cover {
+    text-align: center;
+    height: 250px;
+    max-height: 250px;
+    overflow: hidden;
+}
+
+.home-post .home-post-cover img {
+    display: inline-block;
+    width: auto !important;
+    height: 250px !important;
+    max-height: 250px !important;
+}
+
+.home-post .home-post-details a {
+    color: #c90000;
+}
+
+.menu ul li a {
+    padding: 22px !important;
+}

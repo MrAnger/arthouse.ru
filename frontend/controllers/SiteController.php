@@ -42,6 +42,13 @@ class SiteController extends BaseController {
 
 		$lastWorkList = [
 			[
+				'name'  => 'Писательские работы',
+				'items' => WriterWork::find()
+					->orderBy(['created_at' => SORT_DESC])
+					->limit($countLastWorks)
+					->all(),
+			],
+			[
 				'name'  => 'Художественные работы',
 				'items' => PainterWork::find()
 					->orderBy(['created_at' => SORT_DESC])
@@ -51,13 +58,6 @@ class SiteController extends BaseController {
 			[
 				'name'  => 'Кинемотограф',
 				'items' => Cinema::find()
-					->orderBy(['created_at' => SORT_DESC])
-					->limit($countLastWorks)
-					->all(),
-			],
-			[
-				'name'  => 'Писательские работы',
-				'items' => WriterWork::find()
 					->orderBy(['created_at' => SORT_DESC])
 					->limit($countLastWorks)
 					->all(),
