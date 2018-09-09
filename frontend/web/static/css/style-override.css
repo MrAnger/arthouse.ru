@@ -33,6 +33,7 @@ form span label {
 .home-post .home-post-cover img {
     display: inline-block;
     width: auto !important;
+    max-width: unset !important;
     height: 250px !important;
     max-height: 250px !important;
 }
