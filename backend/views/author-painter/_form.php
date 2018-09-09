@@ -36,12 +36,6 @@ $imageManager = Yii::$app->imageManager;
 				])
 			?>
 
-			<?= $form->field($model, 'image_url')
-				->textInput([
-					'maxlength'   => true,
-					'placeholder' => 'http://',
-				]) ?>
-
             <div class="row">
                 <div class="col-md-6">
 					<?= $form->field($imageUploadForm, 'file')->fileInput([]) ?>
