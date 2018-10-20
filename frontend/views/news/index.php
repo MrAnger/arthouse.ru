@@ -10,38 +10,25 @@ use yii\helpers\ArrayHelper;
 
 $this->title = 'Новости';
 ?>
-<div>
-    <div class="pull-left">
-        <h1><?= $this->title ?></h1>
+<div class="container">
+    <div class="site-title">
+        Новости
     </div>
 
-    <div class="pull-right" style="margin-top: 20px;">
-		<?= Html::a('Архивные', ['archive'], [
-			'class'     => 'btn btn-primary',
-			'data-pjax' => '0',
-		]) ?>
-    </div>
-
-    <div class="clearfix"></div>
+	<?= \yii\widgets\ListView::widget([
+		'dataProvider' => $dataProvider,
+		'summary'      => false,
+		'layout' => "{summary}\n{items}\n<div class='col-md-12 text-center'>{pager}</div>",
+		'itemOptions'  => [
+			'tag' => false,
+		],
+		'options'      => [
+			'class' => 'row',
+		],
+		'itemView'     => function ($model, $key, $index, $widget) {
+			return $this->render('//_news-list-item', [
+				'model' => $model,
+			]);
+		},
+	]) ?>
 </div>
-
-<?php \yii\widgets\Pjax::begin([
-	'enablePushState'    => false,
-	'enableReplaceState' => true,
-	'timeout'            => 6000,
-]) ?>
-
-<?= \yii\widgets\ListView::widget([
-	'dataProvider' => $dataProvider,
-	'summary'      => false,
-	'itemOptions'  => [
-		'tag' => false,
-	],
-	'itemView'     => function ($model, $key, $index, $widget) {
-		return $this->render('//_news-list-item', [
-			'model' => $model,
-		]);
-	},
-]) ?>
-
-<?php \yii\widgets\Pjax::end() ?>

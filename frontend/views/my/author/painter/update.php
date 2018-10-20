@@ -9,10 +9,10 @@ use yii\helpers\Url;
  * @var \common\models\ImageUploadForm $imageUploadForm
  */
 
-$this->title = $model->name . ' - Художественные работы';
+$this->title = $model->name . ' - Галерея';
 
 $this->params['breadcrumbs'] = [
-	['label' => 'Художественные работы', 'url' => ['index']],
+	['label' => 'Галерея', 'url' => ['index']],
 	$model->name,
 ];
 ?>

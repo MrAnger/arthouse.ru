@@ -9,10 +9,10 @@ use yii\helpers\Url;
  * @var \backend\models\NewsSearch $searchModel
  */
 
-$this->title = 'Кинемотография';
+$this->title = 'Кинематограф';
 
 $this->params['breadcrumbs'] = [
-	'Кинемотография',
+	'Кинематограф',
 ];
 
 ?>

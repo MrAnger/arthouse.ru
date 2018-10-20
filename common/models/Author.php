@@ -13,6 +13,7 @@ use Yii;
  * @property int $is_cinematographer
  * @property int $is_writer
  * @property int $is_musician
+ * @property int $is_photo
  *
  * @property User $user
  */
@@ -30,7 +31,7 @@ class Author extends \yii\db\ActiveRecord {
 	public function rules() {
 		return [
 			[['user_id'], 'required'],
-			[['user_id', 'is_painter', 'is_cinematographer', 'is_writer', 'is_musician'], 'integer'],
+			[['user_id', 'is_painter', 'is_cinematographer', 'is_writer', 'is_musician', 'is_photo'], 'integer'],
 			[['user_id'], 'unique'],
 			[['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
 		];
@@ -43,10 +44,11 @@ class Author extends \yii\db\ActiveRecord {
 		return [
 			'id'                 => 'ID',
 			'user_id'            => 'Пользователь',
-			'is_painter'         => 'Художник',
-			'is_cinematographer' => 'Киношник',
-			'is_writer'          => 'Писатель',
-			'is_musician'        => 'Музыкант',
+			'is_painter'         => 'Галерея',
+			'is_cinematographer' => 'Кинематограф',
+			'is_writer'          => 'Литература',
+			'is_musician'        => 'Музыка',
+			'is_photo'           => 'Фото',
 		];
 	}
 
@@ -63,6 +65,7 @@ class Author extends \yii\db\ActiveRecord {
 	public static function getWorkTypeAttributes() {
 		return [
 			'is_painter',
+			'is_photo',
 			'is_cinematographer',
 			'is_writer',
 			'is_musician',

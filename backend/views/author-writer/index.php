@@ -12,12 +12,12 @@ use yii\helpers\Url;
  * @var \backend\models\WriterWorkSearch $searchModel
  */
 
-$this->title = 'Писательские работы - ' . $author->user->displayName;
+$this->title = 'Литература - ' . $author->user->displayName;
 
 $this->params['breadcrumbs'] = [
 	['label' => 'Список авторов', 'url' => ['/author/index']],
 	['label' => $author->user->displayName, 'url' => ['/author/view', 'id' => $author->id]],
-	'Писательские работы',
+	'Литература',
 ];
 
 ?>

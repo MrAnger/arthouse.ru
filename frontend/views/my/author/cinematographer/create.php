@@ -12,7 +12,7 @@ use yii\helpers\Url;
 $this->title = 'Создать работу';
 
 $this->params['breadcrumbs'] = [
-	['label' => 'Кинемотограф', 'url' => ['index']],
+	['label' => 'Кинематограф', 'url' => ['index']],
 	'Создать',
 ];
 ?>

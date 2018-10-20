@@ -9,6 +9,7 @@ class ThemeAsset extends AssetBundle {
 	public $baseUrl = '@web/theme';
 	public $css = [
 		'https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,600,700,800',
+		//'css/bootstrap.css',
 		'css/style.css',
 	];
 	public $js = [

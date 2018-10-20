@@ -7,6 +7,8 @@ use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
+ * @property Profile $profile
+ *
  * @property string $displayName
  * @property Author $author
  */

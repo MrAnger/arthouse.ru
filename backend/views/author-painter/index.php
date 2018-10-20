@@ -12,7 +12,7 @@ use yii\helpers\Url;
  * @var \backend\models\PainterWorkSearch $searchModel
  */
 
-$this->title = 'Художественные работы - ' . $author->user->displayName;
+$this->title = 'Галерея - ' . $author->user->displayName;
 
 $this->params['breadcrumbs'] = [
 	['label' => 'Список авторов', 'url' => ['/author/index']],

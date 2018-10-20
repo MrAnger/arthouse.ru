@@ -12,12 +12,12 @@ use yii\helpers\Url;
  * @var \backend\models\NewsSearch $searchModel
  */
 
-$this->title = 'Кинемотография - ' . $author->user->displayName;
+$this->title = 'Кинематограф - ' . $author->user->displayName;
 
 $this->params['breadcrumbs'] = [
 	['label' => 'Список авторов', 'url' => ['/author/index']],
 	['label' => $author->user->displayName, 'url' => ['/author/view', 'id' => $author->id]],
-	'Кинемотография',
+	'Кинематограф',
 ];
 
 ?>

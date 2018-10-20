@@ -8,10 +8,10 @@ use yii\helpers\Url;
  * @var \common\models\WriterWork $model
  */
 
-$this->title = $model->name . ' - Писательские работы';
+$this->title = $model->name . ' - Литература';
 
 $this->params['breadcrumbs'] = [
-	['label' => 'Писательские работы', 'url' => ['index']],
+	['label' => 'Литература', 'url' => ['index']],
 	$model->name,
 ];
 ?>

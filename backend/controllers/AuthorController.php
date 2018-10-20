@@ -5,10 +5,13 @@ namespace backend\controllers;
 use backend\helpers\AuthorHelper;
 use backend\models\AuthorSearch;
 use common\models\Author;
+use common\models\ImageUploadForm;
 use common\models\User;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
+use yii\web\UploadedFile;
 
 /**
  * @author MrAnger
@@ -41,6 +44,30 @@ class AuthorController extends BaseController {
 		return $this->render('update', [
 			'model' => $model,
 		]);
+	}
+
+	public function actionUploadAvatar($id) {
+		Yii::$app->response->format = Response::FORMAT_JSON;
+
+		$author = $this->findModel($id);
+		$profile = $author->user->profile;
+
+		$imageManager = Yii::$app->imageManager;
+		$imageUploadForm = new ImageUploadForm();
+
+		$imageUploadForm->load(Yii::$app->request->post());
+
+		$imageUploadForm->file = UploadedFile::getInstance($imageUploadForm, 'file');
+
+		if ($imageUploadForm->validate() && $imageUploadForm->file !== null) {
+			$imageEntry = $imageManager->upload($imageUploadForm->file);
+
+			$profile->updateAttributes(['avatar_image_id' => $imageEntry->id]);
+		} else {
+			Yii::$app->session->addFlash('warning', $imageUploadForm->validate());
+		}
+
+		return true;
 	}
 
 	public function actionView($id) {

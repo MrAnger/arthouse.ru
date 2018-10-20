@@ -12,12 +12,12 @@ use yii\helpers\Url;
  * @var \backend\models\MusicWorkSearch $searchModel
  */
 
-$this->title = 'Музыкальные работы - ' . $author->user->displayName;
+$this->title = 'Музыка - ' . $author->user->displayName;
 
 $this->params['breadcrumbs'] = [
 	['label' => 'Список авторов', 'url' => ['/author/index']],
 	['label' => $author->user->displayName, 'url' => ['/author/view', 'id' => $author->id]],
-	'Музыкальные работы',
+	'Музыка',
 ];
 
 ?>

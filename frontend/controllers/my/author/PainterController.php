@@ -41,7 +41,7 @@ class PainterController extends BaseController {
 		$model = new PainterWork([
 			'author_id' => $this->author->id,
 		]);
-		$imageUploadForm = new ImageUploadForm();
+		$imageUploadForm = new ImageUploadForm(['isFileRequired' => true]);
 
 		if (Yii::$app->request->isPost) {
 			$model->load(Yii::$app->request->post());

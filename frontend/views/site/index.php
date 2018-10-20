@@ -18,9 +18,9 @@ $lastWorkViewMap = [
 ?>
 <div class="container">
 	<?php if ($aboutContent): ?>
-        <div class="intro-text">
+        <!--<div class="intro-text">
 			<?= $aboutContent ?>
-        </div>
+        </div>-->
 	<?php endif; ?>
 
 	<?php if (!empty($newsList)): ?>

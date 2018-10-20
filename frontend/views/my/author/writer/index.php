@@ -9,10 +9,10 @@ use yii\helpers\Url;
  * @var \backend\models\WriterWorkSearch $searchModel
  */
 
-$this->title = 'Писательские работы';
+$this->title = 'Литература';
 
 $this->params['breadcrumbs'] = [
-	'Писательские работы',
+	'Литература',
 ];
 
 ?>

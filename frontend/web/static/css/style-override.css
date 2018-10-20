@@ -45,3 +45,20 @@ form span label {
 .menu ul li a {
     padding: 22px !important;
 }
+
+html, body {
+    height: 100%;
+}
+
+body > .content {
+    min-height: 70%;
+}
+
+.pagination > li > a {
+    color: #c90000;
+}
+
+.pagination > .active > a {
+    background-color: #c90000;
+    border-color: #c90000;
+}

@@ -11,12 +11,12 @@ use yii\helpers\Url;
  * @var \common\models\WriterWork $model
  */
 
-$this->title = $model->name . ' - Писательские работы - ' . $author->user->displayName;
+$this->title = $model->name . ' - Литература - ' . $author->user->displayName;
 
 $this->params['breadcrumbs'] = [
 	['label' => 'Список авторов', 'url' => ['/author/index']],
 	['label' => $author->user->displayName, 'url' => ['/author/view', 'id' => $author->id]],
-	['label' => 'Писательские работы', 'url' => ['/author-writer/index', 'authorId' => $author->id]],
+	['label' => 'Литература', 'url' => ['/author-writer/index', 'authorId' => $author->id]],
 	$model->name,
 ];
 ?>

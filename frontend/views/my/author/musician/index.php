@@ -9,10 +9,10 @@ use yii\helpers\Url;
  * @var \backend\models\MusicWorkSearch $searchModel
  */
 
-$this->title = 'Музыкальные работы';
+$this->title = 'Музыка';
 
 $this->params['breadcrumbs'] = [
-	'Музыкальные работы',
+	'Музыка',
 ];
 
 ?>

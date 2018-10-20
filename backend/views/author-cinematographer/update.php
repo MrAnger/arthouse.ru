@@ -12,12 +12,12 @@ use yii\helpers\Url;
  * @var \common\models\ImageUploadForm $imageUploadForm
  */
 
-$this->title = $model->name . ' - Кинемотограф - ' . $author->user->displayName;
+$this->title = $model->name . ' - Кинематограф - ' . $author->user->displayName;
 
 $this->params['breadcrumbs'] = [
 	['label' => 'Список авторов', 'url' => ['/author/index']],
 	['label' => $author->user->displayName, 'url' => ['/author/view', 'id' => $author->id]],
-	['label' => 'Кинемотограф', 'url' => ['/author-cinematographer/index', 'authorId' => $author->id]],
+	['label' => 'Кинематограф', 'url' => ['/author-cinematographer/index', 'authorId' => $author->id]],
 	$model->name,
 ];
 ?>

@@ -9,10 +9,10 @@ use yii\helpers\Url;
  * @var \backend\models\PainterWorkSearch $searchModel
  */
 
-$this->title = 'Художественные работы';
+$this->title = 'Галерея';
 
 $this->params['breadcrumbs'] = [
-	'Художественные работы',
+	'Галерея',
 ];
 
 ?>

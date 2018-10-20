@@ -11,12 +11,23 @@ class ImageUploadForm extends Model {
 	public $file;
 
 	/**
+	 * @var boolean
+	 */
+	public $isFileRequired = false;
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function rules() {
-		return [
-			[['file'], 'file', 'extensions' => ['jpg', 'jpeg', 'png', 'bmp', 'gif']],
-		];
+		$list = [];
+
+		if ($this->isFileRequired) {
+			$list[] = [['file'], 'required'];
+		}
+
+		$list[] = [['file'], 'file', 'extensions' => ['jpg', 'jpeg', 'png', 'bmp', 'gif']];
+
+		return $list;
 	}
 
 	/**

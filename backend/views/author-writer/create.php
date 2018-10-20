@@ -16,7 +16,7 @@ $this->title = 'Создать работу - ' . $author->user->displayName;
 $this->params['breadcrumbs'] = [
 	['label' => 'Список авторов', 'url' => ['/author/index']],
 	['label' => $author->user->displayName, 'url' => ['/author/view', 'id' => $author->id]],
-	['label' => 'Писательские работы', 'url' => ['/author-writer/index', 'authorId' => $author->id]],
+	['label' => 'Литература', 'url' => ['/author-writer/index', 'authorId' => $author->id]],
 	'Создать',
 ];
 ?>
