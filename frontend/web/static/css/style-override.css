@@ -19,6 +19,10 @@ form span label {
     margin-bottom: unset !important;
 }
 
+.contact-area {
+    margin: 0 0 -10px 0 !important;
+}
+
 .has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
     color: #c90000;
 }

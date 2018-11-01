@@ -98,6 +98,7 @@ class SiteController extends BaseController {
 		$this->view->title = 'Контакты';
 
 		$feedbackForm = new Feedback();
+		$requestForm = new AuthorRequest();
 
 		$content = null;
 
@@ -113,34 +114,16 @@ class SiteController extends BaseController {
 			return $this->refresh();
 		}
 
-		return $this->render('contacts', [
-			'feedbackForm' => $feedbackForm,
-			'content'      => $content,
-		]);
-	}
-
-	public function actionAuthorRequest() {
-		$this->view->title = 'Заявка автора';
-
-		$requestForm = new AuthorRequest();
-
-		$content = null;
-
-		/** @var Block $block */
-		$block = Block::findOne(['code' => 'author-request']);
-		if ($block !== null) {
-			$content = $block->content;
-		}
-
 		if ($requestForm->load(Yii::$app->request->post()) && $requestForm->save()) {
 			Yii::$app->session->addFlash('success', 'Ваша заявка успешно отправлена.');
 
 			return $this->refresh();
 		}
 
-		return $this->render('author-request', [
-			'requestForm' => $requestForm,
-			'content'     => $content,
+		return $this->render('contacts', [
+			'feedbackForm' => $feedbackForm,
+			'requestForm'  => $requestForm,
+			'content'      => $content,
 		]);
 	}
 }

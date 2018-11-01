@@ -15,7 +15,10 @@ FrontendAsset::register($this);
 <?= $this->render('_header') ?>
 
     <div class="content">
-		<?= \common\widgets\Alert::widget() ?>
+        <div class="container">
+			<?= \common\widgets\Alert::widget() ?>
+        </div>
+
 		<?= $content ?>
     </div>
 

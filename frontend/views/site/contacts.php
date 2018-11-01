@@ -3,6 +3,7 @@
 /**
  * @var yii\web\View $this
  * @var \common\models\Feedback $feedbackForm
+ * @var \common\models\AuthorRequest $requestForm
  * @var string $content
  */
 
@@ -70,7 +71,50 @@
         </div>
 
         <div class="col-md-6">
-            <p>Здесь будет заявка на авторство</p>
+            <div class="contact-form-box">
+                <h2 class="contact-form-title">Стать автором</h2>
+
+				<?php $formAuthorRequest = \yii\widgets\ActiveForm::begin([
+					'enableClientValidation' => true,
+					'fieldConfig'            => [
+						'template'     => "{input}\n<span class='contact-label'>{label}</span>\n{error}\n{hint}",
+						'inputOptions' => [
+							'class' => 'contact-line',
+						],
+						'labelOptions' => [
+							'class' => null,
+						],
+						'options'      => [
+
+						],
+					],
+					'options'                => [
+						'class' => 'contact-form',
+					],
+				]) ?>
+
+				<?= $formAuthorRequest->field($requestForm, 'name')
+					->textInput(['maxlength' => true])
+				?>
+
+				<?= $formAuthorRequest->field($requestForm, 'email')
+					->textInput(['maxlength' => true])
+				?>
+
+				<?= $formAuthorRequest->field($requestForm, 'about', ['inputOptions' => ['class' => 'contact-area']])
+					->label('О себе')
+					->textarea([
+						'maxlength'   => true,
+						'placeholder' => 'Напишите немного о себе',
+						'rows'        => 6,
+						'style'       => 'height: 218px;',
+					])
+				?>
+
+				<?= \yii\helpers\Html::submitButton('Отправить', ['class' => 'contact-button']) ?>
+
+				<?php \yii\widgets\ActiveForm::end() ?>
+            </div>
         </div>
     </div>
 </div>
