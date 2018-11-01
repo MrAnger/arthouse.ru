@@ -9,7 +9,7 @@ use yii\helpers\Url;
  * @var \common\models\ImageUploadForm $imageUploadForm
  */
 
-$cinemaUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-cinema-by-slug/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
+$cinemaUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author-cinematographer/view/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
 
 $imageManager = Yii::$app->imageManager;
 ?>

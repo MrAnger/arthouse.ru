@@ -24,7 +24,7 @@ use yii\helpers\Url;
 
     <div class="menu site-bg-color">
         <div class="container">
-            <?= $this->render('/_main-menu') ?>
+            <?= $this->render('//_main-menu') ?>
         </div>
     </div>
 </div>

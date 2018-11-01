@@ -9,7 +9,7 @@ use yii\helpers\Url;
  * @var \common\models\ImageUploadForm $imageUploadForm
  */
 
-$musicUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-music-work-by-slug/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
+$musicUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author-musician/view/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
 
 $imageManager = Yii::$app->imageManager;
 ?>

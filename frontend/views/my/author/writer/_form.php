@@ -9,7 +9,7 @@ use yii\helpers\Url;
  * @var \common\models\ImageUploadForm $imageUploadForm
  */
 
-$workUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-writer-work-by-slug/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
+$workUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author-writer/view/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
 ?>
 <div>
 	<?php $form = \yii\widgets\ActiveForm::begin([

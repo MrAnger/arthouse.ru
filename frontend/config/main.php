@@ -18,6 +18,7 @@ $config = [
 				'security'     => 'frontend\controllers\SecurityController',
 				'recovery'     => 'frontend\controllers\RecoveryController',
 				'registration' => 'frontend\controllers\RegistrationController',
+				'settings'     => 'frontend\controllers\SettingsController',
 			],
 		],
 		'sitemap' => [

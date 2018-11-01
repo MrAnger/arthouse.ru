@@ -1,12 +1,12 @@
 <?php
+
 namespace frontend\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
 
 /**
  * @author MrAnger
  */
-class RecoveryController extends \Da\User\Controller\RecoveryController {
+class SettingsController extends \Da\User\Controller\SettingsController {
 	public $layout = '//main-wrapped';
 }

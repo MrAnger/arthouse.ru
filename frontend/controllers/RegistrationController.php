@@ -7,5 +7,5 @@ use Yii;
  * @author MrAnger
  */
 class RegistrationController extends \Da\User\Controller\RegistrationController {
-	//public $layout = '/user';
+	public $layout = '//main-wrapped';
 }

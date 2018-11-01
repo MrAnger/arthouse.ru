@@ -13,7 +13,7 @@ $formatter = Yii::$app->formatter;
 $newsUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/news/view-by-slug', 'slug' => 'URL'], true);
 
 if ($model->author_id !== null) {
-	$newsUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-news-by-slug/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
+	$newsUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author-news/view/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
 }
 ?>
 <div>

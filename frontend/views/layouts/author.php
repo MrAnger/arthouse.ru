@@ -11,7 +11,7 @@ use frontend\assets\FrontendAsset;
 
 FrontendAsset::register($this);
 ?>
-<?php $this->beginContent('@app/views/layouts/main.php') ?>
+<?php $this->beginContent('@app/views/layouts/main-wrapped.php') ?>
 
 <?php if (isset($this->params['breadcrumbs'])): ?>
 	<?= \yii\widgets\Breadcrumbs::widget([
