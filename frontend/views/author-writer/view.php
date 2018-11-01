@@ -15,8 +15,10 @@ $formatter = Yii::$app->formatter;
 
 $authorText = Html::a($model->author->user->displayName, ['/author/view', 'username' => $model->author->user->username]);
 ?>
-<div>
-    <div class="h1"><?= $author->user->displayName ?></div>
+<div class="container">
+    <div class="site-title">
+		<?= $author->user->displayName ?>
+    </div>
 
 	<?= $this->render('//_author-menu', [
 		'activeSection' => $activeSection,
@@ -26,14 +28,16 @@ $authorText = Html::a($model->author->user->displayName, ['/author/view', 'usern
     <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="<?= $activeSection ?>" style="margin-top: 15px;">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h1>
-						<?= $model->name ?>
-                        <br>
-                        <small style="font-size: small;"><?= $formatter->asDate($model->created_at) ?>
-                            / <?= $authorText ?></small>
-                    </h1>
+            <div class="blog-entry">
+                <div class="entry-header">
+                    <h1 style="margin-bottom: 0;"><?= $model->name ?></h1>
+                </div>
+
+                <div class="entry-content-details" style="margin-bottom: 10px;">
+					<?= $formatter->asDate($model->created_at) ?> / <?= $authorText ?>
+                </div>
+
+                <div class="entry-content">
 					<?= $model->content ?>
                 </div>
             </div>

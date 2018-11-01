@@ -19,6 +19,7 @@ class AuthorController extends BaseController {
 		$dataProvider = new ActiveDataProvider([
 			'query' => Author::find()
 				->joinWith('user.profile upt')
+				->joinWith('user.profile.avatarImage')
 				->orderBy(['upt.name' => SORT_ASC]),
 		]);
 

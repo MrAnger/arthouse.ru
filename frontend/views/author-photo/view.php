@@ -5,7 +5,7 @@
  * @var \common\models\Author $author
  * @var string $activeSection
  * @var array $sectionList
- * @var \common\models\PainterWork $model
+ * @var \common\models\PhotoWork $model
  */
 
 use yii\helpers\Html;

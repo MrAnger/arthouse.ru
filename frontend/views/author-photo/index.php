@@ -37,7 +37,7 @@ use yii\helpers\ArrayHelper;
 					'style' => 'margin-right: 0;',
 				],
 				'itemView'     => function ($model, $key, $index, $widget) {
-					return $this->render('//_writer-work-list-item', [
+					return $this->render('//_photo-work-list-item', [
 						'model' => $model,
 					]);
 				},

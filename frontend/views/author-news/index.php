@@ -12,8 +12,10 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
 ?>
-<div>
-    <h1><?= $author->user->displayName ?></h1>
+<div class="container">
+    <div class="site-title">
+		<?= $author->user->displayName ?>
+    </div>
 
 	<?= $this->render('//_author-menu', [
 		'activeSection' => $activeSection,
@@ -23,17 +25,16 @@ use yii\helpers\ArrayHelper;
     <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="<?= $activeSection ?>" style="margin-top: 15px;">
-			<?php \yii\widgets\Pjax::begin([
-				'enablePushState'    => false,
-				'enableReplaceState' => true,
-				'timeout'            => 6000,
-			]) ?>
-
 			<?= \yii\widgets\ListView::widget([
 				'dataProvider' => $dataProvider,
+				'layout'       => "{summary}\n{items}\n<div class='col-md-12 text-center'>{pager}</div>",
 				'summary'      => false,
 				'itemOptions'  => [
 					'tag' => false,
+				],
+				'options'      => [
+					'class' => 'row',
+					'style' => 'margin-right: 0;',
 				],
 				'itemView'     => function ($model, $key, $index, $widget) {
 					return $this->render('//_news-list-item', [
@@ -41,8 +42,6 @@ use yii\helpers\ArrayHelper;
 					]);
 				},
 			]) ?>
-
-			<?php \yii\widgets\Pjax::end() ?>
         </div>
     </div>
 </div>

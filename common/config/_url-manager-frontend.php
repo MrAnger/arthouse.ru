@@ -35,6 +35,8 @@ return [
 		['pattern' => 'author/<username>/music-work/<slug>', 'route' => '/author-musician/view', 'suffix' => '/'],
 		['pattern' => 'author/<username>/painter-work', 'route' => '/author-painter/index', 'suffix' => '/'],
 		['pattern' => 'author/<username>/painter-work/<slug>', 'route' => '/author-painter/view', 'suffix' => '/'],
+		['pattern' => 'author/<username>/photo-work', 'route' => '/author-photo/index', 'suffix' => '/'],
+		['pattern' => 'author/<username>/photo-work/<slug>', 'route' => '/author-photo/view', 'suffix' => '/'],
 		['pattern' => 'author/<username>/photo-work', 'route' => '/author-painter/index', 'suffix' => '/'],
 		['pattern' => 'author/<username>/photo-work/<slug>', 'route' => '/author-painter/view', 'suffix' => '/'],
 	],

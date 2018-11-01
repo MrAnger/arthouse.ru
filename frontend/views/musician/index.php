@@ -8,25 +8,25 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
+$this->title = 'Музыка';
 ?>
 <div class="container">
     <div class="site-title">
-        Авторы
+		<?= $this->title ?>
     </div>
 
 	<?= \yii\widgets\ListView::widget([
 		'dataProvider' => $dataProvider,
-		'layout'       => "{summary}\n{items}\n<div class='col-md-12 text-center'>{pager}</div>",
 		'summary'      => false,
+		'layout'       => "{summary}\n{items}\n<div class='col-md-12 text-center'>{pager}</div>",
 		'itemOptions'  => [
 			'tag' => false,
 		],
 		'options'      => [
 			'class' => 'row',
-			'style' => 'margin-right: 0;',
 		],
 		'itemView'     => function ($model, $key, $index, $widget) {
-			return $this->render('_list-item', [
+			return $this->render('//_music-work-list-item', [
 				'model' => $model,
 			]);
 		},

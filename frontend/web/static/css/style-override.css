@@ -62,3 +62,34 @@ body > .content {
     background-color: #c90000;
     border-color: #c90000;
 }
+
+/*
+ * ТАБЫ
+ */
+.nav.nav-tabs a {
+    color: #c90000;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #fff;
+    background-color: #c90000;
+    border: 1px solid #c90000;
+}
+
+.nav-tabs > li > a:hover {
+    color: #fff;
+    border-color: #c90000 #c90000 #c90000;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    color: #fff;
+    background-color: #c90000;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #c90000;
+}
+
+.entry-content-details a, .entry-content a {
+    color: #c90000 !important;
+}
