@@ -26,6 +26,10 @@ $mainMenuItems = [
 		'url'   => ['/author/index'],
 	],
 	[
+		'label' => 'Слайдеры',
+		'url'   => ['/slider-manager/index'],
+	],
+	[
 		'label' => 'Заявки в  авторы',
 		'url'   => ['/author-request/index'],
 		'count' => \common\models\AuthorRequest::find()

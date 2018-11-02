@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use MrAnger\Yii2_ImageManager\models\Image;
 use Yii;
 use yii\base\Model;
 use yii\web\UploadedFile;
@@ -37,5 +38,22 @@ class ImageUploadForm extends Model {
 		return [
 			'file' => 'Файл изображения',
 		];
+	}
+
+	public function getFileInstance() {
+		$this->file = UploadedFile::getInstance($this, 'file');
+	}
+
+	/**
+	 * @return Image
+	 *
+	 * @throws \Exception
+	 */
+	public function upload() {
+		if ($this->file === null) {
+			return null;
+		}
+
+		return Yii::$app->imageManager->upload($this->file);
 	}
 }
