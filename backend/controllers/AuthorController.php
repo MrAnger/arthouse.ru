@@ -64,7 +64,7 @@ class AuthorController extends BaseController {
 
 			$profile->updateAttributes(['avatar_image_id' => $imageEntry->id]);
 		} else {
-			Yii::$app->session->addFlash('warning', $imageUploadForm->validate());
+			Yii::$app->session->addFlash('warning', $imageUploadForm->getFirstError('file'));
 		}
 
 		return true;

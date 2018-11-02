@@ -108,3 +108,7 @@ body > .content {
 .entry-content-details a, .entry-content a {
     color: #c90000 !important;
 }
+
+.alert {
+    color: #fff;
+}

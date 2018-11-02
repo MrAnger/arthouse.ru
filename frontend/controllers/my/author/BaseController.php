@@ -38,7 +38,7 @@ abstract class BaseController extends \frontend\controllers\BaseController {
 		$this->author = $user->author;
 
 		if ($this->author === null) {
-			throw new ForbiddenHttpException("Доступ разрешен только авторам.");
+			//throw new ForbiddenHttpException("Доступ разрешен только авторам.");
 		}
 	}
 
