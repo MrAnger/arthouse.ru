@@ -8,6 +8,7 @@ return array_merge(
 		'toolbarGroups' => [
 			['name' => 'basicstyles', 'groups' => ['basicstyles', 'cleanup', 'list', 'colors']],
 			['name' => 'paragraph', 'groups' => ['align']],
+			['name' => 'links'],
 			/*['name' => 'document', 'groups' => ['mode']],*/
 		],
 		'height'        => 180,

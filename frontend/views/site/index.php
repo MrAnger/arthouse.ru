@@ -24,6 +24,8 @@ $lastWorkViewMap = [
         </div>-->
 	<?php endif; ?>
 
+    <?= $this->render('_index-slider') ?>
+
 	<?php if (!empty($newsList)): ?>
         <!-- Последние новости -->
         <div class="site-title">Последние новости</div>

@@ -112,3 +112,17 @@ body > .content {
 .alert {
     color: #fff;
 }
+
+.the-slider .the-bullets {
+    height: 383px;
+    background: #111;
+}
+
+.the-slider .the-bullets li {
+    padding-left: 25px !important;
+    overflow: hidden;
+}
+
+.the-slider .the-bullets li a {
+    color: #c90000;
+}
