@@ -10,10 +10,11 @@ use yii\helpers\ArrayHelper;
  */
 
 $lastWorkViewMap = [
-	\common\models\Cinema::className()      => 'index/_cinema-work-list-item',
-	\common\models\MusicWork::className()   => 'index//_music-work-list-item',
-	\common\models\PainterWork::className() => 'index/_painter-work-list-item',
-	\common\models\WriterWork::className()  => 'index/_writer-work-list-item',
+	\common\models\Cinema::className()      => '//_cinema-work-list-item',
+	\common\models\MusicWork::className()   => '//_music-work-list-item',
+	\common\models\PainterWork::className() => '//_painter-work-list-item',
+	\common\models\PhotoWork::className()   => '//_photo-work-list-item',
+	\common\models\WriterWork::className()  => '//_writer-work-list-item',
 ];
 ?>
 <div class="container">
@@ -27,9 +28,9 @@ $lastWorkViewMap = [
         <!-- Последние новости -->
         <div class="site-title">Последние новости</div>
 
-		<div class="row">
+        <div class="row">
 			<?php foreach ($newsList as $news): ?>
-				<?= $this->render('index/_news-list-item', ['model' => $news]) ?>
+				<?= $this->render('//_news-list-item', ['model' => $news]) ?>
 			<?php endforeach; ?>
         </div>
         <!-- Последние новости -->

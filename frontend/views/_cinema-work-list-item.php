@@ -39,7 +39,9 @@ if ($model->image_id) {
 			<?= $formatter->asDate($model->created_at) ?> / <?= $authorText ?>
         </div>
 
-		<?= $model->description ?>
+        <div class="intro-text">
+			<?= $model->description ?>
+        </div>
 
         <div class="home-post-more">
             <a class="click-more" href="<?= $modelUrl ?>">Подробнее</a>

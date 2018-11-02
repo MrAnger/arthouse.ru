@@ -29,7 +29,9 @@ $modelUrl = \common\helpers\NewsHelper::getNewsFrontendUrl($model);
 			<?= $formatter->asDate($model->created_at) ?> / <?= $authorText ?>
         </div>
 
-		<?= $model->intro ?>
+		<div class="intro-text">
+			<?= $model->intro ?>
+        </div>
 
         <div class="home-post-more">
             <a class="click-more" href="<?= $modelUrl ?>">Подробнее</a>

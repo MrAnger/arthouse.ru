@@ -46,6 +46,17 @@ form span label {
     color: #c90000;
 }
 
+.home-post .intro-text {
+    height: 40px;
+    max-height: 40px;
+    overflow: hidden;
+}
+
+.home-post .home-post-title {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .menu ul li a {
     padding: 22px 15px !important;
 }

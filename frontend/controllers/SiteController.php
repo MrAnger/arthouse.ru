@@ -9,6 +9,7 @@ use common\models\Feedback;
 use common\models\MusicWork;
 use common\models\News;
 use common\models\PainterWork;
+use common\models\PhotoWork;
 use common\models\WriterWork;
 use Yii;
 use yii\db\Expression;
@@ -56,6 +57,13 @@ class SiteController extends BaseController {
 					->all(),
 			],
 			[
+				'name'  => 'Фото',
+				'items' => PhotoWork::find()
+					->orderBy(['created_at' => SORT_DESC])
+					->limit($countLastWorks)
+					->all(),
+			],
+			[
 				'name'  => 'Кинематограф',
 				'items' => Cinema::find()
 					->orderBy(['created_at' => SORT_DESC])
@@ -63,7 +71,7 @@ class SiteController extends BaseController {
 					->all(),
 			],
 			[
-				'name'  => 'Музыкальные работы',
+				'name'  => 'Музыка',
 				'items' => MusicWork::find()
 					->orderBy(['created_at' => SORT_DESC])
 					->limit($countLastWorks)
