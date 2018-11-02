@@ -18,6 +18,7 @@ $sliderItems = [];
 if ($slider) {
 	$sliderItems = $slider->getItems()
 		->andWhere(['=', 'is_enabled', 1])
+		->limit(3)
 		->all();
 }
 ?>
