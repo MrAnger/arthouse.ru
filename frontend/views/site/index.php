@@ -11,6 +11,7 @@ use yii\helpers\ArrayHelper;
 
 $lastWorkViewMap = [
 	\common\models\Cinema::className()      => '//_cinema-work-list-item',
+	\common\models\Theater::className()     => '//_theater-work-list-item',
 	\common\models\MusicWork::className()   => '//_music-work-list-item',
 	\common\models\PainterWork::className() => '//_painter-work-list-item',
 	\common\models\PhotoWork::className()   => '//_photo-work-list-item',
@@ -24,7 +25,7 @@ $lastWorkViewMap = [
         </div>-->
 	<?php endif; ?>
 
-    <?= $this->render('_index-slider') ?>
+	<?= $this->render('_index-slider') ?>
 
 	<?php if (!empty($newsList)): ?>
         <!-- Последние новости -->
