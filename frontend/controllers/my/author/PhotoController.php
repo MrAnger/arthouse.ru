@@ -222,7 +222,7 @@ class PhotoController extends BaseController {
 			return true;
 		}
 
-		$this->checkAccessToImage($model);
+		$this->checkAccessToImage($model->image);
 
 		$model->delete();
 		Yii::$app->imageManager->deleteImage($model->image);
@@ -240,7 +240,7 @@ class PhotoController extends BaseController {
 			throw new NotFoundHttpException("PhotoWorkImage[IMAGE_ID: $imageId] not found.");
 		}
 
-		$this->checkAccessToImage($model);
+		$this->checkAccessToImage($model->image);
 
 		return $model->moveToPosition($order);
 	}

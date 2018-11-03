@@ -16,7 +16,7 @@ $this->params['breadcrumbs'] = [
 ];
 ?>
 <div>
-	<?= $this->render('_form', [
+	<?= $this->render('@backend/views/_news-form', [
 		'model' => $model,
 	]) ?>
 </div>

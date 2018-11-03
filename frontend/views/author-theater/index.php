@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @var $this \yii\web\View
+ * @var \common\models\Author $author
+ * @var string $activeSection
+ * @var array $sectionList
+ * @var \yii\data\ActiveDataProvider $dataProvider
+ */
+
+use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
+
+?>
+<div class="container">
+    <div class="site-title">
+		<?= $author->user->displayName ?>
+    </div>
+
+	<?= $this->render('//_author-menu', [
+		'activeSection' => $activeSection,
+		'sectionList'   => $sectionList,
+	]) ?>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="<?= $activeSection ?>" style="margin-top: 15px;">
+			<?= \yii\widgets\ListView::widget([
+				'dataProvider' => $dataProvider,
+				'layout'       => "{summary}\n{items}\n<div class='col-md-12 text-center'>{pager}</div>",
+				'summary'      => false,
+				'itemOptions'  => [
+					'tag' => false,
+				],
+				'options'      => [
+					'class' => 'row',
+					'style' => 'margin-right: 0;',
+				],
+				'itemView'     => function ($model, $key, $index, $widget) {
+					return $this->render('//_theater-work-list-item', [
+						'model' => $model,
+					]);
+				},
+			]) ?>
+        </div>
+    </div>
+</div>

@@ -29,6 +29,8 @@ return [
 		['pattern' => 'author/<username>/news/<slug>', 'route' => '/author-news/view', 'suffix' => '/'],
 		['pattern' => 'author/<username>/cinema-work', 'route' => '/author-cinematographer/index', 'suffix' => '/'],
 		['pattern' => 'author/<username>/cinema-work/<slug>', 'route' => '/author-cinematographer/view', 'suffix' => '/'],
+		['pattern' => 'author/<username>/theater-work', 'route' => '/author-theater/index', 'suffix' => '/'],
+		['pattern' => 'author/<username>/theater-work/<slug>', 'route' => '/author-theater/view', 'suffix' => '/'],
 		['pattern' => 'author/<username>/writer-work', 'route' => '/author-writer/index', 'suffix' => '/'],
 		['pattern' => 'author/<username>/writer-work/<slug>', 'route' => '/author-writer/view', 'suffix' => '/'],
 		['pattern' => 'author/<username>/music-work', 'route' => '/author-musician/index', 'suffix' => '/'],

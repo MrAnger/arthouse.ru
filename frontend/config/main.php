@@ -25,9 +25,11 @@ $config = [
 			'models' => [
 				\common\models\News::class,
 				\common\models\Cinema::class,
+				\common\models\Theater::class,
 				\common\models\WriterWork::class,
 				\common\models\MusicWork::class,
 				\common\models\PainterWork::class,
+				\common\models\PhotoWork::class,
 			],
 			'urls'   => require(__DIR__ . '/sitemap-urls.php'),
 		],

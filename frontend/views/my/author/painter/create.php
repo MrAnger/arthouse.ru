@@ -17,7 +17,7 @@ $this->params['breadcrumbs'] = [
 ];
 ?>
 <div>
-	<?= $this->render('_form', [
+	<?= $this->render('@backend/views/author-painter/_form', [
 		'model'           => $model,
 		'imageUploadForm' => $imageUploadForm,
 	]) ?>

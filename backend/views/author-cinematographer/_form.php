@@ -76,20 +76,10 @@ $imageManager = Yii::$app->imageManager;
         </div>
 
         <div class="col-md-4">
-			<?= $form->field($model, 'meta_title')
-				->textInput([
-					'maxlength' => true,
-				]) ?>
-
-			<?= $form->field($model, 'meta_description')
-				->textInput([
-					'maxlength' => true,
-				]) ?>
-
-			<?= $form->field($model, 'meta_keywords')
-				->textInput([
-					'maxlength' => true,
-				]) ?>
+			<?= $this->render('@backend/views/_seo-meta-fields', [
+				'model' => $model,
+				'form'  => $form,
+			]) ?>
         </div>
     </div>
 

@@ -69,10 +69,12 @@ class AuthorSearch extends Author {
 
 	public static function getWorkTypeList() {
 		return [
-			'is_painter'         => 'Художник',
-			'is_cinematographer' => 'Киношник',
-			'is_writer'          => 'Писатель',
-			'is_musician'        => 'Музыкант',
+			'is_painter'         => 'Галерея',
+			'is_photo'           => 'Фото',
+			'is_cinematographer' => 'Кинематограф',
+			'is_theater'         => 'Театр',
+			'is_writer'          => 'Литература',
+			'is_musician'        => 'Музыка',
 		];
 	}
 

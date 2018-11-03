@@ -5,11 +5,14 @@ use yii\helpers\Url;
 
 /**
  * @var \yii\web\View $this
- * @var \common\models\PainterWork $model
+ * @var \common\models\Theater $model
  * @var \common\models\ImageUploadForm $imageUploadForm
  */
 
-$workUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author-painter/view/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
+$cloneModel = clone $model;
+$cloneModel->slug = 'URL';
+
+$workUrl = \common\helpers\TheaterHelper::getTheaterFrontendUrl($cloneModel);
 
 $imageManager = Yii::$app->imageManager;
 ?>
@@ -36,11 +39,21 @@ $imageManager = Yii::$app->imageManager;
 				])
 			?>
 
-			<?= $form->field($model, 'image_url')
+			<?= $form->field($model, 'video_url')
 				->textInput([
 					'maxlength'   => true,
 					'placeholder' => 'http://',
 				]) ?>
+
+			<?= $form->field($model, 'video_code')
+				->widget(\trntv\aceeditor\AceEditor::class, [
+					'mode'             => 'php',
+					'theme'            => 'chrome',
+					'containerOptions' => [
+						'style' => 'width: 100%; min-height: 150px',
+					],
+				])
+			?>
 
             <div class="row">
                 <div class="col-md-6">
@@ -63,20 +76,10 @@ $imageManager = Yii::$app->imageManager;
         </div>
 
         <div class="col-md-4">
-			<?= $form->field($model, 'meta_title')
-				->textInput([
-					'maxlength' => true,
-				]) ?>
-
-			<?= $form->field($model, 'meta_description')
-				->textInput([
-					'maxlength' => true,
-				]) ?>
-
-			<?= $form->field($model, 'meta_keywords')
-				->textInput([
-					'maxlength' => true,
-				]) ?>
+			<?= $this->render('@backend/views/_seo-meta-fields', [
+				'model' => $model,
+				'form'  => $form,
+			]) ?>
         </div>
     </div>
 
@@ -89,10 +92,4 @@ $imageManager = Yii::$app->imageManager;
     </div>
 
 	<?php \yii\widgets\ActiveForm::end() ?>
-
-	<?php if (!$model->isNewRecord): ?>
-		<?= $this->render('_image-list', [
-			'model' => $model,
-		]) ?>
-	<?php endif; ?>
 </div>

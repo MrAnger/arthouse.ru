@@ -15,7 +15,7 @@ $menuItems = [
 	['label' => 'Фотография', 'url' => ['/photo/index']],
 	['label' => 'Музыка', 'url' => ['/musician/index']],
 	['label' => 'Кино', 'url' => ['/cinematographer/index']],
-	['label' => 'Театр', 'url' => '#'],
+	['label' => 'Театр', 'url' => '/theater/index'],
 	['label' => 'Авторы', 'url' => ['/author/index']],
 	['label' => 'Контакты', 'url' => ['/site/contacts']],
 	'my' => [

@@ -136,6 +136,7 @@ JS
 			<?= $form->field($model, 'is_writer')->checkbox() ?>
 			<?= $form->field($model, 'is_musician')->checkbox() ?>
 			<?= $form->field($model, 'is_photo')->checkbox() ?>
+			<?= $form->field($model, 'is_theater')->checkbox() ?>
         </div>
     </div>
 
