@@ -21,7 +21,7 @@ class StartUp implements BootstrapInterface {
 	 */
 	public function bootstrap($app) {
 		// После создания заявки отправляем email уведомление администратору
-		Event::on(AuthorRequest::class, AuthorRequest::EVENT_NEW_REQUEST, function (ModelEvent $event) {
+		Event::on(AuthorRequest::class, AuthorRequest::EVENT_NEW_REQUEST, function (Event $event) {
 			/** @var AuthorRequest $request */
 			$request = $event->sender;
 
@@ -44,7 +44,7 @@ class StartUp implements BootstrapInterface {
 		});
 
 		// После создания обращения через форму обратной связи отправляем email уведомление администратору
-		Event::on(Feedback::class, Feedback::EVENT_NEW_FEEDBACK, function (ModelEvent $event) {
+		Event::on(Feedback::class, Feedback::EVENT_NEW_FEEDBACK, function (Event $event) {
 			/** @var Feedback $feedback */
 			$feedback = $event->sender;
 

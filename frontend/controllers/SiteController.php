@@ -127,11 +127,15 @@ class SiteController extends BaseController {
 		if ($feedbackForm->load(Yii::$app->request->post()) && $feedbackForm->save()) {
 			Yii::$app->session->addFlash('success', 'Ваше обращение успешно отправлено.');
 
+			$feedbackForm->trigger($feedbackForm::EVENT_NEW_FEEDBACK);
+
 			return $this->refresh();
 		}
 
 		if ($requestForm->load(Yii::$app->request->post()) && $requestForm->save()) {
 			Yii::$app->session->addFlash('success', 'Ваша заявка успешно отправлена.');
+
+			$requestForm->trigger($requestForm::EVENT_NEW_REQUEST);
 
 			return $this->refresh();
 		}
