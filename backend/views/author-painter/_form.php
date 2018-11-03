@@ -9,7 +9,10 @@ use yii\helpers\Url;
  * @var \common\models\ImageUploadForm $imageUploadForm
  */
 
-$workUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-painter-work-by-slug/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
+$cloneModel = clone $model;
+$cloneModel->slug = 'URL';
+
+$workUrl = \common\helpers\PainterWorkHelper::getPainterWorkFrontendUrl($cloneModel);
 
 $imageManager = Yii::$app->imageManager;
 ?>

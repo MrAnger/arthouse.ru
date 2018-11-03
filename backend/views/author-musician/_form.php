@@ -9,7 +9,10 @@ use yii\helpers\Url;
  * @var \common\models\ImageUploadForm $imageUploadForm
  */
 
-$musicUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-music-work-by-slug/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
+$cloneModel = clone $model;
+$cloneModel->slug = 'URL';
+
+$musicUrl = \common\helpers\MusicWorkHelper::getMusicWorkFrontendUrl($cloneModel);
 
 $imageManager = Yii::$app->imageManager;
 ?>

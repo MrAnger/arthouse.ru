@@ -10,11 +10,10 @@ use yii\helpers\Url;
 
 $formatter = Yii::$app->formatter;
 
-$newsUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/news/view-by-slug', 'slug' => 'URL'], true);
+$cloneModel = clone $model;
+$cloneModel->slug = 'URL';
 
-if ($model->author_id !== null) {
-	$newsUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-news-by-slug/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
-}
+$newsUrl = \common\helpers\NewsHelper::getNewsFrontendUrl($cloneModel);
 ?>
 <div>
 	<?php $form = \yii\widgets\ActiveForm::begin([

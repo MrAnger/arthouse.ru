@@ -9,7 +9,10 @@ use yii\helpers\Url;
  * @var \common\models\ImageUploadForm $imageUploadForm
  */
 
-$cinemaUrl = Yii::$app->frontendUrlManager->createAbsoluteUrl(['/author/view-cinema-by-slug/', 'slug' => 'URL', 'username' => $model->author->user->username], true);
+$cloneModel = clone $model;
+$cloneModel->slug = 'URL';
+
+$cinemaUrl = \common\helpers\CinemaHelper::getCinemaFrontendUrl($cloneModel);
 
 $imageManager = Yii::$app->imageManager;
 ?>
