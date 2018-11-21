@@ -45,11 +45,11 @@ class Author extends \yii\db\ActiveRecord {
 		return [
 			'id'                 => 'ID',
 			'user_id'            => 'Пользователь',
-			'is_painter'         => 'Галерея',
-			'is_cinematographer' => 'Кинематограф',
+			'is_painter'         => 'Арт-студия',
+			'is_cinematographer' => 'Кино',
 			'is_writer'          => 'Литература',
 			'is_musician'        => 'Музыка',
-			'is_photo'           => 'Фото',
+			'is_photo'           => 'Фотография',
 			'is_theater'         => 'Театр',
 		];
 	}
@@ -66,12 +66,12 @@ class Author extends \yii\db\ActiveRecord {
 	 */
 	public static function getWorkTypeAttributes() {
 		return [
+			'is_writer',
 			'is_painter',
 			'is_photo',
+			'is_musician',
 			'is_cinematographer',
 			'is_theater',
-			'is_writer',
-			'is_musician',
 		];
 	}
 }

@@ -11,7 +11,7 @@ use yii\helpers\ArrayHelper;
 $menuItems = [
 	['label' => 'Новости', 'url' => ['/news/index']],
 	['label' => 'Литература', 'url' => ['/writer/index']],
-	['label' => 'Изостудия', 'url' => ['/painter/index']],
+	['label' => 'Арт-студия', 'url' => ['/painter/index']],
 	['label' => 'Фотография', 'url' => ['/photo/index']],
 	['label' => 'Музыка', 'url' => ['/musician/index']],
 	['label' => 'Кино', 'url' => ['/cinematographer/index']],

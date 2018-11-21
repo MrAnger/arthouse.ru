@@ -8,7 +8,7 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
-$this->title = 'Изостудия';
+$this->title = 'Арт-студия';
 ?>
 <div class="container">
     <div class="site-title">

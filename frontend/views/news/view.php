@@ -24,7 +24,7 @@ if ($model->author_id) {
                 </div>
 
                 <div class="entry-content-details">
-                    <span>Опубликовано: </span> <?= Yii::$app->formatter->asDate($model->created_at) ?> / <?= $authorText ?></a>
+                    <!--<span>Опубликовано: </span> <?/*= Yii::$app->formatter->asDate($model->created_at) */?> / --><?= $authorText ?></a>
                 </div>
 
                 <div class="entry-content">

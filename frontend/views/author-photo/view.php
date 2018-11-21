@@ -42,7 +42,7 @@ $authorText = Html::a($model->author->user->displayName, ['/author/view', 'usern
 				<?php endif; ?>
 
                 <div class="entry-content-details" style="margin-bottom: 10px;">
-					<?= $formatter->asDate($model->created_at) ?> / <?= $authorText ?>
+					<?/*= $formatter->asDate($model->created_at) */?><!-- / --><?= $authorText ?>
                 </div>
 
                 <div class="entry-content">

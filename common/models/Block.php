@@ -49,7 +49,7 @@ class Block extends \yii\db\ActiveRecord {
 	 */
 	public function rules() {
 		return [
-			[['name', 'content'], 'required'],
+			[['name'], 'required'],
 			[['content'], 'string'],
 			[['created_at', 'updated_at'], 'safe'],
 			[['name', 'code'], 'string', 'max' => 255],

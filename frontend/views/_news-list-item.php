@@ -26,7 +26,7 @@ $modelUrl = \common\helpers\NewsHelper::getNewsFrontendUrl($model);
         </h2>
 
         <div class="home-post-details">
-			<?= $formatter->asDate($model->created_at) ?> / <?= $authorText ?>
+			<?/*= $formatter->asDate($model->created_at) */?><!-- / --><?= $authorText ?>
         </div>
 
 		<div class="intro-text">

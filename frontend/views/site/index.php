@@ -10,12 +10,12 @@ use yii\helpers\ArrayHelper;
  */
 
 $lastWorkViewMap = [
-	\common\models\Cinema::className()      => '//_cinema-work-list-item',
-	\common\models\Theater::className()     => '//_theater-work-list-item',
-	\common\models\MusicWork::className()   => '//_music-work-list-item',
+	\common\models\WriterWork::className()  => '//_writer-work-list-item',
 	\common\models\PainterWork::className() => '//_painter-work-list-item',
 	\common\models\PhotoWork::className()   => '//_photo-work-list-item',
-	\common\models\WriterWork::className()  => '//_writer-work-list-item',
+	\common\models\MusicWork::className()   => '//_music-work-list-item',
+	\common\models\Cinema::className()      => '//_cinema-work-list-item',
+	\common\models\Theater::className()     => '//_theater-work-list-item',
 ];
 ?>
 <div class="container">
@@ -50,7 +50,22 @@ $lastWorkViewMap = [
 				$items = ArrayHelper::getValue($data, 'items');
 				?>
 				<?php foreach ($items as $item): ?>
-					<?= $this->render($lastWorkViewMap[$item::className()], ['model' => $item]) ?>
+                    <?php
+                    $showImageCover = true;
+
+                    $enabledCoverList = [
+						\common\models\PainterWork::className(),
+                        \common\models\Cinema::className(),
+                    ];
+
+                    if(!in_array($item::className(), $enabledCoverList)) {
+                        $showImageCover = false;
+                    }
+                    ?>
+					<?= $this->render($lastWorkViewMap[$item::className()], [
+						'model'          => $item,
+						'showImageCover' => $showImageCover,
+					]) ?>
 				<?php endforeach; ?>
             </div>
 		<?php endforeach; ?>

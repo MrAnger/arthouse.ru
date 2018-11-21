@@ -15,7 +15,7 @@ use yii\helpers\Url;
                 <div class="logo">
                     <a href="<?= Yii::$app->homeUrl ?>">
                         <!--<span class="site-text-color">A</span>rtXayc-->
-                        <span class="site-text-color">А</span>ртХаус
+                        <span class="site-text-color">А</span>РТХАУС
                     </a>
                 </div>
             </div>

@@ -51,21 +51,28 @@ class SiteController extends BaseController {
 					->all(),
 			],
 			[
-				'name'  => 'Галерея',
+				'name'  => 'Арт-студия',
 				'items' => PainterWork::find()
 					->orderBy(['created_at' => SORT_DESC])
 					->limit($countLastWorks)
 					->all(),
 			],
 			[
-				'name'  => 'Фото',
+				'name'  => 'Фотография',
 				'items' => PhotoWork::find()
 					->orderBy(['created_at' => SORT_DESC])
 					->limit($countLastWorks)
 					->all(),
 			],
 			[
-				'name'  => 'Кинематограф',
+				'name'  => 'Музыка',
+				'items' => MusicWork::find()
+					->orderBy(['created_at' => SORT_DESC])
+					->limit($countLastWorks)
+					->all(),
+			],
+			[
+				'name'  => 'Кино',
 				'items' => Cinema::find()
 					->orderBy(['created_at' => SORT_DESC])
 					->limit($countLastWorks)
@@ -74,13 +81,6 @@ class SiteController extends BaseController {
 			[
 				'name'  => 'Театр',
 				'items' => Theater::find()
-					->orderBy(['created_at' => SORT_DESC])
-					->limit($countLastWorks)
-					->all(),
-			],
-			[
-				'name'  => 'Музыка',
-				'items' => MusicWork::find()
 					->orderBy(['created_at' => SORT_DESC])
 					->limit($countLastWorks)
 					->all(),
