@@ -46,6 +46,7 @@ class SiteController extends BaseController {
 			[
 				'name'  => 'Литература',
 				'items' => WriterWork::find()
+					->joinWith(['author.user.profile'])
 					->orderBy(['created_at' => SORT_DESC])
 					->limit($countLastWorks)
 					->all(),
@@ -53,6 +54,7 @@ class SiteController extends BaseController {
 			[
 				'name'  => 'Арт-студия',
 				'items' => PainterWork::find()
+					->joinWith(['author.user.profile'])
 					->orderBy(['created_at' => SORT_DESC])
 					->limit($countLastWorks)
 					->all(),
@@ -60,6 +62,7 @@ class SiteController extends BaseController {
 			[
 				'name'  => 'Фотография',
 				'items' => PhotoWork::find()
+					->joinWith(['author.user.profile'])
 					->orderBy(['created_at' => SORT_DESC])
 					->limit($countLastWorks)
 					->all(),
@@ -67,6 +70,7 @@ class SiteController extends BaseController {
 			[
 				'name'  => 'Музыка',
 				'items' => MusicWork::find()
+					->joinWith(['author.user.profile'])
 					->orderBy(['created_at' => SORT_DESC])
 					->limit($countLastWorks)
 					->all(),
@@ -74,6 +78,7 @@ class SiteController extends BaseController {
 			[
 				'name'  => 'Кино',
 				'items' => Cinema::find()
+					->joinWith(['author.user.profile'])
 					->orderBy(['created_at' => SORT_DESC])
 					->limit($countLastWorks)
 					->all(),
@@ -81,6 +86,7 @@ class SiteController extends BaseController {
 			[
 				'name'  => 'Театр',
 				'items' => Theater::find()
+					->joinWith(['author.user.profile'])
 					->orderBy(['created_at' => SORT_DESC])
 					->limit($countLastWorks)
 					->all(),
@@ -93,6 +99,7 @@ class SiteController extends BaseController {
 		}
 
 		$newsList = News::find()
+			->joinWith(['author.user.profile'])
 			->where([
 				'AND',
 				new Expression('archived_at IS NULL'),
