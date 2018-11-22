@@ -20,7 +20,7 @@ $modelUrl = \common\helpers\PhotoWorkHelper::getPhotoWorkFrontendUrl($model);
 
 $imageUrl = $model->image_url;
 if ($model->image_id) {
-	$imageUrl = Yii::$app->imageManager->getThumbnailUrl($model->image);
+	$imageUrl = Yii::$app->imageManager->getThumbnailUrl($model->image, 'frontend-cover-image-preview');
 }
 ?>
 <div class="col-md-4">
