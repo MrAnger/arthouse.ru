@@ -12,7 +12,7 @@ return [
 	'showScriptName'  => false,
 	'rules'           => [
 		''           => '/site/index',
-		'index.html' => '/',
+		//'index.html' => '/',
 
 		['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
 

@@ -18,6 +18,10 @@ $userModel = $user->identity;
 
 $mainMenuItems = [
 	[
+		'label' => 'Перейти на сайт',
+		'url'   => Yii::$app->frontendUrlManager->createAbsoluteUrl('/', true),
+	],
+	[
 		'label' => 'Новости',
 		'url'   => ['/news/index'],
 	],
