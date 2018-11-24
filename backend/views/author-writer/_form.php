@@ -37,10 +37,6 @@ $workUrl = \common\helpers\WriterWorkHelper::getWriterWorkFrontendUrl($cloneMode
 				])
 			?>
 
-			<?= $form->field($model, 'intro')->widget(\mranger\ckeditor\CKEditor::class, [
-				'preset' => 'minimal',
-			]) ?>
-
 			<?= $form->field($model, 'content')->widget(\mranger\ckeditor\CKEditor::class) ?>
         </div>
 

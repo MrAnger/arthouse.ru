@@ -77,7 +77,7 @@ class WriterWork extends \yii\db\ActiveRecord {
 	public function rules() {
 		return [
 			[['author_id'], 'integer'],
-			[['name', 'intro', 'content'], 'required'],
+			[['name', 'content'], 'required'],
 			[['intro', 'content'], 'string'],
 			[['created_at', 'updated_at'], 'safe'],
 			[['name'], 'string', 'max' => 250],
