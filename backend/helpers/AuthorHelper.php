@@ -13,7 +13,7 @@ class AuthorHelper {
 	public static function getViewSections($author) {
 		$sectionList = [
 			[
-				'label' => 'О авторе',
+				'label' => 'Об авторе',
 				'url'   => ['/author/view', 'id' => $author->id],
 				'code'  => 'base',
 			],

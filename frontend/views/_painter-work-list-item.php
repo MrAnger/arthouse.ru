@@ -18,7 +18,7 @@ $authorText = Html::a($model->author->user->displayName, ['/author/view', 'usern
 
 $modelUrl = \common\helpers\PainterWorkHelper::getPainterWorkFrontendUrl($model);
 
-$imageUrl = $model->image_url;
+$imageUrl = null;
 if ($model->image_id) {
 	$imageUrl = Yii::$app->imageManager->getThumbnailUrl($model->image, 'frontend-cover-image-preview');
 }
@@ -27,11 +27,13 @@ if ($model->image_id) {
     <div class="home-post">
 		<?php if($showImageCover): ?>
             <div class="home-post-cover">
-				<?php if ($imageUrl): ?>
-					<?= Html::img($imageUrl, ['alt' => $model->name, 'style' => 'max-width: 100%;']) ?>
-				<?php else: ?>
-					<?= Html::img(['static/images/no-image.jpg'], ['alt' => $model->name, 'style' => 'max-width: 100%;']) ?>
-				<?php endif; ?>
+				<a href="<?= $modelUrl ?>">
+					<?php if ($imageUrl): ?>
+						<?= Html::img($imageUrl, ['alt' => $model->name, 'style' => 'max-width: 100%;']) ?>
+					<?php else: ?>
+						<?= Html::img(['static/images/no-image.jpg'], ['alt' => $model->name, 'style' => 'max-width: 100%;']) ?>
+					<?php endif; ?>
+                </a>
             </div>
 		<?php endif; ?>
 

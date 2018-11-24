@@ -69,11 +69,15 @@ $this->params['breadcrumbs'] = [
 
 						$icon = Html::tag('span', '', ['class' => "glyphicon glyphicon-remove"]);
 
-						return Html::a($icon, $url, [
-							'title'        => $title,
-							'aria-label'   => $title,
-							'data-pjax'    => '0',
-							'data-confirm' => "Вы точно хотите отклонить эту заявку?",
+						return Html::a($icon, '#', [
+							'title'      => $title,
+							'aria-label' => $title,
+							'data'       => [
+								'toggle' => 'modal',
+								'target' => '#modal-author-request-decline',
+								'pjax'   => 0,
+								'id'     => $model->id,
+							],
 						]);
 					},
 				],
@@ -97,4 +101,6 @@ $this->params['breadcrumbs'] = [
 			],
 		],
 	]) ?>
+
+    <?= $this->render('_modal-decline') ?>
 </div>

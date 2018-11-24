@@ -2,7 +2,9 @@
 
 namespace backend\controllers;
 
+use backend\models\AuthorRequestDeclineForm;
 use common\components\UserBuddy;
+use common\helpers\MailHelper;
 use common\models\Author;
 use common\models\AuthorRequest;
 use common\models\User;
@@ -13,7 +15,10 @@ use Da\User\Helper\SecurityHelper;
 use Da\User\Service\UserCreateService;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
 
 /**
  * @author MrAnger
@@ -104,16 +109,45 @@ class AuthorRequestController extends BaseController {
 		}
 	}
 
-	public function actionDecline($id) {
-		$model = $this->findModel($id);
+	public function actionDecline() {
+		Yii::$app->response->format = Response::FORMAT_JSON;
 
-		if ($model->updateAttributes(['status' => AuthorRequest::STATUS_DECLINED])) {
+		$output = ['status' => false];
+
+		$form = new AuthorRequestDeclineForm();
+
+		if (!$form->load(Yii::$app->request->post()) || !$form->validate()) {
+			throw new BadRequestHttpException("Ошибка при загрузки или валидации модели.");
+		}
+
+		$model = $this->findModel($form->requestId);
+
+		$sendResult = MailHelper::sendMail(null, $model->email, 'Заявка на авторство - отказ', 'author-request-decline-notification', [
+			'authorRequest' => $model,
+			'declineReason' => $form->comment,
+		]);
+
+		if ($sendResult) {
+			$output['status'] = (boolean)$model->updateAttributes(['status' => AuthorRequest::STATUS_DECLINED]);
+		}
+
+		if ($output['status']) {
 			Yii::$app->session->addFlash('success', 'Заявка успешно отклонена.');
 		} else {
 			Yii::$app->session->addFlash('warning', 'Не удалось отклонить заявку.');
 		}
 
-		return $this->redirect(Yii::$app->request->referrer);
+		return $output;
+	}
+
+	public function actionValidateDeclineForm() {
+		Yii::$app->response->format = Response::FORMAT_JSON;
+
+		$form = new AuthorRequestDeclineForm();
+
+		$form->load(Yii::$app->request->post());
+
+		return ActiveForm::validate($form);
 	}
 
 	/**

@@ -42,7 +42,7 @@ class AuthorHelper {
 	public static function getProfileViewSections($author) {
 		$sectionList = [
 			[
-				'label' => 'О авторе',
+				'label' => 'Об авторе',
 				'url'   => ['/author/view', 'username' => $author->user->username],
 				'code'  => 'base',
 			],

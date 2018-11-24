@@ -27,11 +27,13 @@ if ($model->image_id) {
     <div class="home-post">
 		<?php if($showImageCover): ?>
             <div class="home-post-cover">
-				<?php if ($imageUrl): ?>
-					<?= Html::img($imageUrl, ['alt' => $model->name, 'style' => 'max-width: 100%;']) ?>
-				<?php else: ?>
-					<?= Html::img(['static/images/no-image.jpg'], ['alt' => $model->name, 'style' => 'max-width: 100%;']) ?>
-				<?php endif; ?>
+				<a href="<?= $modelUrl ?>">
+					<?php if ($imageUrl): ?>
+						<?= Html::img($imageUrl, ['alt' => $model->name, 'style' => 'max-width: 100%;']) ?>
+					<?php else: ?>
+						<?= Html::img(['static/images/no-image.jpg'], ['alt' => $model->name, 'style' => 'max-width: 100%;']) ?>
+					<?php endif; ?>
+                </a>
             </div>
 		<?php endif; ?>
 
