@@ -57,6 +57,10 @@ form span label {
     overflow: hidden;
 }
 
+.home-post .intro-text a {
+    color: #c90000;
+}
+
 .menu ul li a {
     padding: 22px 15px !important;
 }
