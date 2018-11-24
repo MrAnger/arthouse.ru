@@ -30,8 +30,10 @@
         "trntv/yii2-aceeditor": "^2.0.0",
         "tpoxa/shortcodes": "dev-master",
         "yii2tech/ar-position": "*",
+        "skeeks/yii2-assets-auto-compress": "*",
         "bower-asset/growl": "^1.3",
-        "bower-asset/dropzone": "^4.3"
+        "bower-asset/dropzone": "^4.3",
+        "bower-asset/fancybox": "^3.5"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

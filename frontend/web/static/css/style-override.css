@@ -126,3 +126,24 @@ body > .content {
 .the-slider .the-bullets li a {
     color: #c90000;
 }
+
+.blog-entry .entry-cover {
+    margin-bottom: 0;
+}
+
+/**
+ * Image Gallery
+ */
+.image-gallery {
+    text-align: center;
+}
+
+.image-gallery a{
+    display: inline-block;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.image-gallery img{
+    display: inline;
+}

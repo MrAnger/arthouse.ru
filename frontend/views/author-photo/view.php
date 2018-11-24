@@ -33,7 +33,7 @@ $authorText = Html::a($model->author->user->displayName, ['/author/view', 'usern
                     <h1 style="margin-bottom: 0;"><?= $model->name ?></h1>
                 </div>
 
-				<?php if (false): ?>
+				<?php if ($model->image_id): ?>
                     <div class="entry-cover">
 						<?= Html::img(Yii::$app->imageManager->getOriginalUrl($model->image), [
 							'alt' => $model->name,
@@ -48,39 +48,9 @@ $authorText = Html::a($model->author->user->displayName, ['/author/view', 'usern
                 <div class="entry-content">
 					<?= $model->description ?>
 
-					<?php if (!empty($model->images)): ?>
-                        <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
-                            <div class="carousel-inner">
-								<?php foreach ($model->getImages()->all() as $index => $image): ?>
-                                    <div class="item <?= ($index == 0) ? 'active' : '' ?>">
-										<?= Html::img(Yii::$app->imageManager->getOriginalUrl($image), ['alt' => $image->title]) ?>
-
-										<?php if ($image->title || $image->description): ?>
-                                            <div class="carousel-caption">
-												<?php if ($image->title): ?>
-													<?= $image->title ?>
-												<?php endif; ?>
-
-												<?php if ($image->description): ?>
-                                                    <p style="font-style: italic;"><?= $image->description ?></p>
-												<?php endif; ?>
-                                            </div>
-										<?php endif; ?>
-                                    </div>
-								<?php endforeach; ?>
-                            </div>
-
-                            <!-- Элементы управления -->
-                            <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Предыдущий</span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Следующий</span>
-                            </a>
-                        </div>
-					<?php endif; ?>
+					<?= $this->render('//_image-gallery', [
+						'imageList' => $model->getImages()->all(),
+					]) ?>
                 </div>
             </div>
         </div>

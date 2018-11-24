@@ -8,8 +8,8 @@
 use yii\helpers\Html;
 use frontend\assets\FrontendAsset;
 
-FrontendAsset::register($this);
 \frontend\assets\ThemeAsset::register($this);
+FrontendAsset::register($this);
 ?>
 <?php $this->beginContent('@app/views/layouts/plain.php') ?>
 <?= $this->render('_header') ?>

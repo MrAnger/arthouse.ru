@@ -7,15 +7,15 @@ use yii\web\AssetBundle;
 /**
  * @author MrAnger
  */
-class DropzoneAsset extends AssetBundle {
-	public $sourcePath  = '@bower/dropzone';
+class FancyBoxAsset extends AssetBundle {
+	public $sourcePath  = '@bower/fancybox';
 
 	public $css = [
-		'dist/min/dropzone.min.css'
+		'dist/jquery.fancybox.min.css'
 	];
 
 	public $js = [
-		'dist/min/dropzone.min.js',
+		'dist/jquery.fancybox.min.js',
 	];
 
 	public $depends = [
