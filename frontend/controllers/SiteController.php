@@ -45,6 +45,7 @@ class SiteController extends BaseController {
 		$lastWorkList = [
 			[
 				'name'  => 'Литература',
+				'url'   => ['writer/index'],
 				'items' => WriterWork::find()
 					->joinWith(['author.user.profile'])
 					->orderBy(['created_at' => SORT_DESC])
@@ -53,6 +54,7 @@ class SiteController extends BaseController {
 			],
 			[
 				'name'  => 'Арт-студия',
+				'url'   => ['painter/index'],
 				'items' => PainterWork::find()
 					->joinWith(['author.user.profile'])
 					->orderBy(['created_at' => SORT_DESC])
@@ -61,6 +63,7 @@ class SiteController extends BaseController {
 			],
 			[
 				'name'  => 'Фотография',
+				'url'   => ['photo/index'],
 				'items' => PhotoWork::find()
 					->joinWith(['author.user.profile'])
 					->orderBy(['created_at' => SORT_DESC])
@@ -69,6 +72,7 @@ class SiteController extends BaseController {
 			],
 			[
 				'name'  => 'Музыка',
+				'url'   => ['musician/index'],
 				'items' => MusicWork::find()
 					->joinWith(['author.user.profile'])
 					->orderBy(['created_at' => SORT_DESC])
@@ -77,6 +81,7 @@ class SiteController extends BaseController {
 			],
 			[
 				'name'  => 'Кино',
+				'url'   => ['cinematographer/index'],
 				'items' => Cinema::find()
 					->joinWith(['author.user.profile'])
 					->orderBy(['created_at' => SORT_DESC])
@@ -85,6 +90,7 @@ class SiteController extends BaseController {
 			],
 			[
 				'name'  => 'Театр',
+				'url'   => ['theater/index'],
 				'items' => Theater::find()
 					->joinWith(['author.user.profile'])
 					->orderBy(['created_at' => SORT_DESC])

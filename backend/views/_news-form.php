@@ -6,6 +6,7 @@ use yii\helpers\Url;
 /**
  * @var \yii\web\View $this
  * @var \common\models\News $model
+ * @var \common\models\ImageUploadForm $imageUploadForm
  */
 
 $formatter = Yii::$app->formatter;
@@ -14,6 +15,8 @@ $cloneModel = clone $model;
 $cloneModel->slug = 'URL';
 
 $newsUrl = \common\helpers\NewsHelper::getNewsFrontendUrl($cloneModel);
+
+$imageManager = Yii::$app->imageManager;
 ?>
 <div>
 	<?php $form = \yii\widgets\ActiveForm::begin([
@@ -34,6 +37,21 @@ $newsUrl = \common\helpers\NewsHelper::getNewsFrontendUrl($cloneModel);
 					'placeholder' => $newsUrl,
 				])
 			?>
+
+            <div class="row">
+                <div class="col-md-6">
+					<?= $form->field($imageUploadForm, 'file')->fileInput([]) ?>
+                </div>
+                <div class="col-md-6 text-center">
+					<?php if ($model->image_id): ?>
+						<?= Html::a(Html::img($imageManager->getThumbnailUrl($model->image), [
+							'class' => 'img-thumbnail',
+						]), $imageManager->getOriginalUrl($model->image), [
+							'target' => '_blank',
+						]) ?>
+					<?php endif; ?>
+                </div>
+            </div>
 
 			<?= $form->field($model, 'intro')->widget(\mranger\ckeditor\CKEditor::class, [
 				'preset' => 'minimal',

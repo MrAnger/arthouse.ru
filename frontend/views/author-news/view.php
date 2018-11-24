@@ -8,6 +8,7 @@
  * @var \common\models\News $model
  */
 
+use frontend\helpers\AuthorHelper;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
@@ -17,7 +18,9 @@ $authorText = Html::a($model->author->user->displayName, ['/author/view', 'usern
 ?>
 <div class="container">
     <div class="site-title">
-		<?= $author->user->displayName ?>
+        <a href="<?= AuthorHelper::getProfileUrl($author) ?>">
+			<?= $author->user->displayName ?>
+        </a>
     </div>
 
 	<?= $this->render('//_author-menu', [
@@ -32,6 +35,14 @@ $authorText = Html::a($model->author->user->displayName, ['/author/view', 'usern
                 <div class="entry-header">
                     <h1 style="margin-bottom: 0;"><?= $model->name ?></h1>
                 </div>
+
+				<?php if ($model->image_id): ?>
+                    <div class="entry-cover">
+						<?= Html::img(Yii::$app->imageManager->getOriginalUrl($model->image), [
+							'alt' => $model->name,
+						]) ?>
+                    </div>
+				<?php endif; ?>
 
                 <div class="entry-content-details" style="margin-bottom: 10px;">
 					<?/*= $formatter->asDate($model->created_at) */?><!-- / --><?= $authorText ?>

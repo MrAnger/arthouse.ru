@@ -15,6 +15,7 @@ class NewsController extends BaseController {
 	public function actionIndex() {
 		$dataProvider = new ActiveDataProvider([
 			'query' => News::find()
+				->joinWith('image')
 				->where([
 					'AND',
 					new Expression('archived_at IS NULL'),

@@ -12,7 +12,7 @@ $this->title = 'Музыка';
 ?>
 <div class="container">
     <div class="site-title">
-		<?= $this->title ?>
+		<?= Html::a($this->title, ['index']) ?>
     </div>
 
 	<?= \yii\widgets\ListView::widget([

@@ -3,6 +3,7 @@
 namespace frontend\helpers;
 
 use common\models\Author;
+use yii\helpers\Url;
 
 class AuthorHelper {
 	/**
@@ -66,5 +67,14 @@ class AuthorHelper {
 		}
 
 		return $sectionList;
+	}
+
+	/**
+	 * @param Author $author
+	 *
+	 * @return string
+	 */
+	public static function getProfileUrl(Author $author) {
+		return Url::to(['author/view', 'username' => $author->user->username]);
 	}
 }

@@ -8,6 +8,7 @@
  * @var \common\models\Cinema $model
  */
 
+use frontend\helpers\AuthorHelper;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
@@ -17,7 +18,9 @@ $authorText = Html::a($model->author->user->displayName, ['/author/view', 'usern
 ?>
 <div class="container">
     <div class="site-title">
-		<?= $author->user->displayName ?>
+        <a href="<?= AuthorHelper::getProfileUrl($author) ?>">
+			<?= $author->user->displayName ?>
+        </a>
     </div>
 
 	<?= $this->render('//_author-menu', [

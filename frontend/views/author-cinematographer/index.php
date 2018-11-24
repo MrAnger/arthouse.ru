@@ -8,14 +8,15 @@
  * @var \yii\data\ActiveDataProvider $dataProvider
  */
 
+use frontend\helpers\AuthorHelper;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
 ?>
 <div class="container">
-    <div class="site-title">
+    <a href="<?= AuthorHelper::getProfileUrl($author) ?>">
 		<?= $author->user->displayName ?>
-    </div>
+    </a>
 
 	<?= $this->render('//_author-menu', [
 		'activeSection' => $activeSection,

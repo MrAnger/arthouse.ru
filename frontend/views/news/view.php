@@ -23,6 +23,14 @@ if ($model->author_id) {
                     <h1><?= $model->name ?></h1>
                 </div>
 
+				<?php if ($model->image_id): ?>
+                    <div class="entry-cover">
+						<?= Html::img(Yii::$app->imageManager->getOriginalUrl($model->image), [
+							'alt' => $model->name,
+						]) ?>
+                    </div>
+				<?php endif; ?>
+
                 <div class="entry-content-details">
                     <!--<span>Опубликовано: </span> <?/*= Yii::$app->formatter->asDate($model->created_at) */?> / --><?= $authorText ?></a>
                 </div>

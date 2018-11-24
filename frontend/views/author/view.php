@@ -7,6 +7,7 @@
  * @var array $sectionList
  */
 
+use frontend\helpers\AuthorHelper;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
@@ -14,7 +15,9 @@ $profile = $author->user->profile;
 ?>
 <div class="container">
     <div class="site-title">
-		<?= $author->user->displayName ?>
+		<a href="<?= AuthorHelper::getProfileUrl($author) ?>">
+			<?= $author->user->displayName ?>
+        </a>
     </div>
 
 	<?= $this->render('//_author-menu', [
@@ -42,7 +45,14 @@ $profile = $author->user->profile;
 
                         <div class="col-sm-6 col-md-8">
                             <h4><?= $this->title ?></h4>
+
                             <ul style="padding: 0; list-style: none outside none;">
+                                <li>
+                                    <p>
+										<?= implode(', ', $author->getRightList()) ?>
+                                    </p>
+                                </li>
+
 								<?php if (!empty($profile->location)): ?>
                                     <li>
                                         <i class="glyphicon glyphicon-map-marker text-muted"></i>
@@ -68,18 +78,15 @@ $profile = $author->user->profile;
 										?>
                                     </li>
 								<?php endif; ?>
-
-                                <li>
-                                    <i class="glyphicon glyphicon-time text-muted"></i>
-									<?= Yii::t('usuario', 'Joined on {0, date}', $profile->user->created_at) ?>
-                                </li>
                             </ul>
-
-							<?php if (!empty($profile->bio)): ?>
-                                <p><?= nl2br(Html::encode($profile->bio)) ?></p>
-							<?php endif; ?>
                         </div>
                     </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-6">
+					<?php if (!empty($profile->bio)): ?>
+                        <p><?= nl2br(Html::encode($profile->bio)) ?></p>
+					<?php endif; ?>
                 </div>
             </div>
         </div>

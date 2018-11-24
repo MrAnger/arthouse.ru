@@ -3,10 +3,13 @@
 namespace backend\controllers;
 
 use backend\models\NewsSearch;
+use common\models\ImageUploadForm;
 use common\models\News;
 use Yii;
+use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
+use yii\web\UploadedFile;
 
 /**
  * @author MrAnger
@@ -29,29 +32,104 @@ class NewsController extends BaseController {
 
 	public function actionCreate() {
 		$model = new News();
+		$imageUploadForm = new ImageUploadForm();
 
-		if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			Yii::$app->session->addFlash('success', 'Новость успешно создана.');
+		if (Yii::$app->request->isPost) {
+			$model->load(Yii::$app->request->post());
+			$imageUploadForm->load(Yii::$app->request->post());
 
-			return $this->redirect(['update', 'id' => $model->id]);
+			$imageUploadForm->file = UploadedFile::getInstance($imageUploadForm, 'file');
+
+			if (Model::validateMultiple([$model, $imageUploadForm])) {
+				$transaction = Yii::$app->db->beginTransaction();
+
+				try {
+					if (!$model->save(false)) {
+						throw new \Exception("Model save is not successfully.");
+					}
+
+					// Image
+					$imageEntry = $imageUploadForm->upload();
+					if ($imageEntry) {
+						if (!$model->updateAttributes(['image_id' => $imageEntry->id])) {
+							Yii::$app->imageManager->deleteImage($imageEntry->id);
+
+							throw new \Exception("Model save with new image is not successfully.");
+						}
+					}
+
+					$transaction->commit();
+				} catch (\Exception $e) {
+					$transaction->rollBack();
+
+					throw $e;
+				}
+
+				Yii::$app->session->addFlash('success', 'Новость успешно создана.');
+
+				return $this->redirect(['update', 'id' => $model->id]);
+			}
 		}
 
 		return $this->render('create', [
-			'model' => $model,
+			'model'           => $model,
+			'imageUploadForm' => $imageUploadForm,
 		]);
 	}
 
 	public function actionUpdate($id) {
 		$model = $this->findModel($id);
+		$imageUploadForm = new ImageUploadForm();
 
-		if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			Yii::$app->session->addFlash('success', 'Новость успешно изменена.');
+		if (Yii::$app->request->isPost) {
+			$oldImageId = $model->image_id;
+			$deleteOldImage = false;
 
-			return $this->redirect(Yii::$app->request->referrer);
+			$model->load(Yii::$app->request->post());
+			$imageUploadForm->load(Yii::$app->request->post());
+
+			$imageUploadForm->file = UploadedFile::getInstance($imageUploadForm, 'file');
+
+			if (Model::validateMultiple([$model, $imageUploadForm])) {
+				$transaction = Yii::$app->db->beginTransaction();
+
+				try {
+					if (!$model->save(false)) {
+						throw new \Exception("Model save is not successfully.");
+					}
+
+					// Image
+					$imageEntry = $imageUploadForm->upload();
+					if ($imageEntry) {
+						if (!$model->updateAttributes(['image_id' => $imageEntry->id])) {
+							Yii::$app->imageManager->deleteImage($imageEntry->id);
+
+							throw new \Exception("Model save with new image is not successfully.");
+						}
+
+						$deleteOldImage = true;
+					}
+
+					$transaction->commit();
+				} catch (\Exception $e) {
+					$transaction->rollBack();
+
+					throw $e;
+				}
+
+				if ($deleteOldImage && $oldImageId !== null) {
+					Yii::$app->imageManager->deleteImage($oldImageId);
+				}
+
+				Yii::$app->session->addFlash('success', 'Новость успешно изменена.');
+
+				return $this->redirect(Yii::$app->request->referrer);
+			}
 		}
 
 		return $this->render('update', [
-			'model' => $model,
+			'model'           => $model,
+			'imageUploadForm' => $imageUploadForm,
 		]);
 	}
 

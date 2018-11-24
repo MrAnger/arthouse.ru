@@ -21,6 +21,8 @@ $modelUrl = \common\helpers\PainterWorkHelper::getPainterWorkFrontendUrl($model)
 $imageUrl = null;
 if ($model->image_id) {
 	$imageUrl = Yii::$app->imageManager->getThumbnailUrl($model->image, 'frontend-cover-image-preview');
+}else{
+	$imageUrl = Yii::$app->imageManager->getThumbnailUrlByFile('@frontend/web/static/images/no-image.jpg', 'frontend-cover-image-preview');
 }
 ?>
 <div class="col-md-4">
@@ -28,11 +30,7 @@ if ($model->image_id) {
 		<?php if($showImageCover): ?>
             <div class="home-post-cover">
 				<a href="<?= $modelUrl ?>">
-					<?php if ($imageUrl): ?>
-						<?= Html::img($imageUrl, ['alt' => $model->name, 'style' => 'max-width: 100%;']) ?>
-					<?php else: ?>
-						<?= Html::img(['static/images/no-image.jpg'], ['alt' => $model->name, 'style' => 'max-width: 100%;']) ?>
-					<?php endif; ?>
+					<?= Html::img($imageUrl, ['alt' => $model->name, 'style' => 'max-width: 100%;']) ?>
                 </a>
             </div>
 		<?php endif; ?>

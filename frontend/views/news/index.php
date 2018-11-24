@@ -5,6 +5,7 @@
  * @var \yii\data\ActiveDataProvider $dataProvider
  */
 
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
@@ -12,7 +13,7 @@ $this->title = 'Новости';
 ?>
 <div class="container">
     <div class="site-title">
-        Новости
+		<?= Html::a($this->title, ['index']) ?>
     </div>
 
 	<?= \yii\widgets\ListView::widget([

@@ -9,6 +9,7 @@ use yii\helpers\Url;
  * @var string $activeSection
  * @var array $sectionList
  * @var \common\models\News $model
+ * @var \common\models\ImageUploadForm $imageUploadForm
  */
 
 $this->title = $model->name . ' - Новости - ' . $author->user->displayName;
@@ -30,7 +31,7 @@ $this->params['breadcrumbs'] = [
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="<?= $activeSection ?>">
 			<?= $this->render('/_news-form', [
-				'model' => $model,
+				'imageUploadForm' => $imageUploadForm,
 			]) ?>
         </div>
     </div>

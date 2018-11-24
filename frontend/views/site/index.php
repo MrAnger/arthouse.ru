@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -29,7 +30,11 @@ $lastWorkViewMap = [
 
 	<?php if (!empty($newsList)): ?>
         <!-- Последние новости -->
-        <div class="site-title">Последние новости</div>
+        <div class="site-title">
+            <a href="<?= Url::to(['news/index']) ?>">
+                Последние новости
+            </a>
+        </div>
 
         <div class="row">
 			<?php foreach ($newsList as $news): ?>
@@ -42,7 +47,11 @@ $lastWorkViewMap = [
 	<?php if (!empty($lastWorkList)): ?>
         <!-- Последние работы -->
 		<?php foreach ($lastWorkList as $index => $data): ?>
-            <div class="site-title"><?= ArrayHelper::getValue($data, 'name') ?></div>
+            <div class="site-title">
+                <a href="<?= Url::to(ArrayHelper::getValue($data, 'url', '#')) ?>">
+					<?= ArrayHelper::getValue($data, 'name') ?>
+                </a>
+            </div>
 
             <div class="row">
 				<?php

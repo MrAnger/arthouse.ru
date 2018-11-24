@@ -6,6 +6,7 @@ use yii\helpers\Url;
 /**
  * @var \yii\web\View $this
  * @var \common\models\News $model
+ * @var \common\models\ImageUploadForm $imageUploadForm
  */
 
 $this->title = 'Создать новость';
@@ -18,5 +19,6 @@ $this->params['breadcrumbs'] = [
 <div>
 	<?= $this->render('/_news-form', [
 		'model' => $model,
+        'imageUploadForm' => $imageUploadForm,
 	]) ?>
 </div>

@@ -74,4 +74,19 @@ class Author extends \yii\db\ActiveRecord {
 			'is_theater',
 		];
 	}
+
+	/**
+	 * @return array
+	 */
+	public function getRightList() {
+		$output = [];
+
+		foreach (self::getWorkTypeAttributes() as $rightAttribute) {
+			if($this->$rightAttribute) {
+				$output[] = $this->getAttributeLabel($rightAttribute);
+			}
+		}
+
+		return $output;
+	}
 }

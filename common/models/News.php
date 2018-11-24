@@ -4,6 +4,7 @@ namespace common\models;
 
 use common\helpers\NewsHelper;
 use himiklab\sitemap\behaviors\SitemapBehavior;
+use MrAnger\Yii2_ImageManager\models\Image;
 use Yii;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -20,6 +21,7 @@ use yii\helpers\Url;
  * @property string $slug
  * @property string $intro
  * @property string $content
+ * @property string $image_id
  * @property string $created_at
  * @property string $updated_at
  * @property string $archive_at
@@ -29,6 +31,7 @@ use yii\helpers\Url;
  * @property string $meta_keywords
  *
  * @property Author $author
+ * @property Image $image
  * @property boolean $isArchived
  */
 class News extends \yii\db\ActiveRecord {
@@ -80,7 +83,7 @@ class News extends \yii\db\ActiveRecord {
 	 */
 	public function rules() {
 		return [
-			[['author_id'], 'integer'],
+			[['author_id', 'image_id'], 'integer'],
 			[['name', 'intro', 'content'], 'required'],
 			[['intro', 'content'], 'string'],
 			[['created_at', 'updated_at', 'archive_at', 'archived_at'], 'safe'],
@@ -89,6 +92,7 @@ class News extends \yii\db\ActiveRecord {
 			[['author_id', 'name'], 'unique', 'targetAttribute' => ['author_id', 'name']],
 			[['author_id', 'slug'], 'unique', 'targetAttribute' => ['author_id', 'slug']],
 			[['author_id'], 'exist', 'skipOnError' => true, 'targetClass' => Author::class, 'targetAttribute' => ['author_id' => 'id']],
+			[['image_id'], 'exist', 'skipOnError' => true, 'targetClass' => Image::class, 'targetAttribute' => ['image_id' => 'id']],
 
 			[['name', 'intro', 'content', 'slug', 'meta_title', 'meta_description', 'meta_keywords'], 'trim'],
 			[['name', 'intro', 'content', 'slug', 'meta_title', 'meta_description', 'meta_keywords'], 'default'],
@@ -108,6 +112,7 @@ class News extends \yii\db\ActiveRecord {
 			'slug'             => 'URL',
 			'intro'            => 'Вступление',
 			'content'          => 'Основной текст',
+			'image_id'         => 'Изображение',
 			'created_at'       => 'Создана',
 			'updated_at'       => 'Изменена',
 			'archive_at'       => 'Архивировать в',
@@ -123,6 +128,13 @@ class News extends \yii\db\ActiveRecord {
 	 */
 	public function getAuthor() {
 		return $this->hasOne(Author::class, ['id' => 'author_id']);
+	}
+
+	/**
+	 * @return \yii\db\ActiveQuery
+	 */
+	public function getImage() {
+		return $this->hasOne(Image::class, ['id' => 'image_id']);
 	}
 
 	/**

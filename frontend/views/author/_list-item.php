@@ -15,17 +15,21 @@ $authorUrl = Url::to(['/author/view', 'username' => $model->user->username]);
 
 $imageUrl = null;
 if ($model->user->profile->avatar_image_id) {
-	$imageUrl = Yii::$app->imageManager->getThumbnailUrl($model->user->profile->avatarImage);
+	$imageUrl = Yii::$app->imageManager->getThumbnailUrl($model->user->profile->avatarImage, 'frontend-cover-image-preview');
 }
+
+
 ?>
 <div class="col-md-4">
     <div class="home-post">
         <div class="home-post-cover">
-			<?php if ($imageUrl): ?>
-				<?= Html::img($imageUrl, ['alt' => $model->user->profile->name, 'style' => 'max-width: 100%;']) ?>
-			<?php else: ?>
-				<?= Html::img(['static/images/no-image.jpg'], ['alt' => $model->user->profile->name, 'style' => 'max-width: 100%;']) ?>
-			<?php endif; ?>
+			<a href="<?= $authorUrl ?>">
+				<?php if ($imageUrl): ?>
+					<?= Html::img($imageUrl, ['alt' => $model->user->profile->name, 'style' => 'max-width: 100%;']) ?>
+				<?php else: ?>
+					<?= Html::img(['static/images/no-image.jpg'], ['alt' => $model->user->profile->name, 'style' => 'max-width: 100%;']) ?>
+				<?php endif; ?>
+            </a>
         </div>
 
         <h2 class="home-post-title">
@@ -33,6 +37,12 @@ if ($model->user->profile->avatar_image_id) {
 				<?= $model->user->profile->name ?>
             </a>
         </h2>
+
+        <div class="intro-text">
+			<p>
+                <?= implode(', ', $model->getRightList()) ?>
+            </p>
+        </div>
 
         <div class="home-post-more">
             <a class="click-more" href="<?= $authorUrl ?>">Перейти в профиль</a>

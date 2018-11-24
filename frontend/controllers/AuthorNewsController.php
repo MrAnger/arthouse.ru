@@ -22,6 +22,7 @@ class AuthorNewsController extends BaseController {
 
 		$dataProvider = new ActiveDataProvider([
 			'query' => News::find()
+				->joinWith('image')
 				->where([
 					'AND',
 					['=', 'author_id', $author->id],
