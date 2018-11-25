@@ -27,7 +27,7 @@ if ($model->image_id) {
 ?>
 <div class="col-md-4">
     <div class="home-post">
-        <?php if($showImageCover): ?>
+        <?php if($showImageCover && false): ?>
             <div class="home-post-cover">
 				<a href="<?= $modelUrl ?>">
 					<?= Html::img($imageUrl, ['alt' => $model->name, 'style' => 'max-width: 100%;']) ?>

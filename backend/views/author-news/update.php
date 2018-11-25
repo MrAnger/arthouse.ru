@@ -31,6 +31,7 @@ $this->params['breadcrumbs'] = [
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="<?= $activeSection ?>">
 			<?= $this->render('/_news-form', [
+				'model'           => $model,
 				'imageUploadForm' => $imageUploadForm,
 			]) ?>
         </div>

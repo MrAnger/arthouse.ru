@@ -36,7 +36,7 @@ $authorText = Html::a($model->author->user->displayName, ['/author/view', 'usern
                     <h1 style="margin-bottom: 0;"><?= $model->name ?></h1>
                 </div>
 
-				<?php if ($model->image_id): ?>
+				<?php if ($model->image_id && false): ?>
                     <div class="entry-cover">
 						<?= Html::img(Yii::$app->imageManager->getOriginalUrl($model->image), [
 							'alt' => $model->name,

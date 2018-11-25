@@ -55,20 +55,22 @@ $imageManager = Yii::$app->imageManager;
 				])
 			?>
 
-            <div class="row">
-                <div class="col-md-6">
-					<?= $form->field($imageUploadForm, 'file')->fileInput([]) ?>
+            <?php if(false): ?>
+                <div class="row">
+                    <div class="col-md-6">
+						<?= $form->field($imageUploadForm, 'file')->fileInput([]) ?>
+                    </div>
+                    <div class="col-md-6 text-center">
+						<?php if ($model->image_id): ?>
+							<?= Html::a(Html::img($imageManager->getThumbnailUrl($model->image), [
+								'class' => 'img-thumbnail',
+							]), $imageManager->getOriginalUrl($model->image), [
+								'target' => '_blank',
+							]) ?>
+						<?php endif; ?>
+                    </div>
                 </div>
-                <div class="col-md-6 text-center">
-					<?php if ($model->image_id): ?>
-						<?= Html::a(Html::img($imageManager->getThumbnailUrl($model->image), [
-							'class' => 'img-thumbnail',
-						]), $imageManager->getOriginalUrl($model->image), [
-							'target' => '_blank',
-						]) ?>
-					<?php endif; ?>
-                </div>
-            </div>
+            <?php endif; ?>
 
 			<?= $form->field($model, 'description')->widget(\mranger\ckeditor\CKEditor::class, [
 				'preset' => 'minimal',

@@ -14,9 +14,11 @@ use yii\helpers\ArrayHelper;
 
 ?>
 <div class="container">
-    <a href="<?= AuthorHelper::getProfileUrl($author) ?>">
-		<?= $author->user->displayName ?>
-    </a>
+    <div class="site-title">
+        <a href="<?= AuthorHelper::getProfileUrl($author) ?>">
+			<?= $author->user->displayName ?>
+        </a>
+    </div>
 
 	<?= $this->render('//_author-menu', [
 		'activeSection' => $activeSection,
