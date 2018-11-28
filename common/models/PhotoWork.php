@@ -56,7 +56,7 @@ class PhotoWork extends \yii\db\ActiveRecord {
 				'immutable'       => true,
 				'ensureUnique'    => true,
 				'uniqueValidator' => [
-					'targetAttribute' => ['author_id', 'name', 'slug'],
+					'targetAttribute' => ['author_id', 'slug'],
 				],
 			],
 			'sitemap'    => [
@@ -88,7 +88,6 @@ class PhotoWork extends \yii\db\ActiveRecord {
 			[['name'], 'string', 'max' => 250],
 			[['slug', 'meta_title', 'meta_description', 'meta_keywords'], 'string', 'max' => 255],
 			[['image_url'], 'string', 'max' => 1500],
-			[['author_id', 'name'], 'unique', 'targetAttribute' => ['author_id', 'name']],
 			[['author_id', 'slug'], 'unique', 'targetAttribute' => ['author_id', 'slug']],
 			[['author_id'], 'exist', 'skipOnError' => true, 'targetClass' => Author::class, 'targetAttribute' => ['author_id' => 'id']],
 			[['image_id'], 'exist', 'skipOnError' => true, 'targetClass' => Image::class, 'targetAttribute' => ['image_id' => 'id']],
