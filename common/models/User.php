@@ -24,6 +24,7 @@ class User extends \Da\User\Model\User {
 
 	public function attributeLabels() {
 		return array_merge(parent::attributeLabels(), [
+			'username' => 'Логин',
 			'roles' => Yii::t('app.roles', 'Roles'),
 		]);
 	}

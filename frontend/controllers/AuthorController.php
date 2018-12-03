@@ -20,7 +20,7 @@ class AuthorController extends BaseController {
 			'query' => Author::find()
 				->joinWith('user.profile upt')
 				->joinWith('user.profile.avatarImage')
-				->orderBy(['upt.name' => SORT_ASC]),
+				->orderBy(['upt.lastname' => SORT_ASC]),
 		]);
 
 		$dataProvider->sort = false;

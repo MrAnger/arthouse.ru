@@ -40,7 +40,7 @@ if ($model->user->profile->avatar_image_id) {
 
         <div class="intro-text">
 			<p>
-                <?= implode(', ', $model->getRightList()) ?>
+                <?= $model->user->profile->bio ?>
             </p>
         </div>
 
