@@ -18,7 +18,6 @@ $sliderItems = [];
 if ($slider) {
 	$sliderItems = $slider->getItems()
 		->andWhere(['=', 'is_enabled', 1])
-		->limit(3)
 		->all();
 }
 ?>
@@ -50,14 +49,14 @@ if ($slider) {
 
                 <ul class="the-bullets-dots" data-tesla-plugin="bullets">
 					<?php foreach ($sliderItems as $sliderItem): ?>
-                        <li><span></span></li>
+                        <!--<li><span></span></li>-->
 					<?php endforeach; ?>
                 </ul>
             </div>
             <div class="col-md-4 slider-right">
                 <ul class="the-bullets" data-tesla-plugin="bullets">
 					<?php foreach ($sliderItems as $sliderItem): ?>
-                        <li>
+                        <li style="height: <?= 100/count($sliderItems) ?>%;">
                             <h4><?= $sliderItem->name ?></h4>
 							<?= $sliderItem->description ?>
                         </li>

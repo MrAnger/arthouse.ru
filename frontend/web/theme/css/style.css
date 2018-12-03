@@ -804,7 +804,7 @@ h4 {
 	padding-right: 10px;
 }
 .the-slider .the-bullets li:first-child {
-	height: 129px;
+	/*height: 129px;*/
 }
 .the-slider .the-bullets li span {
 	font-size: 85px;
