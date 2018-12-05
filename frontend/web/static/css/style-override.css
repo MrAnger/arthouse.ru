@@ -58,7 +58,8 @@ form span label {
 }
 
 .home-post .intro-text a {
-    color: #c90000;
+    color: unset;
+    text-decoration: underline;
 }
 
 .menu ul li a {
@@ -109,8 +110,13 @@ body > .content {
     border-bottom: 1px solid #c90000;
 }
 
-.entry-content-details a, .entry-content a {
+.blog-entry .entry-content-details a{
     color: #c90000 !important;
+}
+
+.blog-entry .entry-content a {
+    color: unset !important;
+    text-decoration: underline;
 }
 
 .alert {
@@ -128,7 +134,8 @@ body > .content {
 }
 
 .the-slider .the-bullets li a {
-    color: #c90000;
+    color: unset;
+    text-decoration: underline;
 }
 
 .blog-entry .entry-cover {

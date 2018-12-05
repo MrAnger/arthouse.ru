@@ -26,6 +26,10 @@ $modelUrl = \common\helpers\WriterWorkHelper::getWriterWorkFrontendUrl($model);
 			<?/*= $formatter->asDate($model->created_at) */?><!-- / --><?= $authorText ?>
         </div>
 
+        <div class="intro-text">
+			<p><?= mb_substr(strip_tags($model->content), 0, 500) ?></p>
+        </div>
+
         <div class="home-post-more">
             <a class="click-more" href="<?= $modelUrl ?>">Подробнее</a>
         </div>
