@@ -16,7 +16,11 @@ class AuthorRequestDeclineForm extends Model {
 	/**
 	 * @var string
 	 */
-	public $comment;
+	public $comment = <<<HTML
+Здравствуйте!
+Спасибо, что посетили наш сайт и решились написать нам! К сожалению, Ваши работы не подходят к формату сайта. Это ни в коем случае не подразумевает с нашей стороны отрицательной оценки Вашего творчества!
+HTML;
+
 
 	public function rules() {
 		return [
