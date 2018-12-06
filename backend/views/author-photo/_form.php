@@ -81,5 +81,8 @@ $imageManager = Yii::$app->imageManager;
 		<?= $this->render('_image-list', [
 			'model' => $model,
 		]) ?>
+	<?php else: ?>
+        <hr>
+        <p class="alert alert-info">После создания работы будет доступен функцонал загрузки галереи изображений.</p>
 	<?php endif; ?>
 </div>
