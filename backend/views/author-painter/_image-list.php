@@ -15,7 +15,7 @@ $imageManager = Yii::$app->imageManager;
 ?>
 <hr>
 <div>
-    <h3>Изображения</h3>
+    <h3>Галерея изображений</h3>
 
 	<?= Html::beginForm(['image-upload'], "post", [
 		"enctype"      => "multipart/form-data",

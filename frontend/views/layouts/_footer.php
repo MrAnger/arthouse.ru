@@ -12,7 +12,7 @@ use yii\helpers\Url;
     <div class="footer-copyright">
         Все права защищены © 2008 <a href="<?= Url::to('/', true) ?>"><?= Yii::$app->name ?></a>
         <br/>
-        Идея: Филипп Канонит&nbsp;| Разработка: <a href="https://vk.com/mranger" target="_blank">Вячеслав Шарапов</a> | <?= Html::a('Контакты', ['/site/contacts']) ?>
+        Идея: <a href="/author/kanonit/">Филипп Канонит</a>&nbsp;| Разработка: <a href="https://vk.com/mranger" target="_blank">Вячеслав Шарапов</a> | <?= Html::a('Контакты', ['/site/contacts']) ?>
     </div>
 </div>
 
