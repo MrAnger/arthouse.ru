@@ -21,7 +21,7 @@ $this->registerJs(<<<JS
 
         // Обнуляем значения полей ввода
         requestIdInput.val('');
-        form.find('textarea').val('');
+        //form.find('textarea').val('');
         
         requestIdInput.val($(relatedTarget).data('id'));
         

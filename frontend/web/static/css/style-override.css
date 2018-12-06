@@ -162,3 +162,7 @@ body > .content {
 .site-title a {
     color: #c90000;
 }
+
+.perfect-form-box .perfect-form span, .contact-form-box .contact-form span {
+    background-color: gray;
+}
