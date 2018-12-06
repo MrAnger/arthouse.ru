@@ -12,6 +12,7 @@ use MrAnger\Yii2_ImageManager\models\Image;
 use Yii;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -85,7 +86,7 @@ class AuthorPainterController extends BaseController {
 					throw $e;
 				}
 
-				Yii::$app->session->addFlash('success', 'Работа успешно создана.');
+				Yii::$app->session->addFlash('success', 'Работа успешно создана. ' . Html::a('Создать еще', ['create'], ['class' => 'btn btn-success btn-xs']));
 
 				return $this->redirect(['update', 'id' => $model->id]);
 			}

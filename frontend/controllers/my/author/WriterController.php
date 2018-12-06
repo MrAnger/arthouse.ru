@@ -8,6 +8,7 @@ use common\models\Author;
 use common\models\WriterWork;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Html;
 use yii\web\NotFoundHttpException;
 
 /**
@@ -35,7 +36,7 @@ class WriterController extends BaseController {
 		]);
 
 		if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			Yii::$app->session->addFlash('success', 'Работа успешно создана.');
+			Yii::$app->session->addFlash('success', 'Работа успешно создана. ' . Html::a('Создать еще', ['create'], ['class' => 'btn btn-success btn-xs']));
 
 			return $this->redirect(['update', 'id' => $model->id]);
 		}

@@ -10,6 +10,7 @@ use common\models\News;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Html;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
@@ -70,7 +71,7 @@ class NewsController extends BaseController {
 					throw $e;
 				}
 
-				Yii::$app->session->addFlash('success', 'Новость успешно создана.');
+				Yii::$app->session->addFlash('success', 'Новость успешно создана. ' . Html::a('Создать еще', ['create'], ['class' => 'btn btn-success btn-xs']));
 
 				return $this->redirect(['update', 'id' => $model->id]);
 			}

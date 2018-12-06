@@ -9,6 +9,7 @@ use common\models\Theater;
 use common\models\ImageUploadForm;
 use Yii;
 use yii\base\Model;
+use yii\helpers\Html;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
 
@@ -71,7 +72,7 @@ class TheaterController extends BaseController {
 					throw $e;
 				}
 
-				Yii::$app->session->addFlash('success', 'Работа успешно создана.');
+				Yii::$app->session->addFlash('success', 'Работа успешно создана. ' . Html::a('Создать еще', ['create'], ['class' => 'btn btn-success btn-xs']));
 
 				return $this->redirect(['update', 'id' => $model->id]);
 			}
