@@ -7,21 +7,16 @@ return array_merge(
 	[
 		'height'               => 400,
 		'extraPlugins'         => 'codemirror',
-		'toolbarGroups'        => [
-			['name' => 'basicstyles', 'groups' => ['basicstyles', 'colors', 'cleanup']],
-			['name' => 'styles'],
-			['name' => 'blocks'],
-			['name' => 'colors'],
-			['name' => 'document', 'groups' => ['mode', 'document', 'doctools']],
-			['name' => 'tools'],
-			['name' => 'others'],
-			'/',
-			['name' => 'paragraph', 'groups' => ['list', 'indent', 'blocks', 'align', 'bidi']],
+		'toolbarGroups' => [
+			['name' => 'basicstyles', 'groups' => ['basicstyles', 'cleanup', 'list', 'colors']],
+			['name' => 'paragraph', 'groups' => ['align']],
 			['name' => 'links'],
 			['name' => 'insert'],
-			['name' => 'clipboard', 'groups' => ['clipboard', 'undo']],
-			['name' => 'editing', 'groups' => ['find', 'selection', 'spellchecker']],
+			['name' => 'document', 'groups' => ['mode']],
 		],
+
+		'removeButtons' => 'Subscript,Superscript,Flash,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Form,TextField,Textarea,Radio,Button,HiddenField,Select,Save,NewPage,Preview,Print,Templates',
+
 		'filebrowserUploadUrl' => Url::to(['/wysiwyg/ckeditor-file-upload'], true),
 	]
 );
