@@ -154,4 +154,28 @@ class PainterWork extends \yii\db\ActiveRecord {
 		/*return $this->hasMany(Image::class, ['id' => 'image_id'])
 			->viaTable(PainterWorkImage::tableName(), ['work_id' => 'id']);*/
 	}
+
+	/**
+	 * @return PainterWork
+	 */
+	public function getNext() {
+		return self::find()
+			->where([
+				'author_id' => $this->author_id,
+			])
+			->andWhere(['<', 'created_at', $this->created_at])
+			->one();
+	}
+
+	/**
+	 * @return PainterWork
+	 */
+	public function getPrev() {
+		return self::find()
+			->where([
+				'author_id' => $this->author_id,
+			])
+			->andWhere(['>', 'created_at', $this->created_at])
+			->one();
+	}
 }

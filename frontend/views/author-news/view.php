@@ -15,6 +15,9 @@ use yii\helpers\ArrayHelper;
 $formatter = Yii::$app->formatter;
 
 $authorText = Html::a($model->author->user->displayName, ['/author/view', 'username' => $model->author->user->username]);
+
+$next = $model->getNext();
+$prev = $model->getPrev();
 ?>
 <div class="container">
     <div class="site-title">
@@ -50,6 +53,21 @@ $authorText = Html::a($model->author->user->displayName, ['/author/view', 'usern
 
                 <div class="entry-content">
 					<?= $model->content ?>
+                </div>
+
+                <div class="prev-next-navigation">
+                    <hr>
+					<?php if($prev): ?>
+                        <div class="pull-left">
+							<?= Html::a('<< Предыдущая новость', \common\helpers\NewsHelper::getNewsFrontendUrl($prev)) ?>
+                        </div>
+					<?php endif; ?>
+
+					<?php if($next): ?>
+                        <div class="pull-right">
+							<?= Html::a('Следующая новость >>', \common\helpers\NewsHelper::getNewsFrontendUrl($next)) ?>
+                        </div>
+					<?php endif; ?>
                 </div>
             </div>
         </div>

@@ -136,4 +136,28 @@ class Cinema extends \yii\db\ActiveRecord {
 	public function getImage() {
 		return $this->hasOne(Image::class, ['id' => 'image_id']);
 	}
+
+	/**
+	 * @return Cinema
+	 */
+	public function getNext() {
+		return self::find()
+			->where([
+				'author_id' => $this->author_id,
+			])
+			->andWhere(['<', 'created_at', $this->created_at])
+			->one();
+	}
+
+	/**
+	 * @return Cinema
+	 */
+	public function getPrev() {
+		return self::find()
+			->where([
+				'author_id' => $this->author_id,
+			])
+			->andWhere(['>', 'created_at', $this->created_at])
+			->one();
+	}
 }

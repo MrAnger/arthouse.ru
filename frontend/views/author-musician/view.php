@@ -15,6 +15,9 @@ use yii\helpers\ArrayHelper;
 $formatter = Yii::$app->formatter;
 
 $authorText = Html::a($model->author->user->displayName, ['/author/view', 'username' => $model->author->user->username]);
+
+$next = $model->getNext();
+$prev = $model->getPrev();
 ?>
 <div class="container">
     <div class="site-title">
@@ -60,6 +63,21 @@ $authorText = Html::a($model->author->user->displayName, ['/author/view', 'usern
                             <b>Ссылка на
                                 аудио</b>: <?= Html::a($model->music_url, $model->music_url, ['target' => '_blank']) ?>
                         </p>
+					<?php endif; ?>
+                </div>
+
+                <div class="prev-next-navigation">
+                    <hr>
+					<?php if($prev): ?>
+                        <div class="pull-left">
+							<?= Html::a('<< Предыдущая работа', \common\helpers\MusicWorkHelper::getMusicWorkFrontendUrl($prev)) ?>
+                        </div>
+					<?php endif; ?>
+
+					<?php if($next): ?>
+                        <div class="pull-right">
+							<?= Html::a('Следующая работа >>', \common\helpers\MusicWorkHelper::getMusicWorkFrontendUrl($next)) ?>
+                        </div>
 					<?php endif; ?>
                 </div>
             </div>

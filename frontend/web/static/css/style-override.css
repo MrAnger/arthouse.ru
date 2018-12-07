@@ -166,3 +166,12 @@ body > .content {
 .perfect-form-box .perfect-form span, .contact-form-box .contact-form span {
     background-color: gray;
 }
+
+.prev-next-navigation a{
+    color: black;
+    text-decoration: underline;
+}
+
+.prev-next-navigation a:hover {
+    color: #c90000;
+}

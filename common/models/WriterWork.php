@@ -117,4 +117,28 @@ class WriterWork extends \yii\db\ActiveRecord {
 	public function getAuthor() {
 		return $this->hasOne(Author::class, ['id' => 'author_id']);
 	}
+
+	/**
+	 * @return WriterWork
+	 */
+	public function getNext() {
+		return self::find()
+			->where([
+				'author_id' => $this->author_id,
+			])
+			->andWhere(['<', 'created_at', $this->created_at])
+			->one();
+	}
+
+	/**
+	 * @return WriterWork
+	 */
+	public function getPrev() {
+		return self::find()
+			->where([
+				'author_id' => $this->author_id,
+			])
+			->andWhere(['>', 'created_at', $this->created_at])
+			->one();
+	}
 }

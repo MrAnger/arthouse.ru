@@ -143,4 +143,30 @@ class News extends \yii\db\ActiveRecord {
 	public function getIsArchived() {
 		return $this->archived_at !== null;
 	}
+
+	/**
+	 * @return News
+	 */
+	public function getNext() {
+		return self::find()
+			->where([
+				'author_id' => $this->author_id,
+			])
+			->andWhere(['<', 'created_at', $this->created_at])
+			->andWhere(new Expression('archived_at IS NULL'))
+			->one();
+	}
+
+	/**
+	 * @return News
+	 */
+	public function getPrev() {
+		return self::find()
+			->where([
+				'author_id' => $this->author_id,
+			])
+			->andWhere(['>', 'created_at', $this->created_at])
+			->andWhere(new Expression('archived_at IS NULL'))
+			->one();
+	}
 }
