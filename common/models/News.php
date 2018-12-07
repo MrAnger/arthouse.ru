@@ -154,6 +154,7 @@ class News extends \yii\db\ActiveRecord {
 			])
 			->andWhere(['<', 'created_at', $this->created_at])
 			->andWhere(new Expression('archived_at IS NULL'))
+			->orderBy(['created_at' => SORT_DESC])
 			->one();
 	}
 
@@ -167,6 +168,7 @@ class News extends \yii\db\ActiveRecord {
 			])
 			->andWhere(['>', 'created_at', $this->created_at])
 			->andWhere(new Expression('archived_at IS NULL'))
+			->orderBy(['created_at' => SORT_ASC])
 			->one();
 	}
 }

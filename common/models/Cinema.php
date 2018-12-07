@@ -146,6 +146,7 @@ class Cinema extends \yii\db\ActiveRecord {
 				'author_id' => $this->author_id,
 			])
 			->andWhere(['<', 'created_at', $this->created_at])
+			->orderBy(['created_at' => SORT_DESC])
 			->one();
 	}
 
@@ -158,6 +159,7 @@ class Cinema extends \yii\db\ActiveRecord {
 				'author_id' => $this->author_id,
 			])
 			->andWhere(['>', 'created_at', $this->created_at])
+			->orderBy(['created_at' => SORT_ASC])
 			->one();
 	}
 }
