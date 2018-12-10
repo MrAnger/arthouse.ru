@@ -17,7 +17,7 @@
             acceptedFiles: ".jpeg,.jpg,.png,.bmp,.gif",
             maxFiles: null,
             parallelUploads: 1,
-            maxFilesize: 5, // MB
+            maxFilesize: 20, // MB
             thumbnailWidth: 220,
             thumbnailHeight: 220,
             addRemoveLinks: false,

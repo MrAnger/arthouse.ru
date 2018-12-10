@@ -167,6 +167,10 @@ body > .content {
     background-color: gray;
 }
 
+.prev-next-navigation {
+    text-align: center;
+}
+
 .prev-next-navigation a{
     color: black;
     text-decoration: underline;
@@ -174,4 +178,9 @@ body > .content {
 
 .prev-next-navigation a:hover {
     color: #c90000;
+}
+
+.prev-next-navigation .pull-left, .prev-next-navigation .pull-right {
+    float: unset !important;
+    display: inline;
 }

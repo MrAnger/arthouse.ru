@@ -7,6 +7,7 @@
  * @var string $content
  */
 
+$user = Yii::$app->user;
 ?>
 <div class="container">
     <h1 class="heading-title">Контакты</h1>
@@ -70,52 +71,54 @@
             </div>
         </div>
 
-        <div class="col-md-6">
-            <div class="contact-form-box">
-                <h2 class="contact-form-title">Стать автором</h2>
+        <?php if($user->can(\common\Rbac::ROLE_MASTER)): ?>
+            <div class="col-md-6">
+                <div class="contact-form-box">
+                    <h2 class="contact-form-title">Стать автором</h2>
 
-				<?php $formAuthorRequest = \yii\widgets\ActiveForm::begin([
-					'enableClientValidation' => true,
-					'fieldConfig'            => [
-						'template'     => "{input}\n<span class='contact-label'>{label}</span>\n{error}\n{hint}",
-						'inputOptions' => [
-							'class' => 'contact-line',
+					<?php $formAuthorRequest = \yii\widgets\ActiveForm::begin([
+						'enableClientValidation' => true,
+						'fieldConfig'            => [
+							'template'     => "{input}\n<span class='contact-label'>{label}</span>\n{error}\n{hint}",
+							'inputOptions' => [
+								'class' => 'contact-line',
+							],
+							'labelOptions' => [
+								'class' => null,
+							],
+							'options'      => [
+
+							],
 						],
-						'labelOptions' => [
-							'class' => null,
+						'options'                => [
+							'class' => 'contact-form',
 						],
-						'options'      => [
+					]) ?>
 
-						],
-					],
-					'options'                => [
-						'class' => 'contact-form',
-					],
-				]) ?>
+					<?= $formAuthorRequest->field($requestForm, 'name')
+						->textInput(['maxlength' => true])
+					?>
 
-				<?= $formAuthorRequest->field($requestForm, 'name')
-					->textInput(['maxlength' => true])
-				?>
+					<?= $formAuthorRequest->field($requestForm, 'email')
+						->textInput(['maxlength' => true])
+					?>
 
-				<?= $formAuthorRequest->field($requestForm, 'email')
-					->textInput(['maxlength' => true])
-				?>
+					<?= $formAuthorRequest->field($requestForm, 'about', ['inputOptions' => ['class' => 'contact-area']])
+						->label('О себе')
+						->textarea([
+							'maxlength'   => true,
+							'placeholder' => 'Напишите немного о себе',
+							'rows'        => 6,
+							'style'       => 'height: 218px;',
+						])
+					?>
 
-				<?= $formAuthorRequest->field($requestForm, 'about', ['inputOptions' => ['class' => 'contact-area']])
-					->label('О себе')
-					->textarea([
-						'maxlength'   => true,
-						'placeholder' => 'Напишите немного о себе',
-						'rows'        => 6,
-						'style'       => 'height: 218px;',
-					])
-				?>
+					<?= \yii\helpers\Html::submitButton('Отправить', ['class' => 'contact-button']) ?>
 
-				<?= \yii\helpers\Html::submitButton('Отправить', ['class' => 'contact-button']) ?>
-
-				<?php \yii\widgets\ActiveForm::end() ?>
+					<?php \yii\widgets\ActiveForm::end() ?>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
     </div>
 </div>
 
