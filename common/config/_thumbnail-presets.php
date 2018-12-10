@@ -24,4 +24,12 @@ return [
 			'mode' => \sadovojav\image\Thumbnail::THUMBNAIL_INSET
 		],
 	],
+
+	'frontend-cover-image-preview-work-right-col' => [
+		'thumbnail' => [
+			'width' => 80,
+			'height' => 50,
+			'mode' => \sadovojav\image\Thumbnail::THUMBNAIL_OUTBOUND
+		],
+	],
 ];

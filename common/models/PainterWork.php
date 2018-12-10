@@ -180,4 +180,33 @@ class PainterWork extends \yii\db\ActiveRecord {
 			->orderBy(['created_at' => SORT_ASC])
 			->one();
 	}
+
+	/**
+	 * @param integer $count
+	 *
+	 * @return PainterWork[]
+	 */
+	public function getSimilarAuthorWorkList($count = 5) {
+		return self::find()
+			->where([
+				'author_id' => $this->author_id,
+			])
+			->andWhere(['<>', 'id', $this->id])
+			->orderBy(['created_at' => SORT_DESC])
+			->limit(5)
+			->all();
+	}
+
+	/**
+	 * @param integer $count
+	 *
+	 * @return PainterWork[]
+	 */
+	public function getSimilarWorkList($count = 5) {
+		return self::find()
+			->andWhere(['<>', 'author_id', $this->author_id])
+			->orderBy(['created_at' => SORT_DESC])
+			->limit(5)
+			->all();
+	}
 }
