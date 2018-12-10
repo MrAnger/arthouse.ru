@@ -86,7 +86,7 @@ class AuthorPhotoController extends BaseController {
 					throw $e;
 				}
 
-				Yii::$app->session->addFlash('success', 'Работа успешно создана. ' . Html::a('Создать еще', ['create'], ['class' => 'btn btn-success btn-xs']));
+				Yii::$app->session->addFlash('success', 'Работа успешно создана. ' . Html::a('Создать еще', ['create', 'authorId' => $model->author_id], ['class' => 'btn btn-success btn-xs']));
 
 				return $this->redirect(['update', 'id' => $model->id]);
 			}
@@ -146,7 +146,7 @@ class AuthorPhotoController extends BaseController {
 					$imageManager->deleteImage($oldImageId);
 				}
 
-				Yii::$app->session->addFlash('success', 'Работа успешно изменена. ' . Html::a('Создать еще', ['create'], ['class' => 'btn btn-success btn-xs']));
+				Yii::$app->session->addFlash('success', 'Работа успешно изменена. ' . Html::a('Создать еще', ['create', 'authorId' => $model->author_id], ['class' => 'btn btn-success btn-xs']));
 
 				return $this->redirect(Yii::$app->request->referrer);
 			}

@@ -81,7 +81,7 @@ class AuthorNewsController extends BaseController {
 					throw $e;
 				}
 
-				Yii::$app->session->addFlash('success', 'Новость успешно создана. ' . Html::a('Создать еще', ['create'], ['class' => 'btn btn-success btn-xs']));
+				Yii::$app->session->addFlash('success', 'Новость успешно создана. ' . Html::a('Создать еще', ['create', 'authorId' => $model->author_id], ['class' => 'btn btn-success btn-xs']));
 
 				return $this->redirect(['update', 'id' => $model->id]);
 			}
@@ -140,7 +140,7 @@ class AuthorNewsController extends BaseController {
 					Yii::$app->imageManager->deleteImage($oldImageId);
 				}
 
-				Yii::$app->session->addFlash('success', 'Новость успешно изменена. ' . Html::a('Создать еще', ['create'], ['class' => 'btn btn-success btn-xs']));
+				Yii::$app->session->addFlash('success', 'Новость успешно изменена. ' . Html::a('Создать еще', ['create', 'authorId' => $model->author_id], ['class' => 'btn btn-success btn-xs']));
 
 				return $this->redirect(Yii::$app->request->referrer);
 			}
