@@ -58,7 +58,7 @@ class News extends \yii\db\ActiveRecord {
 				'immutable'     => true,
 				'ensureUnique'  => true,
 				'uniqueValidator' => [
-					'targetAttribute' => ['author_id', 'name', 'slug'],
+					'targetAttribute' => ['author_id', 'slug'],
 				],
 			],
 			'sitemap'    => [

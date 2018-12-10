@@ -41,9 +41,12 @@ class AuthorWriterController extends BaseController {
 		]);
 	}
 
-	public function actionView($slug) {
-		$model = $this->findModel(['slug' => $slug]);
-		$author = $model->author;
+	public function actionView($slug, $username) {
+		$author = $this->findAuthorModel($username);
+		$model = $this->findModel([
+			'slug'      => $slug,
+			'author_id' => $author->id,
+		]);
 
 		$this->view->title = ($model->meta_title) ? $model->meta_title : $model->name;
 		$this->view->registerMetaTag(['name' => 'description', 'content' => $model->meta_description], 'description');

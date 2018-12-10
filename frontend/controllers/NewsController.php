@@ -63,7 +63,7 @@ class NewsController extends BaseController {
 	 * @throws NotFoundHttpException
 	 */
 	protected function findModel($id) {
-		if (($model = News::findOne($id)) !== null) {
+		if (($model = News::find()->where($id)->andWhere(new Expression("author_id IS NULL"))->one()) !== null) {
 			return $model;
 		} else {
 			throw new NotFoundHttpException('The requested page does not exist.');
