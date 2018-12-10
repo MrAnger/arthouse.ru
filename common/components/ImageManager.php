@@ -2,9 +2,12 @@
 
 namespace common\components;
 
+use Imagine\Image\Box;
 use MrAnger\Yii2_ImageManager\models\Image;
 use sadovojav\image\Thumbnail;
 use Yii;
+use yii\helpers\FileHelper;
+use yii\web\UploadedFile;
 
 /**
  * @author MrAnger
@@ -94,6 +97,93 @@ class ImageManager extends \MrAnger\Yii2_ImageManager\ImageManager {
 		}
 
 		return $output;
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function upload(UploadedFile $file, $deleteTempFile = true) {
+		// Пережимаем исходное изображение
+		$compressedFilePath = self::compressImage($file);
+
+		if ($compressedFilePath !== false) {
+			if ($deleteTempFile) {
+				@unlink($file->tempName);
+			}
+
+			$model = $this->createImage(basename($compressedFilePath));
+
+			$filePath = $this->uploadPath . $model->file;
+			$fileInfo = pathinfo($filePath);
+
+			if (!is_dir($fileInfo['dirname'])) {
+				FileHelper::createDirectory($fileInfo['dirname']);
+			}
+
+			$result = copy($compressedFilePath, $filePath);
+
+			if ($deleteTempFile) {
+				@unlink($compressedFilePath);
+			}
+
+			if (!$result) {
+				throw new \Exception("Failed to save image '$filePath'. Perhaps the file size limit exceeded. Also you can check whether the target directory has necessary permissions.");
+			}
+
+			if (!$model->save()) {
+				Yii::error("Failed to save image model instance.");
+			}
+
+			return $model;
+		}
+
+		return parent::upload($file, $deleteTempFile);
+	}
+
+	/**
+	 * @param UploadedFile $file
+	 * @param integer $maxWidth
+	 * @param integer $maxHeight
+	 *
+	 * @return string
+	 *
+	 * @throws
+	 */
+	public static function compressImage(UploadedFile $file, $maxWidth = 1920, $maxHeight = 1080) {
+		$fileInfo = pathinfo($file->name);
+
+		$imageData = getimagesize($file->tempName);
+		$width = $imageData[0];
+		$height = $imageData[1];
+		$ratio = $width / $height;
+
+		$newImagePath = Yii::getAlias(Yii::$app->imageManager->uploadPath) . uniqid("compressed-") . '-' . md5(uniqid() . $fileInfo['basename']) . '.' . $fileInfo['extension'];
+
+		if (!is_dir(dirname($newImagePath))) {
+			FileHelper::createDirectory(dirname($newImagePath));
+		}
+
+		$newWidth = $width;
+		$newHeight = $height;
+		$newQuality = 70;
+
+		if ($width > $maxWidth) {
+			$newWidth = $maxWidth;
+			$newHeight = intval($newWidth / $ratio);
+		} elseif ($height > $maxHeight) {
+			$newHeight = $maxHeight;
+			$newWidth = intval($newHeight * $ratio);
+		}
+
+		$image = \yii\imagine\Image::getImagine()->open($file->tempName);
+
+		$image->resize(new Box($newWidth, $newHeight));
+
+		$image->save($newImagePath, [
+			'quality' => $newQuality,
+		]);
+
+		return $newImagePath;
 	}
 
 	/**
