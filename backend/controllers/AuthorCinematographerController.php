@@ -142,7 +142,7 @@ class AuthorCinematographerController extends BaseController {
 					$imageManager->deleteImage($oldImageId);
 				}
 
-				Yii::$app->session->addFlash('success', 'Работа успешно изменена.');
+				Yii::$app->session->addFlash('success', 'Работа успешно изменена. ' . Html::a('Создать еще', ['create'], ['class' => 'btn btn-success btn-xs']));
 
 				return $this->redirect(Yii::$app->request->referrer);
 			}

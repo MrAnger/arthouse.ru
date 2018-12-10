@@ -129,7 +129,7 @@ class NewsController extends BaseController {
 					Yii::$app->imageManager->deleteImage($oldImageId);
 				}
 
-				Yii::$app->session->addFlash('success', 'Новость успешно изменена.');
+				Yii::$app->session->addFlash('success', 'Новость успешно изменена. ' . Html::a('Создать еще', ['create'], ['class' => 'btn btn-success btn-xs']));
 
 				return $this->redirect(Yii::$app->request->referrer);
 			}
