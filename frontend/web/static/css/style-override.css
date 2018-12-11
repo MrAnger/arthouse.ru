@@ -188,3 +188,7 @@ body > .content {
 .prev-next-navigation .pull-right{
     padding-left: 25px;
 }
+
+.tab-content {
+    overflow: unset;
+}

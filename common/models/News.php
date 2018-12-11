@@ -189,6 +189,7 @@ class News extends \yii\db\ActiveRecord {
 		return self::find()
 			->where($where)
 			->andWhere(['<>', 'id', $this->id])
+			->andWhere(new Expression('archived_at IS NULL'))
 			->orderBy(new Expression('RAND()'))
 			->limit(5)
 			->all();
@@ -212,6 +213,7 @@ class News extends \yii\db\ActiveRecord {
 
 		return self::find()
 			->andWhere($where)
+			->andWhere(new Expression('archived_at IS NULL'))
 			->orderBy(new Expression('RAND()'))
 			->limit(5)
 			->all();
