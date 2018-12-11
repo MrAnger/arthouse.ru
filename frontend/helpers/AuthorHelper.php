@@ -12,13 +12,7 @@ class AuthorHelper {
 	 * @return array
 	 */
 	public static function getViewSections(Author $author) {
-		$sectionList = [
-			[
-				'label' => 'Новости',
-				'url'   => ['/my/author/news/index'],
-				'code'  => 'news',
-			],
-		];
+		$sectionList = [];
 
 		foreach ($author::getWorkTypeAttributes() as $workTypeAttributeCode) {
 			if ($author->{$workTypeAttributeCode}) {
@@ -31,6 +25,12 @@ class AuthorHelper {
 				];
 			}
 		}
+
+		$sectionList[] = [
+			'label' => 'Новости',
+			'url'   => ['/my/author/news/index'],
+			'code'  => 'news',
+		];
 
 		return $sectionList;
 	}
@@ -47,11 +47,6 @@ class AuthorHelper {
 				'url'   => ['/author/view', 'username' => $author->user->username],
 				'code'  => 'base',
 			],
-			[
-				'label' => 'Новости',
-				'url'   => ['/author-news/index', 'username' => $author->user->username],
-				'code'  => 'news',
-			],
 		];
 
 		foreach ($author::getWorkTypeAttributes() as $workTypeAttributeCode) {
@@ -65,6 +60,12 @@ class AuthorHelper {
 				];
 			}
 		}
+
+		$sectionList[] = [
+			'label' => 'Новости',
+			'url'   => ['/author-news/index', 'username' => $author->user->username],
+			'code'  => 'news',
+		];
 
 		return $sectionList;
 	}

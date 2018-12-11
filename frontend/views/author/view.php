@@ -47,12 +47,6 @@ $profile = $author->user->profile;
                     <h4><?= $this->title ?></h4>
 
                     <ul style="padding: 0; list-style: none outside none;">
-                        <li>
-                            <p>
-								<?= implode(', ', $author->getRightList()) ?>
-                            </p>
-                        </li>
-
 						<?php if (!empty($profile->location)): ?>
                             <li>
                                 <i class="glyphicon glyphicon-map-marker text-muted"></i>

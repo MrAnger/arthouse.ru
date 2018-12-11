@@ -162,4 +162,33 @@ class Theater extends \yii\db\ActiveRecord {
 			->orderBy(['created_at' => SORT_ASC])
 			->one();
 	}
+
+	/**
+	 * @param integer $count
+	 *
+	 * @return Theater[]
+	 */
+	public function getSimilarAuthorWorkList($count = 5) {
+		return self::find()
+			->where([
+				'author_id' => $this->author_id,
+			])
+			->andWhere(['<>', 'id', $this->id])
+			->orderBy(new Expression('RAND()'))
+			->limit(5)
+			->all();
+	}
+
+	/**
+	 * @param integer $count
+	 *
+	 * @return Theater[]
+	 */
+	public function getSimilarWorkList($count = 5) {
+		return self::find()
+			->andWhere(['<>', 'author_id', $this->author_id])
+			->orderBy(new Expression('RAND()'))
+			->limit(5)
+			->all();
+	}
 }

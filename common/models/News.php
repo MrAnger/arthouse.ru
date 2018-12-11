@@ -52,11 +52,11 @@ class News extends \yii\db\ActiveRecord {
 				'value' => new Expression('NOW()'),
 			],
 			'slug'       => [
-				'class'         => SluggableBehavior::class,
-				'attribute'     => 'name',
-				'slugAttribute' => 'slug',
-				'immutable'     => true,
-				'ensureUnique'  => true,
+				'class'           => SluggableBehavior::class,
+				'attribute'       => 'name',
+				'slugAttribute'   => 'slug',
+				'immutable'       => true,
+				'ensureUnique'    => true,
 				'uniqueValidator' => [
 					'targetAttribute' => ['author_id', 'slug'],
 				],
@@ -170,5 +170,50 @@ class News extends \yii\db\ActiveRecord {
 			->andWhere(new Expression('archived_at IS NULL'))
 			->orderBy(['created_at' => SORT_ASC])
 			->one();
+	}
+
+	/**
+	 * @param integer $count
+	 *
+	 * @return PainterWork[]
+	 */
+	public function getSimilarAuthorWorkList($count = 5) {
+		$where = [
+			'author_id' => $this->author_id,
+		];
+
+		if($this->author_id === null) {
+			$where = new Expression("author_id IS NULL");
+		}
+
+		return self::find()
+			->where($where)
+			->andWhere(['<>', 'id', $this->id])
+			->orderBy(new Expression('RAND()'))
+			->limit(5)
+			->all();
+	}
+
+	/**
+	 * @param integer $count
+	 *
+	 * @return PainterWork[]
+	 */
+	public function getSimilarWorkList($count = 5) {
+		$where = [
+			'AND',
+			['<>', 'author_id', $this->author_id],
+			new Expression("author_id IS NOT NULL"),
+		];
+
+		if($this->author_id === null) {
+			$where = new Expression("author_id IS NOT NULL");
+		}
+
+		return self::find()
+			->andWhere($where)
+			->orderBy(new Expression('RAND()'))
+			->limit(5)
+			->all();
 	}
 }

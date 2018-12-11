@@ -34,32 +34,42 @@ $prev = $model->getPrev();
     <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="<?= $activeSection ?>" style="margin-top: 15px;">
-            <div class="blog-entry">
-                <div class="entry-header">
-                    <h1 style="margin-bottom: 0;"><?= $model->name ?></h1>
+            <div class="col-md-8">
+                <div class="blog-entry">
+                    <div class="entry-header">
+                        <h1 style="margin-bottom: 0;"><?= $model->name ?></h1>
+                    </div>
+
+                    <div class="entry-content-details" style="margin-bottom: 10px;">
+						<?/*= $formatter->asDate($model->created_at) */?><!-- / --><?= $authorText ?>
+                    </div>
+
+                    <div class="entry-content">
+						<?= $model->content ?>
+                    </div>
+
+                    <div class="prev-next-navigation">
+                        <hr>
+						<?php if($prev): ?>
+                            <div class="pull-left">
+								<?= Html::a('<< Предыдущая работа', \common\helpers\WriterWorkHelper::getWriterWorkFrontendUrl($prev)) ?>
+                            </div>
+						<?php endif; ?>
+
+						<?php if($next): ?>
+                            <div class="pull-right">
+								<?= Html::a('Следующая работа >>', \common\helpers\WriterWorkHelper::getWriterWorkFrontendUrl($next)) ?>
+                            </div>
+						<?php endif; ?>
+                    </div>
                 </div>
+            </div>
 
-                <div class="entry-content-details" style="margin-bottom: 10px;">
-					<?/*= $formatter->asDate($model->created_at) */?><!-- / --><?= $authorText ?>
-                </div>
-
-                <div class="entry-content">
-					<?= $model->content ?>
-                </div>
-
-                <div class="prev-next-navigation">
-                    <hr>
-					<?php if($prev): ?>
-                        <div class="pull-left">
-							<?= Html::a('<< Предыдущая работа', \common\helpers\WriterWorkHelper::getWriterWorkFrontendUrl($prev)) ?>
-                        </div>
-					<?php endif; ?>
-
-					<?php if($next): ?>
-                        <div class="pull-right">
-							<?= Html::a('Следующая работа >>', \common\helpers\WriterWorkHelper::getWriterWorkFrontendUrl($next)) ?>
-                        </div>
-					<?php endif; ?>
+            <div class="col-md-4">
+                <div class="sidebar">
+					<?= $this->render('_view-other-work-list', [
+						'model' => $model,
+					]) ?>
                 </div>
             </div>
         </div>

@@ -192,7 +192,7 @@ class PainterWork extends \yii\db\ActiveRecord {
 				'author_id' => $this->author_id,
 			])
 			->andWhere(['<>', 'id', $this->id])
-			->orderBy(['created_at' => SORT_DESC])
+			->orderBy(new Expression('RAND()'))
 			->limit(5)
 			->all();
 	}
@@ -205,7 +205,7 @@ class PainterWork extends \yii\db\ActiveRecord {
 	public function getSimilarWorkList($count = 5) {
 		return self::find()
 			->andWhere(['<>', 'author_id', $this->author_id])
-			->orderBy(['created_at' => SORT_DESC])
+			->orderBy(new Expression('RAND()'))
 			->limit(5)
 			->all();
 	}

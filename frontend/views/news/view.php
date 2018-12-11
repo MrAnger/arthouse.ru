@@ -20,7 +20,7 @@ $prev = $model->getPrev();
 ?>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <div class="blog-entry">
                 <div class="entry-header">
                     <h1><?= $model->name ?></h1>
@@ -56,6 +56,14 @@ $prev = $model->getPrev();
                         </div>
 					<?php endif; ?>
                 </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="sidebar">
+				<?= $this->render('_view-other-work-list', [
+					'model' => $model,
+				]) ?>
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@ return array_merge(
 			['name' => 'document', 'groups' => ['mode']],
 		],
 
-		'removeButtons' => 'Subscript,Superscript,Flash,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Form,TextField,Textarea,Radio,Button,HiddenField,Select,Save,NewPage,Preview,Print,Templates',
+		'removeButtons' => 'Subscript,Superscript,Flash,HorizontalRule,Smiley,SpecialChar,PageBreak,Form,TextField,Textarea,Radio,Button,HiddenField,Select,Save,NewPage,Preview,Print,Templates',
 
 		'filebrowserUploadUrl' => Url::to(['/wysiwyg/ckeditor-file-upload'], true),
 	]
