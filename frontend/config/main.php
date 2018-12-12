@@ -8,7 +8,7 @@ $params = array_merge(
 );
 
 $config = [
-	'id'                  => 'app-frontend',
+	'id'                  => 'frontend',
 	'basePath'            => dirname(__DIR__),
 	'controllerNamespace' => 'frontend\controllers',
 	'modules'             => [

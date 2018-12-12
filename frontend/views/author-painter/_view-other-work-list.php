@@ -45,7 +45,9 @@ $otherWorkList = $model->getSimilarWorkList();
 
 				<?php if(empty($authorOtherWorkList)): ?>
                     <div class="tab-one" style="padding-left: unset;">
-                        <p class="text-center">Работ нет...</p>
+                        <p class="text-center">
+							<?= ArrayHelper::getValue(Yii::$app->params, 'emptyMessageOtherWorkList') ?>
+                        </p>
                     </div>
 				<?php endif; ?>
             </div>
@@ -78,7 +80,9 @@ $otherWorkList = $model->getSimilarWorkList();
 
 				<?php if(empty($otherWorkList)): ?>
                     <div class="tab-one" style="padding-left: unset;">
-                        <p class="text-center">Работ нет...</p>
+                        <p class="text-center">
+							<?= ArrayHelper::getValue(Yii::$app->params, 'emptyMessageOtherWorkList') ?>
+                        </p>
                     </div>
 				<?php endif; ?>
             </div>

@@ -19,9 +19,9 @@ $user = Yii::$app->user;
 	<?php endif; ?>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-offset-2 col-md-8">
             <div class="contact-form-box">
-                <h2 class="contact-form-title">Обратная связь</h2>
+                <h2 class="contact-form-title text-center">Обратная связь</h2>
 
 				<?php $form = \yii\widgets\ActiveForm::begin([
 					'enableClientValidation' => true,
@@ -72,9 +72,9 @@ $user = Yii::$app->user;
         </div>
 
         <?php if($user->can(\common\Rbac::ROLE_MASTER)): ?>
-            <div class="col-md-6">
+            <div class="col-md-offset-2 col-md-8">
                 <div class="contact-form-box">
-                    <h2 class="contact-form-title">Стать автором</h2>
+                    <h2 class="contact-form-title text-center">Стать автором</h2>
 
 					<?php $formAuthorRequest = \yii\widgets\ActiveForm::begin([
 						'enableClientValidation' => true,
