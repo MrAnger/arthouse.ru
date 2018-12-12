@@ -49,7 +49,7 @@ $otherWorkList = $model->getSimilarWorkList();
 				<?php foreach ($otherWorkList as $work): ?>
 					<?php
 					$workUrl = \common\helpers\MusicWorkHelper::getMusicWorkFrontendUrl($work);
-					$workAuthorText = Html::a(Html::tag('span', $work->author->user->displayName), ['/author/view', 'username' => $model->author->user->username]);
+					$workAuthorText = Html::a(Html::tag('span', $work->author->user->displayName), ['/author/view', 'username' => $work->author->user->username]);
 					?>
                     <div class="tab-one" style="min-height: unset; padding-left: unset;">
                         <h4>

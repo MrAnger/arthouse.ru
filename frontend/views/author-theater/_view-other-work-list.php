@@ -57,7 +57,7 @@ $otherWorkList = $model->getSimilarWorkList();
 					<?php
 					$workUrl = \common\helpers\TheaterHelper::getTheaterFrontendUrl($work);
 					$workImageUrl = Yii::$app->imageManager->getThumbnailUrl($work->image, 'frontend-cover-image-preview-work-right-col');
-					$workAuthorText = Html::a(Html::tag('span', $work->author->user->displayName), ['/author/view', 'username' => $model->author->user->username]);
+					$workAuthorText = Html::a(Html::tag('span', $work->author->user->displayName), ['/author/view', 'username' => $work->author->user->username]);
 					?>
                     <div class="tab-one">
                         <div class="tab-cover">
