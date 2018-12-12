@@ -64,7 +64,7 @@ class PhotoWork extends \yii\db\ActiveRecord {
 				'scope'       => function (ActiveQuery $model) {
 					//$model->andWhere(['<>', 'slug', 'index']);
 				},
-				'dataClosure' => function (PainterWork $model) {
+				'dataClosure' => function (PhotoWork $model) {
 					return [
 						'loc'        => PhotoWorkHelper::getPhotoWorkFrontendUrl($model),
 						'lastmod'    => strtotime($model->updated_at),

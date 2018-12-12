@@ -64,7 +64,7 @@ class Theater extends \yii\db\ActiveRecord {
 				'scope'       => function (ActiveQuery $model) {
 					//$model->andWhere(['<>', 'slug', 'index']);
 				},
-				'dataClosure' => function (News $model) {
+				'dataClosure' => function (Theater $model) {
 					return [
 						'loc'        => TheaterHelper::getTheaterFrontendUrl($model),
 						'lastmod'    => strtotime($model->updated_at),

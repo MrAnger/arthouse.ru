@@ -64,7 +64,7 @@ class Cinema extends \yii\db\ActiveRecord {
 				'scope'       => function (ActiveQuery $model) {
 					//$model->andWhere(['<>', 'slug', 'index']);
 				},
-				'dataClosure' => function (News $model) {
+				'dataClosure' => function (Cinema $model) {
 					return [
 						'loc'        => CinemaHelper::getCinemaFrontendUrl($model),
 						'lastmod'    => strtotime($model->updated_at),

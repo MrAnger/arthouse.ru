@@ -175,7 +175,7 @@ class News extends \yii\db\ActiveRecord {
 	/**
 	 * @param integer $count
 	 *
-	 * @return PainterWork[]
+	 * @return News[]
 	 */
 	public function getSimilarAuthorWorkList($count = 5) {
 		$where = [
@@ -198,7 +198,7 @@ class News extends \yii\db\ActiveRecord {
 	/**
 	 * @param integer $count
 	 *
-	 * @return PainterWork[]
+	 * @return News[]
 	 */
 	public function getSimilarWorkList($count = 5) {
 		$where = [
