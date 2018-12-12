@@ -13,6 +13,8 @@ $formatter = Yii::$app->formatter;
 $authorText = Html::a($model->author->user->displayName, ['/author/view', 'username' => $model->author->user->username]);
 
 $modelUrl = \common\helpers\WriterWorkHelper::getWriterWorkFrontendUrl($model);
+
+$previewText = trim(str_replace("&nbsp;", " ", strip_tags($model->content)));
 ?>
 <div class="col-md-4">
     <div class="home-post">
@@ -26,8 +28,8 @@ $modelUrl = \common\helpers\WriterWorkHelper::getWriterWorkFrontendUrl($model);
 			<?/*= $formatter->asDate($model->created_at) */?><!-- / --><?= $authorText ?>
         </div>
 
-        <div class="intro-text">
-			<p><?= mb_substr(strip_tags($model->content), 0, 500) ?></p>
+        <div class="intro-text" style="height: 110px; max-height: 110px;">
+			<p><?= mb_substr($previewText, 0, 500) ?></p>
         </div>
 
         <div class="home-post-more">

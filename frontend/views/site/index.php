@@ -64,7 +64,9 @@ $lastWorkViewMap = [
 
                     $enabledCoverList = [
 						\common\models\PainterWork::className(),
+                        \common\models\PhotoWork::className(),
                         \common\models\Cinema::className(),
+                        \common\models\Theater::className(),
                     ];
 
                     if(!in_array($item::className(), $enabledCoverList)) {

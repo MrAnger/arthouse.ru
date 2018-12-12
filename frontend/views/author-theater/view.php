@@ -40,7 +40,7 @@ $prev = $model->getPrev();
                         <h1 style="margin-bottom: 0;"><?= $model->name ?></h1>
                     </div>
 
-					<?php if ($model->image_id): ?>
+					<?php if ($model->image_id && false): ?>
                         <div class="entry-cover">
 							<?= Html::img(Yii::$app->imageManager->getThumbnailUrl($model->image, 'frontend-post-head-image'), [
 								'alt' => $model->name,
