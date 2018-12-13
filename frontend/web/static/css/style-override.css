@@ -192,3 +192,7 @@ body > .content {
 .tab-content {
     overflow: unset;
 }
+
+.home-post .intro-text p {
+    margin-bottom: 0;
+}
