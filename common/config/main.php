@@ -129,9 +129,12 @@ return [
 			'basePath'  => dirname(dirname(__DIR__)) . '/frontend/web/uploads/images',
 			'cachePath' => dirname(dirname(__DIR__)) . '/frontend/web/uploads/images/thumbnails',
 		],
-		'shortCodeManager' => [
+		'shortCodeManager'     => [
 			'class'     => 'tpoxa\shortcodes\Shortcode',
 			'callbacks' => require(__DIR__ . '/_short-codes.php'),
+		],
+		'postManager'          => [
+			'class' => 'common\components\PostManager',
 		],
 	],
 ];

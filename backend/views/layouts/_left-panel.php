@@ -22,6 +22,16 @@ $mainMenuItems = [
 		'url'   => Yii::$app->frontendUrlManager->createAbsoluteUrl('/', true),
 	],
 	[
+		'label' => 'Управление контентом',
+		'items' => [
+			[
+				'label' => \backend\controllers\PostSectionManagerController::MENU_KEY,
+				'icon'  => \backend\controllers\PostSectionManagerController::MENU_ICON,
+				'url'   => \backend\controllers\PostSectionManagerController::getUrlToAction('index', false, true),
+			],
+		],
+	],
+	[
 		'label' => 'Новости',
 		'url'   => ['/news/index'],
 	],
@@ -49,12 +59,12 @@ $mainMenuItems = [
 	],
 	[
 		'label' => 'Пользователи',
-		'icon'  => 'fa fa-users',
+		'icon'  => '<i class="fa fa-users" aria-hidden="true"></i>',
 		'items' => [
 			[
 				'label' => 'Все пользователи',
 				'url'   => ['/user/admin/index'],
-				'icon'  => 'fa fa-users',
+				'icon'  => '<i class="fa fa-users" aria-hidden="true"></i>',
 			],
 			/*[
 				'label' => 'Роли пользователей',
@@ -82,64 +92,27 @@ $userIdentity = $user->getIdentity();
 
 $roleList = $userBuddy->getTranslatedRoleListForUser($user->id)
 ?>
-<div class="media profile-left">
-    <a class="pull-left" href="<?= Url::to(['/user/settings/profile']) ?>">
-		<?= Html::img($userModel->profile->getAvatarUrl(48), [
-			'class' => 'img-rounded',
-			'alt'   => $userModel->username,
-		]) ?>
-    </a>
-
-    <div class="media-body">
-        <h4 class="media-heading"><b><?= $userIdentity->displayName ?></b><br/><?= $userIdentity->email ?></h4>
-        <small class="text-muted"><?= implode(", ", $roleList) ?></small>
-    </div>
-</div>
-<!-- media -->
-
-<h5 class="leftpanel-title">Меню</h5>
-<ul class="nav nav-pills nav-stacked">
-    <li>
-        <a href="<?= Yii::$app->homeUrl ?>">
-            <i class="fa fa-home"></i> <span>Главная страница</span>
+<div>
+    <div class="media profile-left">
+        <a class="pull-left" href="<?= Url::to(['/user/settings/profile']) ?>">
+			<?= Html::img($userModel->profile->getAvatarUrl(48), [
+				'class' => 'img-rounded',
+				'alt'   => $userModel->username,
+			]) ?>
         </a>
-    </li>
-	<?php foreach ($mainMenuItems as $item): ?>
-		<?php if (isset($item['items'])): ?>
-            <li class="parent">
-                <a href="#">
-                    <i class="<?= ArrayHelper::getValue($item, 'icon', 'fa fa-bars') ?>"></i>
-                    <span><?= $item['label'] ?></span>
 
-					<?php if (ArrayHelper::getValue($item, 'count', 0) > 0): ?>
-                        <i class="badge"><?= ArrayHelper::getValue($item, 'count', 0) ?></i>
-					<?php endif; ?>
-                </a>
+        <div class="media-body">
+            <h4 class="media-heading"><b><?= $userIdentity->displayName ?></b><br/><?= $userIdentity->email ?></h4>
+            <small class="text-muted"><?= implode(", ", $roleList) ?></small>
+        </div>
+    </div>
+    <!-- media -->
 
-                <ul class="children">
-					<?php foreach ($item['items'] as $item): ?>
-                        <li>
-                            <a href="<?= Url::to($item['url']) ?>">
-                                <i class="<?= ArrayHelper::getValue($item, 'icon', 'fa fa-home') ?>"></i>
-                                <span><?= $item['label'] ?></span>
-
-								<?php if (ArrayHelper::getValue($item, 'count', 0) > 0): ?>
-                                    <span class="badge"><?= ArrayHelper::getValue($item, 'count', 0) ?></span>
-								<?php endif; ?>
-                            </a>
-                        </li>
-					<?php endforeach ?>
-                </ul>
-            </li>
-			<?php continue;endif ?>
-        <li>
-            <a href="<?= Url::to($item['url']) ?>">
-                <i class="<?= ArrayHelper::getValue($item, 'icon', 'fa fa-bars') ?>"></i>
-                <span><?= $item['label'] ?></span>
-				<?php if (ArrayHelper::getValue($item, 'count', 0) > 0): ?>
-                    <span class="badge"><?= ArrayHelper::getValue($item, 'count', 0) ?></span>
-				<?php endif; ?>
-            </a>
-        </li>
-	<?php endforeach ?>
-</ul>
+    <h5 class="leftpanel-title">Меню</h5>
+	<?= \backend\widgets\Menu::widget([
+		'items'   => $mainMenuItems,
+		'options' => [
+			'class' => 'nav nav-pills nav-stacked',
+		],
+	]) ?>
+</div>

@@ -48,19 +48,34 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
-@media screen and (max-width: 640px) {
-    .grid-view {
-        overflow-x: scroll;
+.action-column {
+    width: 75px;
+}
+
+.checkbox-list-vertical label {
+    display: block;
+}
+
+.leftpanel .profile-left .profile-thumb {
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 480px) {
+    .pageheader {
+        height: auto;
     }
 
-    table {
-        overflow-x: auto;
-        display: block;
+    .leftpanel .profile-left .media-heading {
+        margin-top: 12px;
     }
 }
 
-.action-column {
-    width: 75px;
+.nav.nav-pills.nav-stacked li a i {
+    margin-right: 5px;
+}
+
+.checkbox-list-item label {
+    display: block;
 }
 
 /* File Upload Button */
