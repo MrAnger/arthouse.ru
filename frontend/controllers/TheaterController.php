@@ -20,6 +20,11 @@ class TheaterController extends BaseController {
 
 		$dataProvider->sort = false;
 
+		$this->view->title = implode(' - ', [
+			'Каталог театральных работ',
+			Yii::$app->name,
+		]);
+
 		return $this->render('index', [
 			'dataProvider' => $dataProvider,
 		]);

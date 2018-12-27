@@ -25,7 +25,10 @@ class AuthorController extends BaseController {
 
 		$dataProvider->sort = false;
 
-		$this->view->title = "Авторы";
+		$this->view->title = implode(' - ', [
+			'Список авторов',
+			Yii::$app->name,
+		]);
 
 		return $this->render('index', [
 			'dataProvider' => $dataProvider,
@@ -35,7 +38,10 @@ class AuthorController extends BaseController {
 	public function actionView($username) {
 		$author = $this->findModelByUsername($username);
 
-		$this->view->title = $author->user->displayName;
+		$this->view->title = implode(' - ', [
+			$author->user->displayName,
+			Yii::$app->name,
+		]);
 
 		return $this->render('view', [
 			'author'        => $author,

@@ -31,7 +31,11 @@ class AuthorPhotoController extends BaseController {
 
 		$dataProvider->sort = false;
 
-		$this->view->title = "Фото работы - " . $author->user->displayName;
+		$this->view->title = implode(' - ', [
+			'Фото работы',
+			$author->user->displayName,
+			Yii::$app->name,
+		]);
 
 		return $this->render('index', [
 			'dataProvider'  => $dataProvider,
@@ -48,7 +52,14 @@ class AuthorPhotoController extends BaseController {
 			'author_id' => $author->id,
 		]);
 
-		$this->view->title = ($model->meta_title) ? $model->meta_title : $model->name;
+		$title = implode(' - ', [
+			$model->name,
+			'Фото работы',
+			$author->user->displayName,
+			Yii::$app->name,
+		]);
+
+		$this->view->title = ($model->meta_title) ? $model->meta_title : $title;
 		$this->view->registerMetaTag(['name' => 'description', 'content' => $model->meta_description], 'description');
 		$this->view->registerMetaTag(['name' => 'keywords', 'content' => $model->meta_keywords], 'keywords');
 

@@ -20,6 +20,11 @@ class WriterController extends BaseController {
 
 		$dataProvider->sort = false;
 
+		$this->view->title = implode(' - ', [
+			'Каталог литературы',
+			Yii::$app->name,
+		]);
+
 		return $this->render('index', [
 			'dataProvider' => $dataProvider,
 		]);

@@ -20,6 +20,11 @@ class PainterController extends BaseController {
 
 		$dataProvider->sort = false;
 
+		$this->view->title = implode(' - ', [
+			'Каталог арт-студии',
+			Yii::$app->name,
+		]);
+
 		return $this->render('index', [
 			'dataProvider' => $dataProvider,
 		]);

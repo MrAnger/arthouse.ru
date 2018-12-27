@@ -20,6 +20,11 @@ class MusicianController extends BaseController {
 
 		$dataProvider->sort = false;
 
+		$this->view->title = implode(' - ', [
+			'Каталог музыкальных работ',
+			Yii::$app->name,
+		]);
+
 		return $this->render('index', [
 			'dataProvider' => $dataProvider,
 		]);

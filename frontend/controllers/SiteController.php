@@ -114,7 +114,10 @@ class SiteController extends BaseController {
 			->limit($countLastWorks)
 			->all();
 
-		$this->view->title = Yii::$app->name;
+		$this->view->title = implode(' - ', [
+			'Каталог работ творческих людей',
+			Yii::$app->name,
+		]);
 
 		return $this->render('index', [
 			'aboutContent' => $aboutContent,
@@ -152,6 +155,11 @@ class SiteController extends BaseController {
 
 			return $this->refresh();
 		}
+
+		$this->view->title = implode(' - ', [
+			'Контакты',
+			Yii::$app->name,
+		]);
 
 		return $this->render('contacts', [
 			'feedbackForm' => $feedbackForm,

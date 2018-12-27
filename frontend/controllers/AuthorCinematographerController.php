@@ -31,7 +31,11 @@ class AuthorCinematographerController extends BaseController {
 
 		$dataProvider->sort = false;
 
-		$this->view->title = "Кинемотография - " . $author->user->displayName;
+		$this->view->title = implode(' - ', [
+			'Кинематограф',
+			$author->user->displayName,
+			Yii::$app->name,
+		]);
 
 		return $this->render('index', [
 			'dataProvider'  => $dataProvider,
@@ -48,7 +52,14 @@ class AuthorCinematographerController extends BaseController {
 			'author_id' => $author->id,
 		]);
 
-		$this->view->title = ($model->meta_title) ? $model->meta_title : $model->name;
+		$title = implode(' - ', [
+			$model->name,
+			'Кинематограф',
+			$author->user->displayName,
+			Yii::$app->name,
+		]);
+
+		$this->view->title = ($model->meta_title) ? $model->meta_title : $title;
 		$this->view->registerMetaTag(['name' => 'description', 'content' => $model->meta_description], 'description');
 		$this->view->registerMetaTag(['name' => 'keywords', 'content' => $model->meta_keywords], 'keywords');
 

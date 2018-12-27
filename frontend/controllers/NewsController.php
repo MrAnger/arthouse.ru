@@ -25,6 +25,11 @@ class NewsController extends BaseController {
 
 		$dataProvider->sort = false;
 
+		$this->view->title = implode(' - ', [
+			'Каталог новостей',
+			Yii::$app->name,
+		]);
+
 		return $this->render('index', [
 			'dataProvider' => $dataProvider,
 		]);
@@ -49,6 +54,12 @@ class NewsController extends BaseController {
 
 	public function actionViewBySlug($slug) {
 		$model = $this->findModel(['slug' => $slug]);
+
+		$this->view->title = implode(' - ', [
+			$model->name,
+			'Каталог новостей',
+			Yii::$app->name,
+		]);
 
 		return $this->render('view', [
 			'model' => $model,

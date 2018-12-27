@@ -196,3 +196,7 @@ body > .content {
 .home-post .intro-text p {
     margin-bottom: 0;
 }
+
+h1.site-title {
+    font-size: unset;
+}

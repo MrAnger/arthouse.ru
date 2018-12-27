@@ -31,7 +31,11 @@ class AuthorMusicianController extends BaseController {
 
 		$dataProvider->sort = false;
 
-		$this->view->title = "Музыкальнае работы - " . $author->user->displayName;
+		$this->view->title = implode(' - ', [
+			'Музыка',
+			$author->user->displayName,
+			Yii::$app->name,
+		]);
 
 		return $this->render('index', [
 			'dataProvider'  => $dataProvider,
@@ -48,7 +52,14 @@ class AuthorMusicianController extends BaseController {
 			'author_id' => $author->id,
 		]);
 
-		$this->view->title = ($model->meta_title) ? $model->meta_title : $model->name;
+		$title = implode(' - ', [
+			$model->name,
+			'Музыка',
+			$author->user->displayName,
+			Yii::$app->name,
+		]);
+
+		$this->view->title = ($model->meta_title) ? $model->meta_title : $title;
 		$this->view->registerMetaTag(['name' => 'description', 'content' => $model->meta_description], 'description');
 		$this->view->registerMetaTag(['name' => 'keywords', 'content' => $model->meta_keywords], 'keywords');
 

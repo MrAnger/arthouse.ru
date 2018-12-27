@@ -8,12 +8,11 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
-$this->title = 'Музыка';
 ?>
 <div class="container">
-    <div class="site-title">
-		<?= Html::a($this->title, ['index']) ?>
-    </div>
+    <h1 class="site-title">
+		<?= Html::a('Музыка', ['index']) ?>
+    </h1>
 
 	<?= \yii\widgets\ListView::widget([
 		'dataProvider' => $dataProvider,

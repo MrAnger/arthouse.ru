@@ -10,9 +10,9 @@ use yii\helpers\ArrayHelper;
 
 ?>
 <div class="container">
-    <div class="site-title">
+    <h1 class="site-title">
         Авторы
-    </div>
+    </h1>
 
 	<?= \yii\widgets\ListView::widget([
 		'dataProvider' => $dataProvider,

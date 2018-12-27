@@ -9,12 +9,11 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
-$this->title = 'Новости';
 ?>
 <div class="container">
-    <div class="site-title">
-		<?= Html::a($this->title, ['index']) ?>
-    </div>
+    <h1 class="site-title">
+		<?= Html::a('Новости', ['index']) ?>
+    </h1>
 
 	<?= \yii\widgets\ListView::widget([
 		'dataProvider' => $dataProvider,
