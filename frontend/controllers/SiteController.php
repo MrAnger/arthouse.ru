@@ -119,6 +119,11 @@ class SiteController extends BaseController {
 			Yii::$app->name,
 		]);
 
+		$this->view->registerMetaTag([
+			'name'    => 'description',
+			'content' => 'Сайт содержит в себе работы разных современных творчесских личностей.',
+		], 'description');
+
 		return $this->render('index', [
 			'aboutContent' => $aboutContent,
 			'lastWorkList' => $lastWorkList,
@@ -160,6 +165,11 @@ class SiteController extends BaseController {
 			'Контакты',
 			Yii::$app->name,
 		]);
+
+		$this->view->registerMetaTag([
+			'name'    => 'description',
+			'content' => 'Страница контактов. На ней вы сможете написать обращение через форму обратной связи для связи с администрацией сайта.',
+		], 'description');
 
 		return $this->render('contacts', [
 			'feedbackForm' => $feedbackForm,

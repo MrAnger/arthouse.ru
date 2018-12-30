@@ -29,6 +29,11 @@ class AuthorController extends BaseController {
 			'Список авторов',
 			Yii::$app->name,
 		]);
+		$this->view->registerMetaTag([
+			'name'    => 'description',
+			'content' => $this->view->title,
+		], 'description');
+
 
 		return $this->render('index', [
 			'dataProvider' => $dataProvider,
@@ -42,6 +47,11 @@ class AuthorController extends BaseController {
 			$author->user->displayName,
 			Yii::$app->name,
 		]);
+
+		$this->view->registerMetaTag([
+			'name'    => 'description',
+			'content' => $this->view->title,
+		], 'description');
 
 		return $this->render('view', [
 			'author'        => $author,

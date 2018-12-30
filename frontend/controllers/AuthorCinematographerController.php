@@ -37,6 +37,11 @@ class AuthorCinematographerController extends BaseController {
 			Yii::$app->name,
 		]);
 
+		$this->view->registerMetaTag([
+			'name'    => 'description',
+			'content' => $this->view->title,
+		], 'description');
+
 		return $this->render('index', [
 			'dataProvider'  => $dataProvider,
 			'author'        => $author,
@@ -60,7 +65,7 @@ class AuthorCinematographerController extends BaseController {
 		]);
 
 		$this->view->title = ($model->meta_title) ? $model->meta_title : $title;
-		$this->view->registerMetaTag(['name' => 'description', 'content' => $model->meta_description], 'description');
+		$this->view->registerMetaTag(['name' => 'description', 'content' => ($model->meta_description) ? $model->meta_description : $this->view->title], 'description');
 		$this->view->registerMetaTag(['name' => 'keywords', 'content' => $model->meta_keywords], 'keywords');
 
 		return $this->render('view', [

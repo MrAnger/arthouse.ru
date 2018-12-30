@@ -25,6 +25,11 @@ class WriterController extends BaseController {
 			Yii::$app->name,
 		]);
 
+		$this->view->registerMetaTag([
+			'name'    => 'description',
+			'content' => $this->view->title,
+		], 'description');
+
 		return $this->render('index', [
 			'dataProvider' => $dataProvider,
 		]);

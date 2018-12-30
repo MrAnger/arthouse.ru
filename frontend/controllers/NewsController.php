@@ -30,6 +30,11 @@ class NewsController extends BaseController {
 			Yii::$app->name,
 		]);
 
+		$this->view->registerMetaTag([
+			'name'    => 'description',
+			'content' => 'Каталог новостей творческих людей.',
+		], 'description');
+
 		return $this->render('index', [
 			'dataProvider' => $dataProvider,
 		]);
@@ -60,6 +65,11 @@ class NewsController extends BaseController {
 			'Каталог новостей',
 			Yii::$app->name,
 		]);
+
+		$this->view->registerMetaTag([
+			'name'    => 'description',
+			'content' => $model->name,
+		], 'description');
 
 		return $this->render('view', [
 			'model' => $model,
