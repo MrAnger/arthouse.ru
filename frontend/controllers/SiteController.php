@@ -115,7 +115,7 @@ class SiteController extends BaseController {
 			->all();
 
 		$this->view->title = implode(' - ', [
-			'Каталог работ творческих людей',
+			'Тематический арт-каталог',
 			Yii::$app->name,
 		]);
 
